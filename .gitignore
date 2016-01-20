@@ -1,0 +1,11 @@
+## Backups
+*.bak
+
+## sbt
+target/
+
+## IntelliJ IDEA
+.idea/
+
+## OS Specific
+.DS_Store
