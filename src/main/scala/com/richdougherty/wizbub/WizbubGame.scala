@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.utils.Disposable
 
-
 class DawnLikeTile(frames: Array[TextureRegion]) {
   def draw(batch: SpriteBatch, x: Float, y: Float): Unit = {
     val frameIndex = ((System.currentTimeMillis / 300) % frames.length).toInt
@@ -44,22 +43,34 @@ object DawnLikeAtlas {
 }
 
 class WizbubGame extends ApplicationAdapter {
+
   private var camera: OrthographicCamera = null
+  private var worldViewWidth: Int = -1
+  private var worldViewHeight: Int = -1
   private var batch: SpriteBatch = null
   private var playerAtlas: DawnLikeAtlas = null
-  private var player0Sprite: DawnLikeTile = null
-  private var player1Sprite: DawnLikeTile = null
+  private var player0Tile: DawnLikeTile = null
+  private var player1Tile: DawnLikeTile = null
   private var floorAtlas: DawnLikeAtlas = null
-  private var grassSprite: DawnLikeTile = null
+  private var grassTile: DawnLikeTile = null
+
+  private var worldSlice: WorldSlice = null
 
   override def create(): Unit =  {
     resizeCamera(Gdx.graphics.getWidth, Gdx.graphics.getHeight)
     batch = new SpriteBatch()
     playerAtlas = DawnLikeAtlas.loadAnimated("Characters", "Player")
-    player0Sprite = playerAtlas(0, 0)
-    player1Sprite = playerAtlas(0, 6)
+    player0Tile = playerAtlas(0, 0)
+    player1Tile = playerAtlas(0, 6)
     floorAtlas = DawnLikeAtlas.loadStatic("Objects", "Floor")
-    grassSprite = floorAtlas(7, 8)
+    grassTile = floorAtlas(7, 8)
+
+    worldSlice = new WorldSlice
+    for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
+      worldSlice(x, y) = new GroundEntity(grassTile)
+    }
+    worldSlice(1, 1).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(player0Tile)
+    worldSlice(3, 3).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(player1Tile)
   }
 
   override def render(): Unit = {
@@ -68,11 +79,19 @@ class WizbubGame extends ApplicationAdapter {
     camera.update()
     batch.begin()
     batch.setProjectionMatrix(camera.combined)
-    for (x <- 0 until 16; y <- 0 until 16) {
-      grassSprite.draw(batch, x, y)
+    for (worldX <- 0 until worldViewWidth; worldY <- 0 until worldViewHeight) {
+      val sceneX = worldX
+      val sceneY = worldViewHeight - worldY - 1
+      def renderEntity(entity: Entity): Unit = entity match {
+        case null => ()
+        case ground: GroundEntity =>
+          ground.tile.draw(batch, sceneX, sceneY)
+          renderEntity(ground.aboveEntity)
+        case player: PlayerEntity =>
+          player.tile.draw(batch, sceneX, sceneY)
+      }
+      renderEntity(worldSlice(worldX, worldY))
     }
-    player0Sprite.draw(batch, 1f, 1f)
-    player1Sprite.draw(batch, 2f, 2f)
     batch.end()
   }
 
@@ -82,8 +101,12 @@ class WizbubGame extends ApplicationAdapter {
 
   private def resizeCamera(width: Int, height: Int): Unit = {
     val scale = 16f / Math.min(height, width)
-    camera = new OrthographicCamera(width * scale, height * scale)
+    val cameraWidth = width * scale
+    val cameraHeight = height * scale
+    camera = new OrthographicCamera(cameraWidth, cameraHeight)
     camera.translate(camera.viewportWidth/2, camera.viewportHeight/2)
+    worldViewWidth = Math.ceil(cameraWidth).toInt
+    worldViewHeight = Math.ceil(cameraHeight).toInt
   }
 
 }
