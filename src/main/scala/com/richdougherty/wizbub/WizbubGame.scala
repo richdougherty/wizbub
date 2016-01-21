@@ -1,7 +1,7 @@
 package com.richdougherty.wizbub
 
-import com.badlogic.gdx.ApplicationAdapter
-import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.Input.Keys
+import com.badlogic.gdx._
 import com.badlogic.gdx.graphics.{OrthographicCamera, Color, GL20, Texture}
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.Sprite
@@ -54,7 +54,11 @@ class WizbubGame extends ApplicationAdapter {
   private var floorAtlas: DawnLikeAtlas = null
   private var grassTile: DawnLikeTile = null
 
+  private val idGenerator = new Entity.IdGenerator
   private var worldSlice: WorldSlice = null
+  private var player0Entity: Entity = null
+  private var player0X: Int = 1
+  private var player0Y: Int = 1
 
   override def create(): Unit =  {
     resizeCamera(Gdx.graphics.getWidth, Gdx.graphics.getHeight)
@@ -67,10 +71,43 @@ class WizbubGame extends ApplicationAdapter {
 
     worldSlice = new WorldSlice
     for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
-      worldSlice(x, y) = new GroundEntity(grassTile)
+      worldSlice(x, y) = new GroundEntity(idGenerator.freshId(), grassTile)
     }
-    worldSlice(1, 1).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(player0Tile)
-    worldSlice(3, 3).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(player1Tile)
+    player0Entity = new PlayerEntity(idGenerator.freshId(), player0Tile)
+    val player1Entity = new PlayerEntity(idGenerator.freshId(), player1Tile)
+    worldSlice(player0X, player0Y).asInstanceOf[GroundEntity].aboveEntity = player0Entity
+    worldSlice(3, 3).asInstanceOf[GroundEntity].aboveEntity = player1Entity
+
+    // Hacky support for moving player0 with arrow keys
+    Gdx.input.setInputProcessor(new InputAdapter {
+      import Input.Keys._
+      override def keyDown(keycode: Int): Boolean = {
+        def move(dx: Int, dy: Int): Boolean = {
+          val newX = player0X + dx
+          val newY = player0Y + dy
+          worldSlice(player0X, player0Y) match {
+            case oldGround: GroundEntity if  oldGround.aboveEntity == player0Entity =>
+              worldSlice(newX, newY) match {
+                case newGround: GroundEntity if newGround.aboveEntity == null =>
+                  oldGround.aboveEntity = null
+                  newGround.aboveEntity = player0Entity
+                  player0X = newX
+                  player0Y = newY
+                  true
+                case _ => false
+              }
+            case _ => throw new IllegalStateException("Player entity missing")
+          }
+        }
+        keycode match {
+          case RIGHT => move(1, 0)
+          case LEFT => move(-1, 0)
+          case UP => move(0, -1)
+          case DOWN => move(0, 1)
+          case _ => false
+        }
+      }
+    })
   }
 
   override def render(): Unit = {

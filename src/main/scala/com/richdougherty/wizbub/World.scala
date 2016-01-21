@@ -21,13 +21,27 @@ class WorldSlice {
 
 object Entity {
   type Id = Int
+  class IdGenerator {
+    private var nextId = 0
+    def freshId(): Int = {
+      val id = nextId
+      nextId += 1
+      id
+    }
+  }
 }
 
-trait Entity
+abstract class Entity(final val id: Entity.Id) {
+  final def equals(that: Entity) = this.id == that.id
+  final override def equals(that: AnyRef) = that match {
+    case e: Entity => equals(e)
+    case _ => false
+  }
+}
 
-final class GroundEntity(val tile: DawnLikeTile) extends Entity {
+final class GroundEntity(id: Entity.Id, val tile: DawnLikeTile) extends Entity(id) {
   /** The entity (if any) on top of this piece of grass */
   var aboveEntity: Entity = null
 }
 
-final class PlayerEntity(val tile: DawnLikeTile) extends Entity
+final class PlayerEntity(id: Entity.Id, val tile: DawnLikeTile) extends Entity(id)
