@@ -39,8 +39,14 @@ abstract class Entity(final val id: Entity.Id) {
   }
 }
 
-final class GroundEntity(id: Entity.Id, val tile: DawnLikeTile) extends Entity(id) {
-  /** The entity (if any) on top of this piece of grass */
+object GroundEntity {
+  sealed trait Kind
+  case object Grass extends Kind
+  case object Dirt extends Kind
+}
+
+final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Entity(id) {
+  /** The entity (if any) on top of this piece of ground */
   var aboveEntity: Entity = null
 }
 

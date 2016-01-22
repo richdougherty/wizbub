@@ -1,46 +1,8 @@
 package com.richdougherty.wizbub
 
-import com.badlogic.gdx.Input.Keys
 import com.badlogic.gdx._
-import com.badlogic.gdx.graphics.{OrthographicCamera, Color, GL20, Texture}
-import com.badlogic.gdx.graphics.g2d.BitmapFont
-import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
-import com.badlogic.gdx.graphics.g2d.TextureRegion
-import com.badlogic.gdx.utils.Disposable
-
-class DawnLikeTile(frames: Array[TextureRegion]) {
-  def draw(batch: SpriteBatch, x: Float, y: Float): Unit = {
-    val frameIndex = ((System.currentTimeMillis / 300) % frames.length).toInt
-    val frame: TextureRegion = frames(frameIndex)
-    batch.draw(frame, x, y, 1f, 1f)
-  }
-}
-
-class DawnLikeAtlas(name: String, textures: Array[Texture]) extends Disposable {
-  private val framesSplitIntoRegions: Array[Array[Array[TextureRegion]]] = {
-    textures.map(TextureRegion.split(_, 16, 16))
-  }
-  println(s"Atlas $name split into (${framesSplitIntoRegions(0).length}, ${framesSplitIntoRegions(0)(0).length}) regions")
-  def apply(x: Int, y: Int): DawnLikeTile = {
-    val frames: Array[TextureRegion] = framesSplitIntoRegions.map(_(x)(y))
-    new DawnLikeTile(frames)
-  }
-  def dispose(): Unit = textures.foreach(_.dispose())
-}
-
-object DawnLikeAtlas {
-  def loadStatic(folder: String, file: String): DawnLikeAtlas = {
-    val texture = new Texture(s"dawnlike/$folder/$file.png")
-    new DawnLikeAtlas(s"$folder:$file", Array(texture))
-  }
-  def loadAnimated(folder: String, file: String): DawnLikeAtlas = {
-    val textures: Array[Texture] = (0 to 1).map { i =>
-      new Texture(s"dawnlike/$folder/$file$i.png")
-    }.toArray
-    new DawnLikeAtlas(s"$folder:$file", textures)
-  }
-}
+import com.badlogic.gdx.graphics.{GL20, OrthographicCamera}
 
 class WizbubGame extends ApplicationAdapter {
 
@@ -53,12 +15,24 @@ class WizbubGame extends ApplicationAdapter {
   private var player1Tile: DawnLikeTile = null
   private var floorAtlas: DawnLikeAtlas = null
   private var grassTile: DawnLikeTile = null
+  private var dirtTile: DawnLikeTile = null
 
   private val idGenerator = new Entity.IdGenerator
   private var worldSlice: WorldSlice = null
   private var player0Entity: Entity = null
   private var player0X: Int = 1
   private var player0Y: Int = 1
+
+  private var grassTiles: Array[DawnLikeTile] = null
+
+  private def grassTileIndex(topDirt: Boolean, rightDirt: Boolean, bottomDirt: Boolean, leftDirt: Boolean): Int = {
+    var i = 0
+    if (topDirt) i += 8
+    if (rightDirt) i += 4
+    if (bottomDirt) i += 2
+    if (leftDirt) i += 1
+    i
+  }
 
   override def create(): Unit =  {
     resizeCamera(Gdx.graphics.getWidth, Gdx.graphics.getHeight)
@@ -67,11 +41,31 @@ class WizbubGame extends ApplicationAdapter {
     player0Tile = playerAtlas(0, 0)
     player1Tile = playerAtlas(0, 6)
     floorAtlas = DawnLikeAtlas.loadStatic("Objects", "Floor")
+
+    grassTiles = new Array[DawnLikeTile](16)
+    grassTiles(0) = floorAtlas(7, 8)
+    grassTiles(1) = floorAtlas(7, 7)
+    grassTiles(2) = floorAtlas(8, 8)
+    grassTiles(3) = floorAtlas(8, 7)
+    grassTiles(4) = floorAtlas(7, 9)
+    grassTiles(5) = floorAtlas(7, 10)
+    grassTiles(6) = floorAtlas(8, 9)
+    grassTiles(7) = floorAtlas(8, 10)
+    grassTiles(8) = floorAtlas(6, 8)
+    grassTiles(9) = floorAtlas(6, 7)
+    grassTiles(10) = floorAtlas(7 ,12)
+    grassTiles(11) = floorAtlas(7, 11)
+    grassTiles(12) = floorAtlas(6, 9)
+    grassTiles(13) = floorAtlas(6, 10)
+    grassTiles(14) = floorAtlas(7, 13)
+    grassTiles(15) = floorAtlas(6, 12)
+
     grassTile = floorAtlas(7, 8)
+    dirtTile = floorAtlas(19, 1)
 
     worldSlice = new WorldSlice
     for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
-      worldSlice(x, y) = new GroundEntity(idGenerator.freshId(), grassTile)
+      worldSlice(x, y) = new GroundEntity(idGenerator.freshId(), GroundEntity.Grass)
     }
     player0Entity = new PlayerEntity(idGenerator.freshId(), player0Tile)
     val player1Entity = new PlayerEntity(idGenerator.freshId(), player1Tile)
@@ -80,7 +74,7 @@ class WizbubGame extends ApplicationAdapter {
 
     // Hacky support for moving player0 with arrow keys
     Gdx.input.setInputProcessor(new InputAdapter {
-      import Input.Keys._
+      import Input.Keys
       override def keyDown(keycode: Int): Boolean = {
         def move(dx: Int, dy: Int): Boolean = {
           val newX = player0X + dx
@@ -99,11 +93,21 @@ class WizbubGame extends ApplicationAdapter {
             case _ => throw new IllegalStateException("Player entity missing")
           }
         }
+        def changeGroundKind(newKind: GroundEntity.Kind): Boolean = {
+          worldSlice(player0X, player0Y) match {
+            case ground: GroundEntity =>
+              ground.kind = newKind
+              true
+            case _ => false
+          }
+        }
         keycode match {
-          case RIGHT => move(1, 0)
-          case LEFT => move(-1, 0)
-          case UP => move(0, -1)
-          case DOWN => move(0, 1)
+          case Keys.RIGHT => move(1, 0)
+          case Keys.LEFT => move(-1, 0)
+          case Keys.UP => move(0, -1)
+          case Keys.DOWN => move(0, 1)
+          case Keys.G => changeGroundKind(GroundEntity.Grass)
+          case Keys.D => changeGroundKind(GroundEntity.Dirt)
           case _ => false
         }
       }
@@ -122,7 +126,28 @@ class WizbubGame extends ApplicationAdapter {
       def renderEntity(entity: Entity): Unit = entity match {
         case null => ()
         case ground: GroundEntity =>
-          ground.tile.draw(batch, sceneX, sceneY)
+          val tile = ground.kind match {
+            case GroundEntity.Grass =>
+              def isNearbyGroundDirt(dx: Int, dy: Int): Boolean = {
+                val x = worldX + dx
+                val y = worldY + dy
+                if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
+                  false // Asume not-dirt if outside world bounds
+                } else {
+                  val nearbyGround = worldSlice(x, y).asInstanceOf[GroundEntity]
+                  nearbyGround.kind == GroundEntity.Dirt
+                }
+              }
+              val i = grassTileIndex(
+                isNearbyGroundDirt(0, -1),
+                isNearbyGroundDirt(1, 0),
+                isNearbyGroundDirt(0, 1),
+                isNearbyGroundDirt(-1, 0)
+              )
+              grassTiles(i)
+            case GroundEntity.Dirt => dirtTile
+          }
+          tile.draw(batch, sceneX, sceneY)
           renderEntity(ground.aboveEntity)
         case player: PlayerEntity =>
           player.tile.draw(batch, sceneX, sceneY)
