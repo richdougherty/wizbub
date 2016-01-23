@@ -51,3 +51,5 @@ final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Ent
 }
 
 final class PlayerEntity(id: Entity.Id, val tile: DawnLikeTile) extends Entity(id)
+
+final class WallEntity(id: Entity.Id) extends Entity(id)
