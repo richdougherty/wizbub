@@ -9,3 +9,11 @@ libraryDependencies ++= Seq(
 )
 fork in run := true
 baseDirectory in run := file("src/main/assets")
+javaOptions in run ++= {
+  if (sys.props("os.name") == "Mac OS X") {
+    Seq(
+      "-Xdock:name=Wizbub",
+      "-Xdock:icon=dawnlike/Derived/icon128.png"
+    )
+  } else Seq.empty
+}
