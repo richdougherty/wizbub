@@ -71,6 +71,7 @@ class WizbubGame extends ApplicationAdapter {
     for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
       worldSlice(x, y) = new GroundEntity(idGenerator.freshId(), GroundEntity.Grass)
     }
+    WorldPickler.readFromFile(worldSlice)
     player0Entity = new PlayerEntity(idGenerator.freshId(), player0Tile)
     val player1Entity = new PlayerEntity(idGenerator.freshId(), player1Tile)
     worldSlice(player0X, player0Y).asInstanceOf[GroundEntity].aboveEntity = player0Entity
@@ -116,6 +117,7 @@ class WizbubGame extends ApplicationAdapter {
           worldSlice(player0X, player0Y) match {
             case ground: GroundEntity =>
               ground.kind = newKind
+              WorldPickler.writeToFile(worldSlice)
               true
             case _ => false
           }
@@ -142,6 +144,7 @@ class WizbubGame extends ApplicationAdapter {
                 worldSlice(newX, newY) match {
                   case oldGround: GroundEntity if oldGround.aboveEntity == null =>
                     worldSlice(newX, newY) = new WallEntity(idGenerator.freshId())
+                    WorldPickler.writeToFile(worldSlice)
                     menu = Top
                     true
                   case _ => false
