@@ -1,0 +1,7754 @@
+{
+  "Characters": {
+    "Aquatic": {
+      "width": 8, 
+      "height": 6, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "piranha"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "jellyfish"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "shark"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "giant eel"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "electric eel"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "rust monster"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "disenchanter"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "kraken"
+          }
+        }
+      ]
+    }, 
+    "Avian": {
+      "width": 8, 
+      "height": 13, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "raven"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "bat"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "giant bat"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "vampire bat"
+          }
+        }
+      ]
+    }, 
+    "Cat": {
+      "width": 8, 
+      "height": 5, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "lynx"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "jaguar"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "panther"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "tiger"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "kitten"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "housecat"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "large cat"
+          }
+        }
+      ]
+    }, 
+    "Demon": {
+      "width": 8, 
+      "height": 9, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "marilith"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "vrock"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "hezrou"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "Juiblex"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "Yeenoghu"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "Orcus"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "Geryon"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "sandestin"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "pit fiend"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "balrog"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "Nalzok"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "Minion of Huhetotl"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "Ixoth"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "Dispater"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Baalzebub"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Asmodeus"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "Thoth Amon"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "Demogorgon"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "bone devil"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "ice devil"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "horned devil"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "homunculus"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "imp"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "quasit"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "water demon"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "succubus"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "incubus"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "tengu"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "nalfeshnee"
+          }
+        }
+      ]
+    }, 
+    "Dog": {
+      "width": 8, 
+      "height": 7, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "jackal"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "fox"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "coyote"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "dingo"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "werejackal"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "human werejackal"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "wolf"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "warg"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "winter wolf cub"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "winter wolf"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "werewolf"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "human werewolf"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "little dog"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "dog"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "large dog"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "hell hound pup"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "hell hound"
+          }
+        }
+      ]
+    }, 
+    "Elemental": {
+      "width": 8, 
+      "height": 11, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "straw golem"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "paper golem"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "rope golem"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "gold golem"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "leather golem"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "wood golem"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "flesh golem"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "clay golem"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "stone golem"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "glass golem"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "iron golem"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "fog cloud"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "dust vortex"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "ice vortex"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "energy vortex"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "steam vortex"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "fire vortex"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "stalker"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "air elemental"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "fire elemental"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "earth elemental"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "water elemental"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "gas spore"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "freezing sphere"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "flaming sphere"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "shocking sphere"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "floating eye"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "rock piercer"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "iron piercer"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "glass piercer"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "small mimic"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "large mimic"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "giant mimic"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "strange object"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "xorn"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "invisible monster"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "lurker above"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "trapper"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "yellow light"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "black light"
+          }
+        }
+      ]
+    }, 
+    "Humanoid": {
+      "width": 8, 
+      "height": 27, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "giant"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "stone giant"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "hill giant"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "fire giant"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "frost giant"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "storm giant"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "ettin"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "titan"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "minotaur"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Cyclops"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Lord Surtur"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "Keystone Kop"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Kop Sergeant"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Kop Lieutenant"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "Kop Kaptain"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "Master Assassin"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "prisoner"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "orc"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "hill orc"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Mordor orc"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "Uruk-hai"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "orc shaman"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "orc-captain"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "soldier"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "sergeant"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "lieutenant"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "captain"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "watchman"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "watch captain"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "elf"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Woodland-elf"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Green-elf"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "Grey-elf"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "elf-lord"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "Elvenking"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "troll"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "ice troll"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "rock troll"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "water troll"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "Olog-hai"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "gnome"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "gnome lord"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gnomish wizard"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "gnome king"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "leprechaun"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "human"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "hobbit"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "dwarf"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "dwarf lord"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "dwarf king"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "wood nymph"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "water nymph"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "mountain nymph"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "shopkeeper"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "guard"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "plains centaur"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "forest centaur"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "mountain centaur"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "ogre"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "ogre lord"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "ogre king"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "quantum mechanic"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Croesus"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "Angel"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Archon"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "djinni"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Aleax"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "doppelganger"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "goblin"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "hobgoblin"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "mind flayer"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "master mind flayer"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "sasquatch"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "yeti"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "Oracle"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "nurse"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "aligned priest"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "high priest"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "Medusa"
+          }
+        }
+      ]
+    }, 
+    "Misc": {
+      "width": 8, 
+      "height": 8, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "bugbear"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "gremlin"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "gargoyle"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "winged gargoyle"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "kobold"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "large kobold"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "kobold lord"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "kobold shaman"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "monkey"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "ape"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "carnivorous ape"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "jabberwock"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "umber hulk"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "zruty"
+          }
+        }
+      ]
+    }, 
+    "Pest": {
+      "width": 8, 
+      "height": 11, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "giant spider"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "scorpion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "Scorpius"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "baby long worm"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "long worm"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "long worm tail"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "long worm tail"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "baby purple worm"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "purple worm"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "soldier ant"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "giant ant"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "fire ant"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "grid bug"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "xan"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "killer bee"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "queen bee"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "cave spider"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "centipede"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "giant beetle"
+          }
+        }
+      ]
+    }, 
+    "Plant": {
+      "width": 8, 
+      "height": 8, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "shrieker"
+          }
+        }
+      ]
+    }, 
+    "Player": {
+      "width": 8, 
+      "height": 15, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "neanderthal"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "page"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gnome/ranger"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "ranger"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "gnome/archeologist"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "thug"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "warrior"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "female/samurai"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "apprentice"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "abbot"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "gnome/wizard"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "attendant"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "acolyte"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "roshi"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "student"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "chieftain"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "gnome/caveman"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "gnome/cavewoman"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "gnome/healer"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "guide"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "knight"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "hunter"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "valkyrie"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "samurai"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "monk"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "elf/wizard"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "wizard"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "priest"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "healer"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "ninja"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "rogue"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "archeologist"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "barbarian"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "caveman"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "tourist"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "female/barbarian"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "priestess"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "cavewoman"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "elf/ranger"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "King Arthur"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Orion"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "male/elf/ranger"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "Norn"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "Ashikaga Takauji"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "Lord Sato"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "Neferet the Green"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "Grand Master"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "elf/priest"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "elf/priestess"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Hippocrates"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "orc/rogue"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "Lord Carnarvon"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "Master of Thieves"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "Pelias"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "Shaman Karnov"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "Arch Priest"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "Twoflower"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "dwarf/caveman"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "dwarf/cavewoman"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "dwarf/valkyrie"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "dwarf/archeologist"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "orc/barbarian"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "female/orc/barbarian"
+          }
+        }
+      ]
+    }, 
+    "Quadraped": {
+      "width": 8, 
+      "height": 12, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "rothe"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "ki-rin"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "white unicorn"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gray unicorn"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "black unicorn"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "pony"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "horse"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "warhorse"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "mastodon"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "mumak"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "titanothere"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "baluchitherium"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "wumpus"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "leocrotta"
+          }
+        }
+      ]
+    }, 
+    "Reptile": {
+      "width": 8, 
+      "height": 13, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "couatl"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "baby gray dragon"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "gray dragon"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "baby green dragon"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "green dragon"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "baby orange dragon"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "orange dragon"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "baby yellow dragon"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "yellow dragon"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "baby blue dragon"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "blue dragon"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "baby black dragon"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "black dragon"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "baby white dragon"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "white dragon"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "Chromatic Dragon"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "baby red dragon"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "red dragon"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "silver dragon"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "baby silver dragon"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "garter snake"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "snake"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "python"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "water moccasin"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "pit viper"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "cobra"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "red naga hatchling"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "red naga"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "black naga hatchling"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "black naga"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "golden naga hatchling"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "golden naga"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "guardian naga hatchling"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "guardian naga"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "chickatrice"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "cockatrice"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "pyrolisk"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "lizard"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "iguana"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "chameleon"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "baby crocodile"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "crocodile"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "newt"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "gecko"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "salamander"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "astral/Vlad the Impaler"
+          }
+        }
+      ]
+    }, 
+    "Rodent": {
+      "width": 8, 
+      "height": 4, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "woodchuck"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "sewer rat"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "giant rat"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "rabid rat"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "wererat"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "human wererat"
+          }
+        }
+      ]
+    }, 
+    "Slime": {
+      "width": 8, 
+      "height": 5, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "lichen"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "brown mold"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "yellow mold"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "green mold"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "red mold"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "violet fungus"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "gray ooze"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "brown pudding"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "black pudding"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "acid blob"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "quivering blob"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gelatinous cube"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "blue jelly"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "spotted jelly"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "ochre jelly"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "green slime"
+          }
+        }
+      ]
+    }, 
+    "Undead": {
+      "width": 8, 
+      "height": 10, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "kobold zombie"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "gnome zombie"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "orc zombie"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "dwarf zombie"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "elf zombie"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "human zombie"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "ettin zombie"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "giant zombie"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "kobold mummy"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "gnome mummy"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "orc mummy"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "dwarf mummy"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "elf mummy"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "human mummy"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "ettin mummy"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "giant mummy"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "skeleton"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "lich"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "demilich"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "master lich"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "arch-lich"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "vampire"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "vampire lord"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "Vlad the Impaler"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "manes"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "lemure"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "ghost"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "shade"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "wraith"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Nazgul"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "barrow wight"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Wizard of Yendor"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Master Kaen"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "ghoul"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Dark One"
+          }
+        }
+      ]
+    }
+  }, 
+  "Commissions": {
+    "Engineer": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Engineer Clothes": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Icons": {
+      "width": 3, 
+      "height": 3, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Mage": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Mage Clothes": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Paladin": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Paladin Clothes": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Rogue": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Rogue Clothes": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Template": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Warrior": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Warrior Clothes": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Warrior Clothes Back": {
+      "width": 4, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": []
+    }
+  }, 
+  "GUI": {
+    "GUI": {
+      "width": 16, 
+      "height": 19, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "warning 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "warning 1"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "warning 2"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "warning 3"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "warning 4"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "warning 5"
+          }
+        }
+      ]
+    }
+  }, 
+  "Items": {
+    "Ammo": {
+      "width": 8, 
+      "height": 6, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "bow"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "runed bow"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "crude bow"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "long bow"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "sling"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "crossbow"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "arrow"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "runed arrow"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "crude arrow"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "silver arrow"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "bamboo arrow"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "crossbow bolt"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "dart"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "throwing star"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "boomerang"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "splash of venoms 0"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "splash of venoms 1"
+          }
+        }
+      ]
+    }, 
+    "Amulet": {
+      "width": 8, 
+      "height": 3, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "circular amulet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "spherical amulet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "oval amulet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "triangular amulet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "pyramidal amulet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "square amulet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "concave amulet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "hexagonal amulet"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "octagonal amulet"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "Amulet of Yendors 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "Amulet of Yendors 1"
+          }
+        }
+      ]
+    }, 
+    "Armor": {
+      "width": 8, 
+      "height": 9, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "orange dragon scale mail"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "red dragon scale mail"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gray dragon scale mail"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "green dragon scale mail"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "yellow dragon scale mail"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "silver dragon scale mail"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "blue dragon scale mail"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "black dragon scale mail"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "white dragon scale mail"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "orange dragon scales"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "red dragon scales"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gray dragon scales"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "green dragon scales"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "yellow dragon scales"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "silver dragon scales"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "blue dragon scales"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "black dragon scales"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "white dragon scales"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "faded pall"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "coarse mantelet"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "hooded cloak"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "slippery cloak"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "robe"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "apron"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "leather cloak"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "tattered cape"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "opera cloak"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "ornamental cope"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "piece of cloth"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "mummy wrapping"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "leather armor"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "bronze plate mail"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "plate mail"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "splint mail"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "banded mail"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "dwarvish mithril-coat"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "elven mithril-coat"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "crystal plate mail"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "leather jacket"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "Hawaiian shirt"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "T-shirt"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "chain mail"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "crude chain mail"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "scale mail"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "studded leather armor"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "ring mail"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "crude ring mail"
+          }
+        }
+      ]
+    }, 
+    "Book": {
+      "width": 8, 
+      "height": 9, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "parchment spellbook"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "vellum spellbook"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "ragged spellbook"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "dog eared spellbook"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "mottled spellbook"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "stained spellbook"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "cloth spellbook"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "leather-bound spellbook"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "white spellbook"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "pink spellbook"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "red spellbook"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "orange spellbook"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "yellow spellbook"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "velvet spellbook"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "light green spellbook"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "dark green spellbook"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "turquoise spellbook"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "cyan spellbook"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "light blue spellbook"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "dark blue spellbook"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "indigo spellbook"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "magenta spellbook"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "purple spellbook"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "violet spellbook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "tan spellbook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "plaid spellbook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "light brown spellbook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "dark brown spellbook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "gray spellbook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "wrinkled spellbook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "dusty spellbook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "bronze spellbook"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "copper spellbook"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "silver spellbook"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gold spellbook"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "glittering spellbook"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "shining spellbook"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "dull spellbook"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "thin spellbook"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "thick spellbook"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "plain spellbook"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "papyrus spellbook"
+          }
+        }
+      ]
+    }, 
+    "Boot": {
+      "width": 8, 
+      "height": 2, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "walking shoes"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "hard shoes"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "jackboots"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "combat boots"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "jungle boots"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "hiking boots"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "mud boots"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "buckled boots"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "riding boots"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "snow boots"
+          }
+        }
+      ]
+    }, 
+    "Chest": {
+      "width": 8, 
+      "height": 3, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "large box"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "chest"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "ice box"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "bags 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "bags 1"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "bags 2"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "bags 3"
+          }
+        }
+      ]
+    }, 
+    "Flesh": {
+      "width": 8, 
+      "height": 9, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "corpse/*"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "meatball"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "meat stick"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "huge chunk of meat"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "meat ring"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "tripe ration"
+          }
+        }
+      ]
+    }, 
+    "Food": {
+      "width": 8, 
+      "height": 6, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "clove of garlic"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "apple"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "orange"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "pear"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "melon"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "banana"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "slime mold"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "carrot"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "sprig of wolfsbane"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "kelp frond"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "eucalyptus leaf"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "lembas wafer"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "cram ration"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "food ration"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "K-ration"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "C-ration"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "tin"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "lump of royal jelly"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "cream pie"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "candy bar"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "fortune cookie"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "pancake"
+          }
+        }
+      ]
+    }, 
+    "Glove": {
+      "width": 8, 
+      "height": 1, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "old gloves"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "padded gloves"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "riding gloves"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "fencing gloves"
+          }
+        }
+      ]
+    }, 
+    "Hat": {
+      "width": 8, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "dented pot"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "plumed helmet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "etched helmet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "crested helmet"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "visored helmet"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "leather hat"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "iron skull cap"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "hard hat"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "fedora"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "conical hats *"
+          }
+        }
+      ]
+    }, 
+    "Key": {
+      "width": 8, 
+      "height": 1, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "key"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "lock pick"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "credit card"
+          }
+        }
+      ]
+    }, 
+    "Light": {
+      "width": 8, 
+      "height": 1, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "candles 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "candles 1"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "candelabrum"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "brass lantern"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "lamps 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "lamps 1"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "expensive camera"
+          }
+        }
+      ]
+    }, 
+    "LongWep": {
+      "width": 8, 
+      "height": 7, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "spear"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "runed spear"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "crude spear"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "stout spear"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "silver spear"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "throwing spear"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "trident"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "broadsword"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "runed broadswords 0"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "long sword"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "two-handed sword"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "long samurai sword"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "runed broadswords 1"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "vulgar polearm"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "hilted polearm"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "forked polearm"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "single-edged polearm"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "pole cleaver"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "pole sickle"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "pruning hook"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "hooked polearm"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "pronged polearm"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "beaked polearm"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "angled poleaxe"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "long poleaxe"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "staff"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "rubber hose"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "bullwhip"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "iron hook"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "war hammer"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "lance"
+          }
+        }
+      ]
+    }, 
+    "MedWep": {
+      "width": 8, 
+      "height": 2, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "short sword"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "runed short sword"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "crude short sword"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "broad short sword"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "curved sword"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "samurai sword"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "axe"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "double-headed axe"
+          }
+        }
+      ]
+    }, 
+    "Money": {
+      "width": 8, 
+      "height": 8, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "gold piece"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "white gems 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "white gems 1"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "red gems 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "orange gems 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "blue gems 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "black gems 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "green gems 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "green gems 1"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "yellow gems 0"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "green gems 2"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "yellowish brown gems 0"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "yellowish brown gems 1"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "black gems 1"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "white gems 2"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "yellow gems 1"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "red gems 1"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "violet gems 0"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "red gems 2"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "violet gems 1"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "black gems 2"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "orange gems 1"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "green gems 3"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "white gems 3"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "red gems 3"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "orange gems 2"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "blue gems 1"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "black gems 3"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "green gems 4"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "yellow gems 2"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "yellowish brown gems 2"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "violet gems 2"
+          }
+        }
+      ]
+    }, 
+    "Music": {
+      "width": 8, 
+      "height": 6, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "whistles 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "whistles 1"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "flutes 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "flutes 1"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "horns 0"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "horns 1"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "horns 2"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "horns 3"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "drums 0"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "drums 1"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "harps 0"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "harps 1"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "bell"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "silver bell"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "bugle"
+          }
+        }
+      ]
+    }, 
+    "Potion": {
+      "width": 8, 
+      "height": 5, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "ruby potion"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "pink potion"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "orange potion"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "yellow potion"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "emerald potion"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "dark green potion"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "cyan potion"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "sky blue potion"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "brilliant blue potion"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "magenta potion"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "purple-red potion"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "puce potion"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "milky potion"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "swirly potion"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "bubbly potion"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "smoky potion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "cloudy potion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "effervescent potion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "black potion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "golden potion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "brown potion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "fizzy potion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "dark potion"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "white potion"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "murky potion"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "clear potion"
+          }
+        }
+      ]
+    }, 
+    "Ring": {
+      "width": 8, 
+      "height": 6, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "wooden ring"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "granite ring"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "opal ring"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "coral ring"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "black onyx ring"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "moonstone ring"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "tiger eye ring"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "clay ring"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "agate ring"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "sapphire ring"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "ruby ring"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "diamond ring"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "topaz ring"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "iron ring"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "brass ring"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "copper ring"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "twisted ring"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "steel ring"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "silver ring"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "gold ring"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "ivory ring"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "emerald ring"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "wire ring"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "engagement ring"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "shiny ring"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "pearl ring"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "bronze ring"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "jade ring"
+          }
+        }
+      ]
+    }, 
+    "Rock": {
+      "width": 8, 
+      "height": 2, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "gray gems 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "gray gems 1"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gray gems 2"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "gray gems 3"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "rock gem"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "boulder"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "statue/*"
+          }
+        }
+      ]
+    }, 
+    "Scroll": {
+      "width": 8, 
+      "height": 6, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "ZELGO MER"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "JUYED AWK YACC"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "NR 9"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "XIXAXA XOXAXA XUXAXA"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "PRATYAVAYAH"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "DAIYEN FOOELS"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "LEP GEX VEN ZEA"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "PRIRUTSENIE"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "ELBIB YLOH"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "VERR YED HORRE"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "VENZAR BORGAVVE"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "THARR"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "YUM YUM"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "KERNOD WEL"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "ELAM EBOW"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "DUAM XNAHT"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "ANDOVA BEGARIN"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "KIRJE"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "VE FORBRYDERNE"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "HACKEM MUCHE"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "VELOX NEB"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "FOOBIE BLETCH"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "TEMOV"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "GARVEN DEH"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "READ ME"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "unlabeled"
+          }
+        }
+      ]
+    }, 
+    "Shield": {
+      "width": 8, 
+      "height": 1, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "small shield"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "blue and green shield"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "white-handed shield"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "red-eyed shield"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "large shield"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "large round shield"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "polished silver shield"
+          }
+        }
+      ]
+    }, 
+    "ShortWep": {
+      "width": 8, 
+      "height": 5, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "dagger"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "runed dagger"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "crude dagger"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "silver dagger"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "athame"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "scalpel"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "knife"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "stiletto"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "crysknife"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "silver saber"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "unicorn horn"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "worm tooth"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "thonged club"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "club"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "flail"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "pick-axe"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "broad pick"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "mace"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "morning star"
+          }
+        }
+      ]
+    }, 
+    "Tool": {
+      "width": 8, 
+      "height": 3, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "looking glass"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "glass orb"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "lenses"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "blindfold"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "towel"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "saddle"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "leash"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "stethoscope"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "tinning kit"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "tin opener"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "can of grease"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "figurine"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "magic marker"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosive trap"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "toothed trap"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "heavy iron ball"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "iron chain"
+          }
+        }
+      ]
+    }, 
+    "Wand": {
+      "width": 8, 
+      "height": 7, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "glass wand"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "balsa wand"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "crystal wand"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "maple wand"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "pine wand"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "oak wand"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "ebony wand"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "marble wand"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "tin wand"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "brass wand"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "copper wand"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "silver wand"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "platinum wand"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "iridium wand"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "zinc wand"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "aluminum wand"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "uranium wand"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "iron wand"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "steel wand"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "hexagonal wand"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "short wand"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "runed wand"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "long wand"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "curved wand"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "forked wand"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "spiked wand"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "jeweled wand"
+          }
+        }
+      ]
+    }
+  }, 
+  "Objects": {
+    "Decor": {
+      "width": 8, 
+      "height": 22, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 7, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "opulent throne"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "grave"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "web"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "astral/altar"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "altar"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "sink"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "fountain"
+          }
+        }
+      ]
+    }, 
+    "Door": {
+      "width": 8, 
+      "height": 6, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "closed doors 1"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "closed doors 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "doorway"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "iron bars"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "raised drawbridges *"
+          }
+        }
+      ]
+    }, 
+    "Effect": {
+      "width": 8, 
+      "height": 26, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion fiery 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion fiery 1"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion fiery 2"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion muddy 0"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion muddy 1"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion muddy 2"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion fiery 3"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion fiery 4"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion fiery 5"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion muddy 3"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion muddy 4"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion muddy 5"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion fiery 6"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion fiery 7"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion fiery 8"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion muddy 6"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion muddy 7"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion muddy 8"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion dark 0"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion dark 1"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion dark 2"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion noxious 0"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion noxious 1"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion noxious 2"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion dark 3"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion dark 4"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion dark 5"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion noxious 3"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion noxious 4"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion noxious 5"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion dark 6"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion dark 7"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion dark 8"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion noxious 6"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion noxious 7"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion noxious 8"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion wet 0"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion wet 1"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion wet 2"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion frosty 0"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion frosty 1"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion frosty 2"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion wet 3"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion wet 4"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion wet 5"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion frosty 3"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion frosty 4"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion frosty 5"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion wet 6"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion wet 7"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion wet 8"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "explosion frosty 6"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "explosion frosty 7"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "explosion frosty 8"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion magical 0"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion magical 1"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion magical 2"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion magical 3"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion magical 4"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion magical 5"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "explosion magical 6"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "explosion magical 7"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "explosion magical 8"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "swallow top left"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "swallow top center"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "swallow top right"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "swallow middle left"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "swallow middle right"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "swallow bottom left"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "swallow bottom center"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "swallow bottom right"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "zap 1 0"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "zap 1 1"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "zap 1 2"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "zap 1 3"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "zap 2 0"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "zap 2 1"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "zap 2 2"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "zap 2 3"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "zap 3 0"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "zap 3 1"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "zap 3 2"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "zap 3 3"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "zap 5 0"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "zap 5 1"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "zap 5 2"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "zap 5 3"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "zap 4 0"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "zap 4 1"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "zap 4 2"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "zap 4 3"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "zap 0 0"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "zap 0 1"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "zap 0 2"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "zap 0 3"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "zap 6 0"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "zap 6 1"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "zap 6 2"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "zap 6 3"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "zap 7 0"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "zap 7 1"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "zap 7 2"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "zap 7 3"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "flash beam"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "magic shield 1"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "magic shield 2"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "magic shield 3"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "magic shield 4"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "cloud"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "gas cloud"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "dig beam"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 0, 
+          "attrs": {
+            "nethack": [
+              "thrown boomerang", 
+              "open left"
+            ]
+          }
+        }
+      ]
+    }, 
+    "Fence": {
+      "width": 8, 
+      "height": 12, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Floor": {
+      "width": 21, 
+      "height": 39, 
+      "animated": false, 
+      "tiles": []
+    }, 
+    "Ground": {
+      "width": 8, 
+      "height": 7, 
+      "animated": true, 
+      "tiles": []
+    }, 
+    "Hill": {
+      "width": 16, 
+      "height": 18, 
+      "animated": true, 
+      "tiles": []
+    }, 
+    "Map": {
+      "width": 12, 
+      "height": 15, 
+      "animated": true, 
+      "tiles": []
+    }, 
+    "Ore": {
+      "width": 9, 
+      "height": 7, 
+      "animated": true, 
+      "tiles": []
+    }, 
+    "Pit": {
+      "width": 8, 
+      "height": 32, 
+      "animated": true, 
+      "tiles": []
+    }, 
+    "Tile": {
+      "width": 8, 
+      "height": 4, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": [
+              "water", 
+              "underwater"
+            ]
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "swamp/water"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "ice"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "molten lava"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "vibrating square"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "air"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "staircase up"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "staircase down"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "long staircase up"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "long staircase down"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "ladder up"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "ladder down"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "unexplored area"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "unlit/the floor of a room"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "corridor"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "lit/corridor"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "the floor of a room"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "lowered drawbridges 0"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "lowered drawbridges 1"
+          }
+        }
+      ]
+    }, 
+    "Trap": {
+      "width": 8, 
+      "height": 5, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "arrow trap"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "dart trap"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "falling rock trap"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "squeaky board"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "bear trap"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "land mine"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "rolling boulder trap"
+          }
+        }, 
+        {
+          "y": 0, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "sleeping gas trap"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "rust trap"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "teleportation trap"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "level teleporter"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "magic portal"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 5, 
+          "attrs": {
+            "nethack": "statue trap"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 6, 
+          "attrs": {
+            "nethack": "magic trap"
+          }
+        }, 
+        {
+          "y": 1, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "anti-magic field"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "fire trap"
+          }
+        }, 
+        {
+          "y": 2, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "polymorph trap"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "pit"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "nethack": "spiked pit"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "nethack": "hole"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "nethack": "trap door"
+          }
+        }
+      ]
+    }, 
+    "Tree": {
+      "width": 12, 
+      "height": 36, 
+      "animated": true, 
+      "tiles": [
+        {
+          "y": 0, 
+          "x": 4, 
+          "attrs": {
+            "nethack": "tree"
+          }
+        }
+      ]
+    }, 
+    "Wall": {
+      "width": 20, 
+      "height": 51, 
+      "animated": false, 
+      "tiles": [
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "nethack": [
+              "rog/questfill1/walls *", 
+              "rog/questfill2/walls *", 
+              "val/questhome/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 14, 
+          "attrs": {
+            "nethack": "arc/questfill1/walls *"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 18, 
+          "attrs": {
+            "nethack": [
+              "rog/questhome/walls *", 
+              "rog/questlocate/walls *", 
+              "tou/questhome/walls *", 
+              "tou/questlocate/walls *", 
+              "tou/questgoal/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "walls *"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "arc/questhome/walls *"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "knox/walls *"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 14, 
+          "attrs": {
+            "nethack": [
+              "mine/walls *", 
+              "bar/questfill2/walls *", 
+              "bar/questgoal/walls *", 
+              "cav/questfill1/walls *", 
+              "cav/questlocate/walls *", 
+              "cav/questfill2/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "rog/questgoal/walls *"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "sokoban/walls *"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 7, 
+          "attrs": {
+            "nethack": [
+              "bar/questhome/walls *", 
+              "bar/questlocate/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 14, 
+          "attrs": {
+            "nethack": "val/questgoal/walls *"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 14, 
+          "attrs": {
+            "nethack": "vlad/walls *"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 3, 
+          "attrs": {
+            "nethack": [
+              "mine/solid rock", 
+              "bar/questlocate/solid rock", 
+              "bar/questfill2/solid rock", 
+              "bar/questgoal/solid rock", 
+              "cav/questfill1/solid rock", 
+              "cav/questlocate/solid rock", 
+              "cav/questfill2/solid rock"
+            ]
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 10, 
+          "attrs": {
+            "nethack": [
+              "ran/questgoal/solid rock", 
+              "rog/questgoal/solid rock", 
+              "val/questfill1/solid rock"
+            ]
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 7, 
+          "attrs": {
+            "nethack": [
+              "ran/questgoal/walls *", 
+              "val/questfill1/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 14, 
+          "attrs": {
+            "nethack": [
+              "gehennom/walls *", 
+              "pri/questfill2/walls *", 
+              "pri/questgoal/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 17, 
+          "attrs": {
+            "nethack": [
+              "gehennom/solid rock", 
+              "val/questgoal/solid rock", 
+              "mon/questlocate/solid rock", 
+              "mon/questfill2/solid rock", 
+              "mon/questgoal/solid rock", 
+              "pri/questfill2/solid rock", 
+              "pri/questgoal/solid rock", 
+              "val/questlocate/solid rock", 
+              "val/questfill2/solid rock", 
+              "val/questgoal/solid rock"
+            ]
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 7, 
+          "attrs": {
+            "nethack": [
+              "kni/questgoal/walls *", 
+              "ran/questlocate/walls *", 
+              "ran/questfill2/walls *", 
+              "tou/questfill1/walls *", 
+              "tou/questfill2/walls *", 
+              "wiz/questfill1/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "kni/questhome/walls *"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 10, 
+          "attrs": {
+            "nethack": "solid rock"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 14, 
+          "attrs": {
+            "nethack": [
+              "cav/questgoal/walls *", 
+              "mon/questlocate/walls *", 
+              "mon/questfill2/walls *", 
+              "mon/questgoal/walls *", 
+              "val/questlocate/walls *", 
+              "val/questfill2/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 0, 
+          "attrs": {
+            "nethack": [
+              "pri/questlocate/walls *", 
+              "wiz/questlocate/walls *", 
+              "wiz/questfill2/walls *", 
+              "wiz/questgoal/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 7, 
+          "attrs": {
+            "nethack": "pri/questhome/walls *"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 14, 
+          "attrs": {
+            "nethack": "cav/questhome/walls *"
+          }
+        }, 
+        {
+          "y": 27, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "astral/walls *"
+          }
+        }, 
+        {
+          "y": 30, 
+          "x": 0, 
+          "attrs": {
+            "nethack": [
+              "hea/questhome/walls *", 
+              "hea/questlocate/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 33, 
+          "x": 0, 
+          "attrs": {
+            "nethack": [
+              "sam/questhome/walls *", 
+              "sam/questlocate/walls *", 
+              "sam/questfill2/walls *", 
+              "sam/questgoal/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 33, 
+          "x": 7, 
+          "attrs": {
+            "nethack": [
+              "mon/questhome/walls *", 
+              "mon/questfill1/walls *"
+            ]
+          }
+        }, 
+        {
+          "y": 36, 
+          "x": 0, 
+          "attrs": {
+            "nethack": "wiz/questhome/walls *"
+          }
+        }, 
+        {
+          "y": 45, 
+          "x": 7, 
+          "attrs": {
+            "nethack": [
+              "arc/questlocate/walls *", 
+              "arc/questfill2/walls *", 
+              "arc/questgoal/walls *"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

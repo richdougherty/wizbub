@@ -4,8 +4,11 @@ import com.badlogic.gdx.Input.Keys
 import com.badlogic.gdx._
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.{GL20, OrthographicCamera}
+import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
 
 class WizbubGame extends ScopedApplicationListener {
+
+  val dawnLikeTiles = disposeLater { new DawnLikeTiles() }
 
   private var camera: OrthographicCamera = null
   private var worldViewWidth: Int = -1
@@ -13,9 +16,8 @@ class WizbubGame extends ScopedApplicationListener {
   resizeCamera(Gdx.graphics.getWidth, Gdx.graphics.getHeight)
 
   private val batch: SpriteBatch = disposeLater { new SpriteBatch() }
-  private val playerAtlas: DawnLikeAtlas = disposeLater { DawnLikeAtlas.loadAnimated("Characters", "Player") }
-  private val player0Tile: DawnLikeTile = playerAtlas(0, 0)
-  private val player1Tile: DawnLikeTile = playerAtlas(0, 6)
+  private val player0Tile: DawnLikeTile = dawnLikeTiles.findTile("nethack" -> "neanderthal")
+  private val player1Tile: DawnLikeTile = dawnLikeTiles.findTile("nethack" -> "archeologist")
   private val floorAtlas: DawnLikeAtlas = disposeLater { DawnLikeAtlas.loadStatic("Objects", "Floor") }
   private val grassTiles: Array[DawnLikeTile] = new Array[DawnLikeTile](16)
   grassTiles(0) = floorAtlas(7, 8)
