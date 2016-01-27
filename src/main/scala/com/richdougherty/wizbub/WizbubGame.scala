@@ -54,10 +54,9 @@ class WizbubGame extends ScopedApplicationListener {
 
   // DISPLAY //
 
-  private var camera: OrthographicCamera = null
+  private val worldCamera = new OrthographicCamera()
   private var worldViewWidth: Int = -1
   private var worldViewHeight: Int = -1
-  resizeCamera(Gdx.graphics.getWidth, Gdx.graphics.getHeight)
 
   private val batch: SpriteBatch = disposeLater { new SpriteBatch() }
 
@@ -154,9 +153,9 @@ class WizbubGame extends ScopedApplicationListener {
   override def render(): Unit = {
     Gdx.gl.glClearColor(0, 0, 0, 1)
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
-    camera.update()
+    worldCamera.update()
     batch.begin()
-    batch.setProjectionMatrix(camera.combined)
+    batch.setProjectionMatrix(worldCamera.combined)
     for (worldX <- 0 until worldViewWidth; worldY <- 0 until worldViewHeight) {
       val sceneX = worldX
       val sceneY = worldViewHeight - worldY - 1
@@ -199,17 +198,17 @@ class WizbubGame extends ScopedApplicationListener {
   }
 
   override def resize(width: Int, height: Int): Unit = {
-    resizeCamera(width, height)
-  }
-
-  private def resizeCamera(width: Int, height: Int): Unit = {
+    // The camera is scaled so it holds 16 world tiles in its smallest
+    // dimension. Each camera unit square corresponds to a single tile.
     val scale = 16f / Math.min(height, width)
-    val cameraWidth = width * scale
-    val cameraHeight = height * scale
-    camera = new OrthographicCamera(cameraWidth, cameraHeight)
-    camera.translate(camera.viewportWidth/2, camera.viewportHeight/2)
-    worldViewWidth = Math.ceil(cameraWidth).toInt
-    worldViewHeight = Math.ceil(cameraHeight).toInt
+    worldCamera.viewportWidth = width * scale
+    worldCamera.viewportHeight = height * scale
+    worldCamera.position.x =  worldCamera.viewportWidth/2
+    worldCamera.position.y = worldCamera.viewportHeight/2
+    // The world view size is the same as the camera size, rounded up
+    // so we include tiles that are partly visible to the camera.
+    worldViewWidth = Math.ceil(worldCamera.viewportWidth).toInt
+    worldViewHeight = Math.ceil(worldCamera.viewportHeight).toInt
   }
 
 }
