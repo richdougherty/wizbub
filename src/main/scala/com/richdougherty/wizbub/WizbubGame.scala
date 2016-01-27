@@ -2,7 +2,7 @@ package com.richdougherty.wizbub
 
 import com.badlogic.gdx.Input.Keys
 import com.badlogic.gdx._
-import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.graphics.g2d.{GlyphLayout, BitmapFont, SpriteBatch}
 import com.badlogic.gdx.graphics.{GL20, OrthographicCamera}
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
 import com.richdougherty.wizbub.dawnlike.index.TileQuery.{NoAttr, AttrContains}
@@ -60,6 +60,8 @@ class WizbubGame extends ScopedApplicationListener {
 
   private val batch: SpriteBatch = disposeLater { new SpriteBatch() }
 
+  private val uiCamera = new OrthographicCamera()
+  private val font = disposeLater { new BitmapFont() }
 
   // INPUT //
 
@@ -153,8 +155,10 @@ class WizbubGame extends ScopedApplicationListener {
   override def render(): Unit = {
     Gdx.gl.glClearColor(0, 0, 0, 1)
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
-    worldCamera.update()
     batch.begin()
+
+    // Draw world objects
+
     batch.setProjectionMatrix(worldCamera.combined)
     for (worldX <- 0 until worldViewWidth; worldY <- 0 until worldViewHeight) {
       val sceneX = worldX
@@ -194,6 +198,15 @@ class WizbubGame extends ScopedApplicationListener {
       }
       renderEntity(worldSlice(worldX, worldY))
     }
+
+    // Draw UI objects
+
+    batch.setProjectionMatrix(uiCamera.combined)
+
+    val layout = new GlyphLayout()
+    layout.setText(font, "Hello world")
+    font.draw(batch, "Hello world", uiCamera.viewportWidth/2 - layout.width/2, font.getData.lineHeight + 10)
+
     batch.end()
   }
 
@@ -205,10 +218,18 @@ class WizbubGame extends ScopedApplicationListener {
     worldCamera.viewportHeight = height * scale
     worldCamera.position.x =  worldCamera.viewportWidth/2
     worldCamera.position.y = worldCamera.viewportHeight/2
+    worldCamera.update()
     // The world view size is the same as the camera size, rounded up
     // so we include tiles that are partly visible to the camera.
     worldViewWidth = Math.ceil(worldCamera.viewportWidth).toInt
     worldViewHeight = Math.ceil(worldCamera.viewportHeight).toInt
+
+    // The UI camera uses the same scale as the enclosing viewport
+    uiCamera.viewportWidth = width
+    uiCamera.viewportHeight = height
+    uiCamera.position.x = uiCamera.viewportWidth/2
+    uiCamera.position.y = uiCamera.viewportHeight/2
+    uiCamera.update()
   }
 
 }
