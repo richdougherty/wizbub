@@ -174,7 +174,7 @@ class WizbubGame extends ScopedApplicationListener {
     batch.setProjectionMatrix(worldCamera.combined)
     for (worldX <- 0 until worldViewWidth; worldY <- 0 until worldViewHeight) {
       val sceneX = worldX
-      val sceneY = worldViewHeight - worldY - 1
+      val sceneY = worldY
       def renderEntity(entity: Entity): Unit = entity match {
         case null => ()
         case ground: GroundEntity =>
@@ -228,6 +228,8 @@ class WizbubGame extends ScopedApplicationListener {
     worldCamera.viewportHeight = height * scale
     worldCamera.position.x =  worldCamera.viewportWidth/2
     worldCamera.position.y = worldCamera.viewportHeight/2
+    worldCamera.up.y = -1
+    worldCamera.direction.z = 1
     worldCamera.update()
     // The world view size is the same as the camera size, rounded up
     // so we include tiles that are partly visible to the camera.
