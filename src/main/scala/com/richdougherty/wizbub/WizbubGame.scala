@@ -79,7 +79,19 @@ class WizbubGame extends ScopedApplicationListener {
     }
   }
 
-  var menu: Menu = Top
+  var currentMenu: Menu = null
+  val menuMessageGlyphs = new GlyphLayout()
+
+  def setCurrentMenu(m: Menu): Unit = {
+    val message = m match {
+      case Top => "Arrows = move, D = dirt, G = grass, W = build wall"
+      case BuildWall => "Esc = back, arrows = build wall"
+    }
+    currentMenu = m
+    menuMessageGlyphs.setText(font, message)
+  }
+  setCurrentMenu(Top)
+
   // Hacky support for moving player0 with arrow keys
   Gdx.input.setInputProcessor(new InputAdapter {
     import Input.Keys
@@ -110,21 +122,21 @@ class WizbubGame extends ScopedApplicationListener {
           case _ => false
         }
       }
-      menu match {
+      currentMenu match {
         case Top =>
           keycode match {
             case DirectionKey((dx, dy)) => move(dx, dy)
             case Keys.G => changeGroundKind(GroundEntity.Grass)
             case Keys.D => changeGroundKind(GroundEntity.Dirt)
             case Keys.W =>
-              menu = BuildWall
+              setCurrentMenu(BuildWall)
               true
             case _ => false
           }
         case BuildWall =>
           keycode match {
             case Keys.ESCAPE =>
-              menu = Top
+              setCurrentMenu(Top)
               true
             case DirectionKey((dx, dy)) =>
               val newX = player0X + dx
@@ -133,7 +145,7 @@ class WizbubGame extends ScopedApplicationListener {
                 case oldGround: GroundEntity if oldGround.aboveEntity == null =>
                   worldSlice(newX, newY) = new WallEntity(idGenerator.freshId())
                   WorldPickler.writeToFile(worldSlice)
-                  menu = Top
+                  setCurrentMenu(Top)
                   true
                 case _ => false
               }
@@ -203,9 +215,7 @@ class WizbubGame extends ScopedApplicationListener {
 
     batch.setProjectionMatrix(uiCamera.combined)
 
-    val layout = new GlyphLayout()
-    layout.setText(font, "Hello world")
-    font.draw(batch, "Hello world", uiCamera.viewportWidth/2 - layout.width/2, font.getData.lineHeight + 10)
+    font.draw(batch, menuMessageGlyphs, uiCamera.viewportWidth/2 - menuMessageGlyphs.width/2, font.getData.lineHeight + 10)
 
     batch.end()
   }
