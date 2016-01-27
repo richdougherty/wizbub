@@ -5,41 +5,35 @@ import com.badlogic.gdx._
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.{GL20, OrthographicCamera}
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
+import com.richdougherty.wizbub.dawnlike.index.TileQuery.{NoAttr, AttrContains}
 
 class WizbubGame extends ScopedApplicationListener {
 
+  // TILES //
+
   val dawnLikeTiles = disposeLater { new DawnLikeTiles() }
 
-  private var camera: OrthographicCamera = null
-  private var worldViewWidth: Int = -1
-  private var worldViewHeight: Int = -1
-  resizeCamera(Gdx.graphics.getWidth, Gdx.graphics.getHeight)
+  private val player0Tile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("nethack", "neanderthal"))
+  private val player1Tile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("nethack", "archeologist"))
 
-  private val batch: SpriteBatch = disposeLater { new SpriteBatch() }
-  private val player0Tile: DawnLikeTile = dawnLikeTiles.findTile("nethack" -> "neanderthal")
-  private val player1Tile: DawnLikeTile = dawnLikeTiles.findTile("nethack" -> "archeologist")
-  private val floorAtlas: DawnLikeAtlas = disposeLater { DawnLikeAtlas.loadStatic("Objects", "Floor") }
   private val grassTiles: Array[DawnLikeTile] = new Array[DawnLikeTile](16)
-  grassTiles(0) = floorAtlas(7, 8)
-  grassTiles(1) = floorAtlas(7, 7)
-  grassTiles(2) = floorAtlas(8, 8)
-  grassTiles(3) = floorAtlas(8, 7)
-  grassTiles(4) = floorAtlas(7, 9)
-  grassTiles(5) = floorAtlas(7, 10)
-  grassTiles(6) = floorAtlas(8, 9)
-  grassTiles(7) = floorAtlas(8, 10)
-  grassTiles(8) = floorAtlas(6, 8)
-  grassTiles(9) = floorAtlas(6, 7)
-  grassTiles(10) = floorAtlas(7 ,12)
-  grassTiles(11) = floorAtlas(7, 11)
-  grassTiles(12) = floorAtlas(6, 9)
-  grassTiles(13) = floorAtlas(6, 10)
-  grassTiles(14) = floorAtlas(7, 13)
-  grassTiles(15) = floorAtlas(6, 12)
+  for (directions <- DirectionSet.combinations) {
+    grassTiles(directions.bits) = {
+      val edgeQuery = if (directions.bits == 0) {
+        NoAttr("edge_dirs")
+      } else {
+        AttrContains("edge_dirs", directions.code)
+      }
+      dawnLikeTiles.findTile(AttrContains("ground", "grass"), AttrContains("color", "leaf"), edgeQuery)
+    }
+  }
 
-  private val dirtTile: DawnLikeTile = floorAtlas(19, 1)
+  private val dirtTile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("ground", "dirt"), AttrContains("color", "ocher"), NoAttr("edge_dirs"))
   private val wallAtlas: DawnLikeAtlas = disposeLater { DawnLikeAtlas.loadStatic("Objects", "Wall") }
   private val wallTile: DawnLikeTile = wallAtlas(3, 3)
+
+
+  // MODEL //
 
   private val idGenerator = new Entity.IdGenerator
   private val worldSlice: WorldSlice = new WorldSlice
@@ -56,6 +50,19 @@ class WizbubGame extends ScopedApplicationListener {
 
   private val player1Entity = new PlayerEntity(idGenerator.freshId(), player1Tile)
   worldSlice(3, 3).asInstanceOf[GroundEntity].aboveEntity = player1Entity
+
+
+  // DISPLAY //
+
+  private var camera: OrthographicCamera = null
+  private var worldViewWidth: Int = -1
+  private var worldViewHeight: Int = -1
+  resizeCamera(Gdx.graphics.getWidth, Gdx.graphics.getHeight)
+
+  private val batch: SpriteBatch = disposeLater { new SpriteBatch() }
+
+
+  // INPUT //
 
   sealed trait Menu
   case object Top extends Menu
@@ -158,9 +165,9 @@ class WizbubGame extends ScopedApplicationListener {
         case ground: GroundEntity =>
           val tile = ground.kind match {
             case GroundEntity.Grass =>
-              def isNearbyGroundDirt(dx: Int, dy: Int): Boolean = {
-                val x = worldX + dx
-                val y = worldY + dy
+              def isNearbyGroundDirt(dir: Direction): Boolean = {
+                val x = worldX + dir.dx
+                val y = worldY + dir.dy
                 if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
                   false // Asume not-dirt if outside world bounds
                 } else {
@@ -172,13 +179,11 @@ class WizbubGame extends ScopedApplicationListener {
                   }
                 }
               }
-              val i = grassTileIndex(
-                isNearbyGroundDirt(0, -1),
-                isNearbyGroundDirt(1, 0),
-                isNearbyGroundDirt(0, 1),
-                isNearbyGroundDirt(-1, 0)
-              )
-              grassTiles(i)
+              var directionBits = 0
+              for (d <- Direction.all) {
+                if (isNearbyGroundDirt(d)) directionBits |= d.bit
+              }
+              grassTiles(directionBits)
             case GroundEntity.Dirt => dirtTile
           }
           tile.draw(batch, sceneX, sceneY)

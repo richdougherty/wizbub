@@ -17,7 +17,7 @@ class DawnLikeAtlas(name: String, textures: Array[Texture]) extends Disposable {
     textures.map(TextureRegion.split(_, 16, 16))
   }
   def apply(x: Int, y: Int): DawnLikeTile = {
-    val frames: Array[TextureRegion] = framesSplitIntoRegions.map(_(x)(y))
+    val frames: Array[TextureRegion] = framesSplitIntoRegions.map(_(y)(x))
     new DawnLikeTile(frames)
   }
   def dispose(): Unit = textures.foreach(_.dispose())

@@ -1491,13 +1491,6 @@
         }, 
         {
           "y": 3, 
-          "x": 2, 
-          "attrs": {
-            "nethack": "long worm tail"
-          }
-        }, 
-        {
-          "y": 3, 
           "x": 3, 
           "attrs": {
             "nethack": "baby purple worm"
@@ -1624,20 +1617,6 @@
         }, 
         {
           "y": 0, 
-          "x": 2, 
-          "attrs": {
-            "nethack": "ranger"
-          }
-        }, 
-        {
-          "y": 0, 
-          "x": 3, 
-          "attrs": {
-            "nethack": "gnome/archeologist"
-          }
-        }, 
-        {
-          "y": 0, 
           "x": 3, 
           "attrs": {
             "nethack": "thug"
@@ -1669,13 +1648,6 @@
           "x": 7, 
           "attrs": {
             "nethack": "abbot"
-          }
-        }, 
-        {
-          "y": 0, 
-          "x": 7, 
-          "attrs": {
-            "nethack": "gnome/wizard"
           }
         }, 
         {
@@ -1717,21 +1689,7 @@
           "y": 1, 
           "x": 5, 
           "attrs": {
-            "nethack": "gnome/caveman"
-          }
-        }, 
-        {
-          "y": 1, 
-          "x": 5, 
-          "attrs": {
             "nethack": "gnome/cavewoman"
-          }
-        }, 
-        {
-          "y": 1, 
-          "x": 6, 
-          "attrs": {
-            "nethack": "gnome/healer"
           }
         }, 
         {
@@ -1784,13 +1742,6 @@
           }
         }, 
         {
-          "y": 3, 
-          "x": 7, 
-          "attrs": {
-            "nethack": "wizard"
-          }
-        }, 
-        {
           "y": 4, 
           "x": 0, 
           "attrs": {
@@ -1809,13 +1760,6 @@
           "x": 2, 
           "attrs": {
             "nethack": "ninja"
-          }
-        }, 
-        {
-          "y": 4, 
-          "x": 2, 
-          "attrs": {
-            "nethack": "rogue"
           }
         }, 
         {
@@ -1890,13 +1834,6 @@
         }, 
         {
           "y": 7, 
-          "x": 2, 
-          "attrs": {
-            "nethack": "male/elf/ranger"
-          }
-        }, 
-        {
-          "y": 7, 
           "x": 4, 
           "attrs": {
             "nethack": "Norn"
@@ -1911,13 +1848,6 @@
         }, 
         {
           "y": 7, 
-          "x": 5, 
-          "attrs": {
-            "nethack": "Lord Sato"
-          }
-        }, 
-        {
-          "y": 7, 
           "x": 6, 
           "attrs": {
             "nethack": "Neferet the Green"
@@ -1928,13 +1858,6 @@
           "x": 7, 
           "attrs": {
             "nethack": "Grand Master"
-          }
-        }, 
-        {
-          "y": 7, 
-          "x": 7, 
-          "attrs": {
-            "nethack": "elf/priest"
           }
         }, 
         {
@@ -1974,13 +1897,6 @@
         }, 
         {
           "y": 8, 
-          "x": 4, 
-          "attrs": {
-            "nethack": "Pelias"
-          }
-        }, 
-        {
-          "y": 8, 
           "x": 5, 
           "attrs": {
             "nethack": "Shaman Karnov"
@@ -1990,21 +1906,7 @@
           "y": 8, 
           "x": 7, 
           "attrs": {
-            "nethack": "Arch Priest"
-          }
-        }, 
-        {
-          "y": 8, 
-          "x": 7, 
-          "attrs": {
             "nethack": "Twoflower"
-          }
-        }, 
-        {
-          "y": 11, 
-          "x": 0, 
-          "attrs": {
-            "nethack": "dwarf/caveman"
           }
         }, 
         {
@@ -7106,7 +7008,4492 @@
       "width": 21, 
       "height": 39, 
       "animated": false, 
-      "tiles": []
+      "tiles": [
+        {
+          "y": 3, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 5, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 12, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 19, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 6, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 11, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 12, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 13, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 18, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 19, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 20, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "sky", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "peach", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 5, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 12, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 6, 
+          "x": 19, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 4, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 5, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 6, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 11, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 12, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 13, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 18, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 19, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 7, 
+          "x": 20, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "slate", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "leaf", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 8, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 5, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 12, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 9, 
+          "x": 19, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 4, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 5, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 6, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 11, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 12, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 13, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 18, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 19, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 10, 
+          "x": 20, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "olive", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "olive", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 11, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 5, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 12, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 12, 
+          "x": 19, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 4, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 5, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 6, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 11, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 12, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 13, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 18, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 19, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 13, 
+          "x": 20, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 0, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 1, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 2, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 3, 
+          "attrs": {
+            "ground": "stone", 
+            "color": "iron", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 7, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 8, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 9, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 10, 
+          "attrs": {
+            "ground": "grass", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 14, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 15, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 16, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 14, 
+          "x": 17, 
+          "attrs": {
+            "ground": "rock", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "tl", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "t", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "tr", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "trl", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 5, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "trbl", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 12, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 15, 
+          "x": 19, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "l", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "r", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "rl", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 4, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "tbl", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 5, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "tb", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 6, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "trb", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 11, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 12, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 13, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 18, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 19, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 16, 
+          "x": 20, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "bl", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "b", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "rb", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "peach", 
+            "edge_dirs": "rbl", 
+            "edge_color": "maize"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "peach", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 17, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/maize", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "tl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "t", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "tr", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "trl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 5, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "trbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 12, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 18, 
+          "x": 19, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "l", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "r", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "rl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 4, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "tbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 5, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "tb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 6, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "trb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 11, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 12, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 13, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 18, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 19, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 19, 
+          "x": 20, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "bl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "b", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "rb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "ocher", 
+            "edge_dirs": "rbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "ocher", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 20, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "peppermint/sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "tl", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "t", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "tr", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "trl", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 5, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "trbl", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 12, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 21, 
+          "x": 19, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "l", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "r", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "rl", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 4, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "tbl", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 5, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "tb", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 6, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "trb", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 11, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 12, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 13, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 18, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 19, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 22, 
+          "x": 20, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "bl", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "b", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "rb", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "earth", 
+            "edge_dirs": "rbl", 
+            "edge_color": "berry"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "olive", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 23, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "sky", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "tl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "t", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "tr", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "trl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 5, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "trbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "t"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "trl"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 12, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 24, 
+          "x": 19, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "l", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "r", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "rl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 4, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "tbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 5, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "tb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 6, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "trb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "l"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "r"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 11, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 12, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 13, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 18, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 19, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 25, 
+          "x": 20, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 0, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "bl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 1, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "b", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 2, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "rb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 3, 
+          "attrs": {
+            "ground": "dirt", 
+            "color": "iron", 
+            "edge_dirs": "rbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 7, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 8, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "b"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 9, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 10, 
+          "attrs": {
+            "ground": "wood", 
+            "color": "earth", 
+            "edge_dirs": "rbl"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 14, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 15, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 16, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 26, 
+          "x": 17, 
+          "attrs": {
+            "ground": "sand", 
+            "color": "slate", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 27, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 27, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 27, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 27, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 27, 
+          "x": 5, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 28, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 28, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher"
+          }
+        }, 
+        {
+          "y": 28, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 28, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 28, 
+          "x": 4, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 28, 
+          "x": 5, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 28, 
+          "x": 6, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 29, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 29, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 29, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 29, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "ocher", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "peach"
+          }
+        }, 
+        {
+          "y": 30, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 30, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 30, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 30, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 30, 
+          "x": 5, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 31, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 31, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth"
+          }
+        }, 
+        {
+          "y": 31, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 31, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 31, 
+          "x": 4, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 31, 
+          "x": 5, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 31, 
+          "x": 6, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 32, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 32, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 32, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 32, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "earth", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "ocher"
+          }
+        }, 
+        {
+          "y": 33, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 33, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 33, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 33, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 33, 
+          "x": 5, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 34, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 34, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron"
+          }
+        }, 
+        {
+          "y": 34, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 34, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 34, 
+          "x": 4, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 34, 
+          "x": 5, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 34, 
+          "x": 6, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 35, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 35, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 35, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 35, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "iron", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "earth"
+          }
+        }, 
+        {
+          "y": 36, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "tl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 36, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "t", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 36, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "tr", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 36, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "trl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 36, 
+          "x": 5, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "trbl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 37, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "l", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 37, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight"
+          }
+        }, 
+        {
+          "y": 37, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "r", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 37, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "rl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 37, 
+          "x": 4, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "tbl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 37, 
+          "x": 5, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "tb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 37, 
+          "x": 6, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "trb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 38, 
+          "x": 0, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "bl", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 38, 
+          "x": 1, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "b", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 38, 
+          "x": 2, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "rb", 
+            "edge_color": "iron"
+          }
+        }, 
+        {
+          "y": 38, 
+          "x": 3, 
+          "attrs": {
+            "ground": "furrows", 
+            "color": "midnight", 
+            "edge": "dirt", 
+            "edge_dirs": "rbl", 
+            "edge_color": "iron"
+          }
+        }
+      ]
     }, 
     "Ground": {
       "width": 8, 
@@ -7501,13 +11888,6 @@
         }, 
         {
           "y": 6, 
-          "x": 7, 
-          "attrs": {
-            "nethack": "knox/walls *"
-          }
-        }, 
-        {
-          "y": 6, 
           "x": 14, 
           "attrs": {
             "nethack": [
@@ -7525,13 +11905,6 @@
           "x": 0, 
           "attrs": {
             "nethack": "rog/questgoal/walls *"
-          }
-        }, 
-        {
-          "y": 9, 
-          "x": 0, 
-          "attrs": {
-            "nethack": "sokoban/walls *"
           }
         }, 
         {
@@ -7635,13 +12008,6 @@
               "tou/questfill2/walls *", 
               "wiz/questfill1/walls *"
             ]
-          }
-        }, 
-        {
-          "y": 21, 
-          "x": 7, 
-          "attrs": {
-            "nethack": "kni/questhome/walls *"
           }
         }, 
         {

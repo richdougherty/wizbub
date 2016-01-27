@@ -14,23 +14,18 @@ import org.json4s.jackson.JsonMethods
 
 final case class Index(directories: Seq[Directory]) {
 
-  def findTile(attrs: (String, String)*): Index.Ref = {
-    val tiles = findTiles(attrs: _*)
-    if (tiles.size != 1) throw new RuntimeException(s"Expected 1 tile matching ${attrs.mkString}, got ${tiles.size}")
+  def findTile(queries: TileQuery*): Index.Ref = {
+    val tiles = findTiles(queries: _*)
+    if (tiles.size != 1) throw new RuntimeException(s"Expected 1 tile matching ${queries.mkString}, got ${tiles.size}")
     tiles.head
   }
-  def findTiles(attrs: (String, String)*): Seq[Index.Ref] = {
-    def tileHasAttr(tile: Tile, name: String, value: String): Boolean = {
-      tile.attributes.getOrElse(name, Seq.empty).contains(value)
-    }
-    def tileHasAllAttrs(tile: Tile): Boolean = {
-      attrs.forall { case (name, value) => tileHasAttr(tile, name, value) }
-    }
+  def findTiles(queries: TileQuery*): Seq[Index.Ref] = {
+    val allQuery = TileQuery.All(queries: _*)
     for {
       directory <- directories
       tileset <- directory.tilesets
       tile <- tileset.tiles
-      if tileHasAllAttrs(tile)
+      if allQuery.matches(tile.attributes)
     } yield {
       Index.Ref(directory.name, tileset.name, tile)
     }
@@ -98,6 +93,35 @@ object Index {
           case _ => throw new IOException("Directory entry must be a JSON object")
         })
       case _ => throw new IOException("JSON root must be an object")
+    }
+  }
+}
+
+/**
+ * A query that can be used to search for a tile.
+ */
+sealed trait TileQuery {
+  def matches(attrs: Map[String, Seq[String]]): Boolean
+}
+object TileQuery {
+  final case class All(queries: TileQuery*) extends TileQuery {
+    def matches(attrs: Map[String, Seq[String]]): Boolean = {
+      queries.foldLeft(true) {
+        case (result, query) => result && query.matches(attrs)
+      }
+    }
+  }
+  final case class AttrContains(name: String, value: String) extends TileQuery {
+    def matches(attrs: Map[String, Seq[String]]): Boolean = {
+      attrs.get(name) match {
+        case None => false
+        case Some(attrValues) => attrValues.contains(value)
+      }
+    }
+  }
+  final case class NoAttr(name: String) extends TileQuery {
+    def matches(attrs: Map[String, Seq[String]]): Boolean = {
+      !attrs.contains(name)
     }
   }
 }

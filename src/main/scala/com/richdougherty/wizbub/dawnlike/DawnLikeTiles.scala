@@ -34,8 +34,8 @@ final class DawnLikeTiles extends Disposable {
     atlases((directory, tileset))(x, y)
   }
 
-  def findTile(attrs: (String, String)*): DawnLikeTile = {
-    val ref = index.findTile(attrs: _*)
+  def findTile(queries: TileQuery*): DawnLikeTile = {
+    val ref = index.findTile(queries: _*)
     apply(ref.directory, ref.tileset, ref.tile.x, ref.tile.y)
   }
 

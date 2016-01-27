@@ -6,7 +6,7 @@
 # for PNG files and combines some special logic
 # to produce an index of all known tiles.
 
-import collections, json, os, re, struct, sys
+import collections, json, os, pprint, re, struct, sys
 
 # All data is read relative to the location of this
 # script file. The script file should be placed in
@@ -24,7 +24,7 @@ mapfile_path = os.path.join(curdir, 'nethack.map')
 
 # Store the parsed Nethack map file entries in this
 # list.
-nethack_mapping = []
+nethack_tile_attrs = collections.OrderedDict()
 
 with open(mapfile_path, 'r') as f:
 
@@ -70,7 +70,8 @@ with open(mapfile_path, 'r') as f:
     # Parse the tile index, which is in hex format.
     index = int(match.group(4), 16)
 
-    nethack_mapping.append((filename, index, names))
+    key = (filename, index)
+    nethack_tile_attrs[key] = names
 
 #######################################
 ### Read DawnLike tileset PNG files ###
@@ -123,6 +124,80 @@ for dirname in dirnames:
       record = (dirname, entry, dimensions, animated)
       tilesets.add(record)
 
+###############################################
+### Generate entries for floors, walls, etc ###
+###############################################
+
+generated_tile_attrs = collections.OrderedDict()
+
+floor_pattern = [
+  ['tl', 't', 'tr', 'trl', None, 'trbl', None],
+  ['l', 'fill', 'r', 'rl', 'tbl', 'tb', 'trb'],
+  ['bl', 'b', 'rb', 'rbl', None, None, None]
+]
+
+stone_colors = ('sky', 'slate', 'olive', 'iron')
+dirt_colors = ('peach', 'ocher', 'earth', 'iron')
+wood_colors = ('peach', 'ocher', 'olive', 'earth')
+
+floor_groups = [
+  [
+    ('stone', stone_colors, 'edge', stone_colors),
+    ('grass', ('sky', 'leaf', 'olive', 'midnight'), 'dirt', dirt_colors),
+    ('rock', dirt_colors, 'dirt', dirt_colors)
+  ],
+  [
+    ('dirt', dirt_colors, 'edge', ('maize', 'peach', 'berry', 'earth')),
+    ('wood', wood_colors, 'edge', wood_colors),
+    ('sand', ('peppermint/maize', 'peppermint/sky', 'sky', 'slate'), 'dirt', dirt_colors)
+  ],
+  [
+    ('furrows', ('ocher', 'earth', 'iron', 'midnight'), 'dirt', dirt_colors)
+  ]
+]
+
+skip_rows = 3 # Skip documentation at top of floor tileset
+num_color_rows_per_group = len(stone_colors)
+num_pattern_rows_per_color = len(floor_pattern)
+num_pattern_cols_per_group = len(floor_pattern[0])
+
+for group_row, group_row_list in enumerate(floor_groups):
+  for group_col, (main, main_colors, other, other_colors) in enumerate(group_row_list):
+    for color_row, (main_color, other_color) in enumerate(zip(main_colors, other_colors)):
+      # common stuff....
+      for pattern_row, pattern_row_list in enumerate(floor_pattern):
+        for pattern_col, pattern_code in enumerate(pattern_row_list):
+          if pattern_code is None:
+            continue
+
+          y = skip_rows + \
+            (group_row * num_color_rows_per_group * num_pattern_rows_per_color) + \
+            (color_row * num_pattern_rows_per_color) + \
+            pattern_row
+          x = (group_col * num_pattern_cols_per_group) + \
+            pattern_col
+
+          attrs = collections.OrderedDict()
+          attrs['ground'] = main
+          attrs['color'] = main_color
+
+          # If the pattern is not 'fill' then it has edges.
+          if pattern_code != 'fill':
+            if other != 'edge':
+              attrs['edge'] = other
+            attrs['edge_dirs'] = pattern_code
+            if other_color != main_color:
+              attrs['edge_color'] = other_color
+
+          key = ('Objects', 'Floor', y, x)
+          generated_tile_attrs[key] = attrs
+
+wall_pattern = [
+  ['rb', 'rl', 'bl', 'fill', 'rbl', None],
+  ['tb', 'pillar', None, 'trb', 'trbl', 'trb'],
+  ['tr', None, 'tl', None, 'trl', None]
+]
+
 ####################################
 ### Generate the JSON index file ###
 ####################################
@@ -158,32 +233,40 @@ for dirname in dirnames:
     tilelist_json = []
     tileset_json['tiles'] = tilelist_json
 
-    # Filter the Nethack tiles to get our entries. Sort the tiles by
-    # their index in the tilemap so that they end up grouped in a
-    # natural order.
-    nethack_tiles = sorted([t for t in nethack_mapping if t[0] == tileset])
-    for _, index, names in nethack_tiles:
-      tile_json = collections.OrderedDict()
-      tilelist_json.append(tile_json)
-      tile_x = index % tileset_width
-      tile_y = index / tileset_width
-      assert tile_y < tileset_height
-      # List y before x because that's the natural way to sort them.
-      tile_json['y'] = tile_y
-      tile_json['x'] = tile_x
+    for tile_y in xrange(tileset_height):
+      for tile_x in xrange(tileset_width):
+        tile_json = collections.OrderedDict()
 
-      # Store the Nethack mapping names as an attribute in each tile's
-      # JSON. This means we can look up the tiles by their Nethack name
-      # if we want.
-      attrs_json = collections.OrderedDict()
-      tile_json['attrs'] = attrs_json
+        # List y before x because that's the natural way to sort them.
+        tile_json['y'] = tile_y
+        tile_json['x'] = tile_x
 
-      # Attributes can be either a single string or an array of strings.
-      # Try to use a single string if possible.
-      if len(names) == 1:
-        nethack_attr_json = names[0]
-      else:
-        nethack_attr_json = names
-      attrs_json['nethack'] = nethack_attr_json
+        attrs_json = collections.OrderedDict()
+        tile_json['attrs'] = attrs_json
+
+        # Look to see if we have any Nethack names for this tile.
+        # If we do, set the names as an attribute on the tile.
+        nethack_key = (tileset, tile_y * tileset_width + tile_x)
+        nethack_names = nethack_tile_attrs.get(nethack_key, None)
+        if nethack_names is not None:
+          # Attributes can be either a single string or an array of strings.
+          # Try to use a single string if possible.
+          if len(nethack_names) == 1:
+            nethack_attr_json = nethack_names[0]
+          else:
+            nethack_attr_json = nethack_names
+          attrs_json['nethack'] = nethack_attr_json
+
+        # Look to see if we have any generated attributes for this
+        # tile. If we do, set them on the attributes.
+        generated_key = (dirname, tileset, tile_y, tile_x)
+        generated_attrs = generated_tile_attrs.get(generated_key, {})
+        # if len(generated_attrs) > 0: print generated_attrs
+        attrs_json.update(generated_attrs)
+
+        # Don't bother outputting the tile info unless we have some
+        # attributes.
+        if len(attrs_json) > 0:
+          tilelist_json.append(tile_json)
 
 print json.dumps(root_json, indent=2)

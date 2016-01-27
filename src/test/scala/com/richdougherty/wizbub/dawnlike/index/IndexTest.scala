@@ -3,6 +3,7 @@ package com.richdougherty.wizbub.dawnlike.index
 import com.badlogic.gdx.LifecycleListener
 import com.badlogic.gdx.backends.headless.{HeadlessApplication, HeadlessApplicationConfiguration}
 import com.richdougherty.wizbub.ScopedApplicationListener
+import com.richdougherty.wizbub.dawnlike.index.TileQuery.{AttrContains, NoAttr}
 import org.scalatest._
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.time.{Millis, Seconds, Span}
@@ -41,8 +42,25 @@ class IndexTest extends WordSpec with Matchers with ScalaFutures {
       index.directories.size should be (5)
     }
     "be able to find the Nethack 'neanderthal' tile in the right place" in withIndex { index: Index =>
-      index.findTile("nethack" -> "neanderthal") should be (Index.Ref(
+      index.findTile(AttrContains("nethack", "neanderthal")) should be (Index.Ref(
         "Characters", "Player", Tile(0, 0, Map("nethack" -> immutable.Seq("neanderthal")))
+      ))
+    }
+    "be able to find different ground tiles" in withIndex { index: Index =>
+      index.findTile(AttrContains("ground", "grass"), AttrContains("color", "leaf"), AttrContains("edge_dirs", "tl")) should be (Index.Ref(
+        "Objects", "Floor", Tile(7, 6,
+          Map(
+            "ground" -> List("grass"), "color" -> List("leaf"),
+            "edge" -> List("dirt"), "edge_color" -> List("ocher"), "edge_dirs" -> List("tl")
+          )
+        )
+      ))
+      index.findTile(AttrContains("ground", "grass"), AttrContains("color", "leaf"), NoAttr("edge_dirs")) should be (Index.Ref(
+        "Objects", "Floor", Tile(8, 7,
+          Map(
+            "ground" -> List("grass"), "color" -> List("leaf")
+          )
+        )
       ))
     }
   }
