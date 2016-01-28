@@ -55,6 +55,8 @@ class WizbubGame extends ScopedApplicationListener {
   // DISPLAY //
 
   private val worldCamera = new OrthographicCamera()
+  private var worldViewLeft: Int = 0
+  private var worldViewTop: Int = 0
   private var worldViewWidth: Int = -1
   private var worldViewHeight: Int = -1
 
@@ -120,6 +122,9 @@ class WizbubGame extends ScopedApplicationListener {
                         newGround.aboveEntity = player0Entity
                         player0X = newX
                         player0Y = newY
+                        worldCamera.position.x = player0X + 0.5f
+                        worldCamera.position.y = player0Y + 0.5f
+                        worldCamera.update()
                       case _ => ()
                     }
                   case _ => throw new IllegalStateException("Player entity missing")
@@ -172,43 +177,50 @@ class WizbubGame extends ScopedApplicationListener {
     // Draw world objects
 
     batch.setProjectionMatrix(worldCamera.combined)
-    for (worldX <- 0 until worldViewWidth; worldY <- 0 until worldViewHeight) {
-      val sceneX = worldX
-      val sceneY = worldY
-      def renderEntity(entity: Entity): Unit = entity match {
-        case null => ()
-        case ground: GroundEntity =>
-          val tile = ground.kind match {
-            case GroundEntity.Grass =>
-              def isNearbyGroundDirt(dir: Direction): Boolean = {
-                val x = worldX + dir.dx
-                val y = worldY + dir.dy
-                if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
-                  false // Assume not-dirt if outside world bounds
-                } else {
-                  worldSlice(x, y) match {
-                    case ground: GroundEntity =>
-                      ground.kind == GroundEntity.Dirt
-                    case _ =>
-                      false
+
+    val sceneLeft = Math.floor(worldCamera.position.x - worldCamera.viewportWidth/2).toInt
+    val sceneRight = Math.ceil(worldCamera.position.x + worldCamera.viewportWidth/2).toInt
+    val sceneTop = Math.floor(worldCamera.position.y - worldCamera.viewportHeight/2).toInt
+    val sceneBottom = Math.ceil(worldCamera.position.y + worldCamera.viewportHeight/2).toInt
+    for (sceneX <- sceneLeft to sceneRight; sceneY <- sceneTop to sceneBottom) {
+      val worldX = worldViewLeft + sceneX
+      val worldY = worldViewTop + sceneY
+      if (0 <= worldX && worldX < WorldSlice.SIZE && 0 <= worldY && worldY < WorldSlice.SIZE) {
+        def renderEntity(entity: Entity): Unit = entity match {
+          case null => ()
+          case ground: GroundEntity =>
+            val tile = ground.kind match {
+              case GroundEntity.Grass =>
+                def isNearbyGroundDirt(dir: Direction): Boolean = {
+                  val x = worldX + dir.dx
+                  val y = worldY + dir.dy
+                  if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
+                    false // Assume not-dirt if outside world bounds
+                  } else {
+                    worldSlice(x, y) match {
+                      case ground: GroundEntity =>
+                        ground.kind == GroundEntity.Dirt
+                      case _ =>
+                        false
+                    }
                   }
                 }
-              }
-              var directionBits = 0
-              for (d <- Direction.all) {
-                if (isNearbyGroundDirt(d)) directionBits |= d.bit
-              }
-              grassTiles(directionBits)
-            case GroundEntity.Dirt => dirtTile
-          }
-          tile.draw(batch, sceneX, sceneY)
-          renderEntity(ground.aboveEntity)
-        case wall: WallEntity =>
-          wallTile.draw(batch, sceneX, sceneY)
-        case player: PlayerEntity =>
-          player.tile.draw(batch, sceneX, sceneY)
+                var directionBits = 0
+                for (d <- Direction.all) {
+                  if (isNearbyGroundDirt(d)) directionBits |= d.bit
+                }
+                grassTiles(directionBits)
+              case GroundEntity.Dirt => dirtTile
+            }
+            tile.draw(batch, sceneX, sceneY)
+            renderEntity(ground.aboveEntity)
+          case wall: WallEntity =>
+            wallTile.draw(batch, sceneX, sceneY)
+          case player: PlayerEntity =>
+            player.tile.draw(batch, sceneX, sceneY)
+        }
+        renderEntity(worldSlice(worldX, worldY))
       }
-      renderEntity(worldSlice(worldX, worldY))
     }
 
     // Draw UI objects
@@ -226,8 +238,8 @@ class WizbubGame extends ScopedApplicationListener {
     val scale = 16f / Math.min(height, width)
     worldCamera.viewportWidth = width * scale
     worldCamera.viewportHeight = height * scale
-    worldCamera.position.x =  worldCamera.viewportWidth/2
-    worldCamera.position.y = worldCamera.viewportHeight/2
+    worldCamera.position.x = player0X + 0.5f
+    worldCamera.position.y = player0Y + 0.5f
     worldCamera.up.y = -1
     worldCamera.direction.z = 1
     worldCamera.update()
