@@ -204,37 +204,41 @@ class WizbubGame extends ScopedApplicationListener {
     val sceneBottom = Math.ceil(worldCamera.position.y + worldCamera.viewportHeight/2).toInt
     for (sceneX <- sceneLeft to sceneRight; sceneY <- sceneTop to sceneBottom) {
       if (0 <= sceneX && sceneX < WorldSlice.SIZE && 0 <= sceneY && sceneY < WorldSlice.SIZE) {
+        def renderGround(kind: GroundEntity.Kind): Unit = {
+          val tile = kind match {
+            case GroundEntity.Grass =>
+              def isNearbyGroundDirt(dir: Direction): Boolean = {
+                val x = sceneX + dir.dx
+                val y = sceneY + dir.dy
+                if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
+                  false // Assume not-dirt if outside world bounds
+                } else {
+                  worldSlice(x, y) match {
+                    case ground: GroundEntity =>
+                      ground.kind == GroundEntity.Dirt
+                    case _ =>
+                      false
+                  }
+                }
+              }
+              var directionBits = 0
+              for (d <- Direction.all) {
+                if (isNearbyGroundDirt(d)) directionBits |= d.bit
+              }
+              grassTiles(directionBits)
+            case GroundEntity.Dirt => dirtTile
+          }
+          tile.draw(batch, sceneX, sceneY)
+        }
         def renderEntity(entity: Entity): Unit = entity match {
           case null => ()
           case ground: GroundEntity =>
-            val tile = ground.kind match {
-              case GroundEntity.Grass =>
-                def isNearbyGroundDirt(dir: Direction): Boolean = {
-                  val x = sceneX + dir.dx
-                  val y = sceneY + dir.dy
-                  if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
-                    false // Assume not-dirt if outside world bounds
-                  } else {
-                    worldSlice(x, y) match {
-                      case ground: GroundEntity =>
-                        ground.kind == GroundEntity.Dirt
-                      case _ =>
-                        false
-                    }
-                  }
-                }
-                var directionBits = 0
-                for (d <- Direction.all) {
-                  if (isNearbyGroundDirt(d)) directionBits |= d.bit
-                }
-                grassTiles(directionBits)
-              case GroundEntity.Dirt => dirtTile
-            }
-            tile.draw(batch, sceneX, sceneY)
+            renderGround(ground.kind)
             renderEntity(ground.aboveEntity)
           case wall: WallEntity =>
             wallTile.draw(batch, sceneX, sceneY)
           case wall: TreeEntity =>
+            renderGround(GroundEntity.Grass)
             treeTile.draw(batch, sceneX, sceneY)
           case player: PlayerEntity =>
             player.tile.draw(batch, sceneX, sceneY)
