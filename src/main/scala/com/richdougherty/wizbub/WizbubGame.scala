@@ -29,8 +29,8 @@ class WizbubGame extends ScopedApplicationListener {
   }
 
   private val dirtTile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("ground", "dirt"), AttrContains("color", "ocher"), NoAttr("edge_dirs"))
-  private val wallAtlas: DawnLikeAtlas = disposeLater { DawnLikeAtlas.loadStatic("Objects", "Wall") }
-  private val wallTile: DawnLikeTile = wallAtlas(3, 3)
+  private val wallTile: DawnLikeTile = dawnLikeTiles("Objects", "Wall", 3, 3)
+  private val treeTile: DawnLikeTile = dawnLikeTiles("Objects", "Tree", 3, 3)
 
 
   // MODEL //
@@ -67,6 +67,7 @@ class WizbubGame extends ScopedApplicationListener {
   sealed trait Menu
   case object Top extends Menu
   case object BuildWall extends Menu
+  case object PlantTree extends Menu
 
   object DirectionKey {
     def unapply(keycode: Int): Option[Direction] = keycode match {
@@ -83,8 +84,9 @@ class WizbubGame extends ScopedApplicationListener {
 
   def setCurrentMenu(m: Menu): Unit = {
     val message = m match {
-      case Top => "Arrows = move, D = dirt, G = grass, W = build wall"
+      case Top => "Arrows = move, D = dirt, G = grass, T = plant tree, W = build wall"
       case BuildWall => "Esc = back, arrows = build wall"
+      case PlantTree => "Esc = back, arrows = plant tree"
     }
     currentMenu = m
     menuMessageGlyphs.setText(font, message)
@@ -133,6 +135,9 @@ class WizbubGame extends ScopedApplicationListener {
             case Keys.W =>
               setCurrentMenu(BuildWall)
               true
+            case Keys.T =>
+              setCurrentMenu(PlantTree)
+              true
             case _ => false
           }
         case BuildWall =>
@@ -153,6 +158,24 @@ class WizbubGame extends ScopedApplicationListener {
               }
             case _ => false
           }
+          case PlantTree =>
+            keycode match {
+              case Keys.ESCAPE =>
+                setCurrentMenu(Top)
+                true
+              case DirectionKey(dir) =>
+                val newX = player0X + dir.dx
+                val newY = player0Y + dir.dy
+                worldSlice(newX, newY) match {
+                  case oldGround: GroundEntity if oldGround.aboveEntity == null =>
+                    worldSlice(newX, newY) = new TreeEntity(idGenerator.freshId())
+                    WorldPickler.writeToFile(worldSlice)
+                    setCurrentMenu(Top)
+                    true
+                  case _ => false
+                }
+              case _ => false
+            }
       }
     }
   })
@@ -211,6 +234,8 @@ class WizbubGame extends ScopedApplicationListener {
             renderEntity(ground.aboveEntity)
           case wall: WallEntity =>
             wallTile.draw(batch, sceneX, sceneY)
+          case wall: TreeEntity =>
+            treeTile.draw(batch, sceneX, sceneY)
           case player: PlayerEntity =>
             player.tile.draw(batch, sceneX, sceneY)
         }
@@ -233,7 +258,6 @@ class WizbubGame extends ScopedApplicationListener {
     val pixelsPerTile = 16f * worldZoom
     worldCamera.viewportWidth = width / pixelsPerTile
     worldCamera.viewportHeight = height / pixelsPerTile
-    println(s"pixelsPerTile: ${pixelsPerTile}, worldCamera.viewportWidth: ${worldCamera.viewportWidth}, worldCamera.viewportHeight: ${worldCamera.viewportHeight}")
     worldCamera.position.x = player0X + 0.5f
     worldCamera.position.y = player0Y + 0.5f
     worldCamera.up.y = -1

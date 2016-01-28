@@ -13,6 +13,8 @@ object WorldPickler {
             case GroundEntity.Grass => 1
           }
         case wall: WallEntity => 2
+        case tree: TreeEntity => 3
+        case unknown => throw new IOException(s"Unexpected entity type when pickling ($x, $y): $unknown")
       }
       out.write(byte)
     }
@@ -21,9 +23,11 @@ object WorldPickler {
   def unpickle(worldSlice: WorldSlice, in: InputStream): Unit = {
     for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
       val entity: Entity = in.read() match {
+        case -1 => throw new IOException(s"Unexpected end of save file when unpickling ($x, $y)")
         case 0 => new GroundEntity(-1, GroundEntity.Dirt)
         case 1 => new GroundEntity(-1, GroundEntity.Grass)
         case 2 => new WallEntity(-1)
+        case 3 => new TreeEntity(-1)
       }
       worldSlice(x, y) = entity
     }

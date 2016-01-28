@@ -31,7 +31,7 @@ object Entity {
   }
 }
 
-abstract class Entity(final val id: Entity.Id) {
+sealed abstract class Entity(final val id: Entity.Id) {
   final def equals(that: Entity) = this.id == that.id
   final override def equals(that: AnyRef) = that match {
     case e: Entity => equals(e)
@@ -53,3 +53,4 @@ final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Ent
 final class PlayerEntity(id: Entity.Id, val tile: DawnLikeTile) extends Entity(id)
 
 final class WallEntity(id: Entity.Id) extends Entity(id)
+final class TreeEntity(id: Entity.Id) extends Entity(id)
