@@ -70,11 +70,11 @@ class WizbubGame extends ScopedApplicationListener {
   case object BuildWall extends Menu
 
   object DirectionKey {
-    def unapply(keycode: Int): Option[(Int, Int)] = keycode match {
-      case Keys.RIGHT => Some((1, 0))
-      case Keys.LEFT => Some((-1, 0))
-      case Keys.UP => Some((0, -1))
-      case Keys.DOWN => Some((0, 1))
+    def unapply(keycode: Int): Option[Direction] = keycode match {
+      case Keys.UP => Some(Direction.Top)
+      case Keys.RIGHT => Some(Direction.Right)
+      case Keys.DOWN => Some(Direction.Bottom)
+      case Keys.LEFT => Some(Direction.Left)
       case _ => None
     }
   }
@@ -96,23 +96,6 @@ class WizbubGame extends ScopedApplicationListener {
   Gdx.input.setInputProcessor(new InputAdapter {
     import Input.Keys
     override def keyDown(keycode: Int): Boolean = {
-      def move(dx: Int, dy: Int): Boolean = {
-        val newX = player0X + dx
-        val newY = player0Y + dy
-        worldSlice(player0X, player0Y) match {
-          case oldGround: GroundEntity if  oldGround.aboveEntity == player0Entity =>
-            worldSlice(newX, newY) match {
-              case newGround: GroundEntity if newGround.aboveEntity == null =>
-                oldGround.aboveEntity = null
-                newGround.aboveEntity = player0Entity
-                player0X = newX
-                player0Y = newY
-                true
-              case _ => false
-            }
-          case _ => throw new IllegalStateException("Player entity missing")
-        }
-      }
       def changeGroundKind(newKind: GroundEntity.Kind): Boolean = {
         worldSlice(player0X, player0Y) match {
           case ground: GroundEntity =>
@@ -125,7 +108,24 @@ class WizbubGame extends ScopedApplicationListener {
       currentMenu match {
         case Top =>
           keycode match {
-            case DirectionKey((dx, dy)) => move(dx, dy)
+            case DirectionKey(dir) =>
+              val newX = player0X + dir.dx
+              val newY = player0Y + dir.dy
+              if (0 <= newX && newX < WorldSlice.SIZE && 0 <= newY && newY < WorldSlice.SIZE) {
+                worldSlice(player0X, player0Y) match {
+                  case oldGround: GroundEntity if  oldGround.aboveEntity == player0Entity =>
+                    worldSlice(newX, newY) match {
+                      case newGround: GroundEntity if newGround.aboveEntity == null =>
+                        oldGround.aboveEntity = null
+                        newGround.aboveEntity = player0Entity
+                        player0X = newX
+                        player0Y = newY
+                      case _ => ()
+                    }
+                  case _ => throw new IllegalStateException("Player entity missing")
+                }
+              }
+              true
             case Keys.G => changeGroundKind(GroundEntity.Grass)
             case Keys.D => changeGroundKind(GroundEntity.Dirt)
             case Keys.W =>
@@ -138,9 +138,9 @@ class WizbubGame extends ScopedApplicationListener {
             case Keys.ESCAPE =>
               setCurrentMenu(Top)
               true
-            case DirectionKey((dx, dy)) =>
-              val newX = player0X + dx
-              val newY = player0Y + dy
+            case DirectionKey(dir) =>
+              val newX = player0X + dir.dx
+              val newY = player0Y + dir.dy
               worldSlice(newX, newY) match {
                 case oldGround: GroundEntity if oldGround.aboveEntity == null =>
                   worldSlice(newX, newY) = new WallEntity(idGenerator.freshId())
@@ -184,7 +184,7 @@ class WizbubGame extends ScopedApplicationListener {
                 val x = worldX + dir.dx
                 val y = worldY + dir.dy
                 if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
-                  false // Asume not-dirt if outside world bounds
+                  false // Assume not-dirt if outside world bounds
                 } else {
                   worldSlice(x, y) match {
                     case ground: GroundEntity =>
