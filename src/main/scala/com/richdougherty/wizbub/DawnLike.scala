@@ -1,6 +1,7 @@
 package com.richdougherty.wizbub
 
 import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.graphics.Texture.TextureFilter
 import com.badlogic.gdx.graphics.g2d.{SpriteBatch, TextureRegion}
 import com.badlogic.gdx.utils.Disposable
 
@@ -35,6 +36,7 @@ class DawnLikeAtlas(name: String, textures: Array[Texture]) extends Disposable {
 object DawnLikeAtlas {
   def loadStatic(folder: String, file: String): DawnLikeAtlas = {
     val texture = new Texture(s"dawnlike/$folder/$file.png")
+    texture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest)
     new DawnLikeAtlas(s"$folder:$file", Array(texture))
   }
   def loadAnimated(folder: String, file: String): DawnLikeAtlas = {

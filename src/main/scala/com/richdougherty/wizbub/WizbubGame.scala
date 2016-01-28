@@ -55,8 +55,7 @@ class WizbubGame extends ScopedApplicationListener {
   // DISPLAY //
 
   private val worldCamera = new OrthographicCamera()
-  private var worldViewWidth: Int = -1
-  private var worldViewHeight: Int = -1
+  private var worldZoom = 2f
 
   private val batch: SpriteBatch = disposeLater { new SpriteBatch() }
 
@@ -231,9 +230,10 @@ class WizbubGame extends ScopedApplicationListener {
   override def resize(width: Int, height: Int): Unit = {
     // The camera is scaled so it holds 16 world tiles in its smallest
     // dimension. Each camera unit square corresponds to a single tile.
-    val scale = 16f / Math.min(height, width)
-    worldCamera.viewportWidth = width * scale
-    worldCamera.viewportHeight = height * scale
+    val pixelsPerTile = 16f * worldZoom
+    worldCamera.viewportWidth = width / pixelsPerTile
+    worldCamera.viewportHeight = height / pixelsPerTile
+    println(s"pixelsPerTile: ${pixelsPerTile}, worldCamera.viewportWidth: ${worldCamera.viewportWidth}, worldCamera.viewportHeight: ${worldCamera.viewportHeight}")
     worldCamera.position.x = player0X + 0.5f
     worldCamera.position.y = player0Y + 0.5f
     worldCamera.up.y = -1
