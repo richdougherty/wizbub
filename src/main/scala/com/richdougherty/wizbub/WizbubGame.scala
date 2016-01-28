@@ -55,8 +55,6 @@ class WizbubGame extends ScopedApplicationListener {
   // DISPLAY //
 
   private val worldCamera = new OrthographicCamera()
-  private var worldViewLeft: Int = 0
-  private var worldViewTop: Int = 0
   private var worldViewWidth: Int = -1
   private var worldViewHeight: Int = -1
 
@@ -183,17 +181,15 @@ class WizbubGame extends ScopedApplicationListener {
     val sceneTop = Math.floor(worldCamera.position.y - worldCamera.viewportHeight/2).toInt
     val sceneBottom = Math.ceil(worldCamera.position.y + worldCamera.viewportHeight/2).toInt
     for (sceneX <- sceneLeft to sceneRight; sceneY <- sceneTop to sceneBottom) {
-      val worldX = worldViewLeft + sceneX
-      val worldY = worldViewTop + sceneY
-      if (0 <= worldX && worldX < WorldSlice.SIZE && 0 <= worldY && worldY < WorldSlice.SIZE) {
+      if (0 <= sceneX && sceneX < WorldSlice.SIZE && 0 <= sceneY && sceneY < WorldSlice.SIZE) {
         def renderEntity(entity: Entity): Unit = entity match {
           case null => ()
           case ground: GroundEntity =>
             val tile = ground.kind match {
               case GroundEntity.Grass =>
                 def isNearbyGroundDirt(dir: Direction): Boolean = {
-                  val x = worldX + dir.dx
-                  val y = worldY + dir.dy
+                  val x = sceneX + dir.dx
+                  val y = sceneY + dir.dy
                   if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
                     false // Assume not-dirt if outside world bounds
                   } else {
@@ -219,7 +215,7 @@ class WizbubGame extends ScopedApplicationListener {
           case player: PlayerEntity =>
             player.tile.draw(batch, sceneX, sceneY)
         }
-        renderEntity(worldSlice(worldX, worldY))
+        renderEntity(worldSlice(sceneX, sceneY))
       }
     }
 
@@ -243,10 +239,6 @@ class WizbubGame extends ScopedApplicationListener {
     worldCamera.up.y = -1
     worldCamera.direction.z = 1
     worldCamera.update()
-    // The world view size is the same as the camera size, rounded up
-    // so we include tiles that are partly visible to the camera.
-    worldViewWidth = Math.ceil(worldCamera.viewportWidth).toInt
-    worldViewHeight = Math.ceil(worldCamera.viewportHeight).toInt
 
     // The UI camera uses the same scale as the enclosing viewport
     uiCamera.viewportWidth = width
