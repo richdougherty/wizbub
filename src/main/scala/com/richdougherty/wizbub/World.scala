@@ -5,7 +5,7 @@ class World {
 }
 
 final object WorldSlice {
-  final val SIZE = 256
+  final val SIZE = 16
 }
 
 class WorldSlice {
@@ -41,8 +41,12 @@ sealed abstract class Entity(final val id: Entity.Id) {
 
 object GroundEntity {
   sealed trait Kind
-  case object Grass extends Kind
+  /** Plain old dirt. */
   case object Dirt extends Kind
+  /** Grass growing on top of dirt. */
+  case object Grass extends Kind
+  /** Dirt that was once grass, but has now been cut. */
+  case object CutGrass extends Kind
 }
 
 final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Entity(id) {
@@ -50,7 +54,7 @@ final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Ent
   var aboveEntity: Entity = null
 }
 
-final class PlayerEntity(id: Entity.Id, val tile: DawnLikeTile) extends Entity(id)
+final class PlayerEntity(id: Entity.Id, val playerNumber: Int) extends Entity(id)
 
 final class WallEntity(id: Entity.Id) extends Entity(id)
 final class TreeEntity(id: Entity.Id) extends Entity(id)

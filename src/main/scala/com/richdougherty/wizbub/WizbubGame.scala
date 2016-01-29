@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input.Keys
 import com.badlogic.gdx._
 import com.badlogic.gdx.graphics.g2d.{GlyphLayout, BitmapFont, SpriteBatch}
 import com.badlogic.gdx.graphics.{GL20, OrthographicCamera}
+import com.richdougherty.wizbub.GroundEntity.CutGrass
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
 import com.richdougherty.wizbub.dawnlike.index.TileQuery.{NoAttr, AttrContains}
 
@@ -13,8 +14,10 @@ class WizbubGame extends ScopedApplicationListener {
 
   val dawnLikeTiles = disposeLater { new DawnLikeTiles() }
 
-  private val player0Tile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("nethack", "neanderthal"))
-  private val player1Tile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("nethack", "archeologist"))
+  private val playerTiles = Array(
+    dawnLikeTiles.findTile(AttrContains("nethack", "neanderthal")),
+    dawnLikeTiles.findTile(AttrContains("nethack", "archeologist"))
+  )
 
   private val grassTiles: Array[DawnLikeTile] = new Array[DawnLikeTile](16)
   for (directions <- DirectionSet.combinations) {
@@ -38,24 +41,34 @@ class WizbubGame extends ScopedApplicationListener {
   private val idGenerator = new Entity.IdGenerator
   private val worldSlice: WorldSlice = new WorldSlice
 
+  // Generate default world
   for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
     worldSlice(x, y) = new GroundEntity(idGenerator.freshId(), GroundEntity.Grass)
   }
+  worldSlice(1, 1).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(idGenerator.freshId(), 0)
+  worldSlice(3, 3).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(idGenerator.freshId(), 1)
+  // If there's a save file overwrite the world with its contents
   WorldPickler.readFromFile(worldSlice)
 
-  private val player0Entity: Entity = new PlayerEntity(idGenerator.freshId(), player0Tile)
-  private var player0X: Int = 1
-  private var player0Y: Int = 1
-  worldSlice(player0X, player0Y).asInstanceOf[GroundEntity].aboveEntity = player0Entity
-
-  private val player1Entity = new PlayerEntity(idGenerator.freshId(), player1Tile)
-  worldSlice(3, 3).asInstanceOf[GroundEntity].aboveEntity = player1Entity
-
+  // HACK: Scan the world to get the location of Player 0
+  private var player0X: Int = -1
+  private var player0Y: Int = -1
+  for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
+    worldSlice(x, y) match {
+      case ground: GroundEntity =>
+        ground.aboveEntity match {
+          case player: PlayerEntity if player.playerNumber == 0 =>
+            player0X = x
+            player0Y = y
+          case _ => ()
+        }
+      case _ => ()
+    }
+  }
 
   // DISPLAY //
 
   private val worldCamera = new OrthographicCamera()
-  private var worldZoom = 2f
 
   private val batch: SpriteBatch = disposeLater { new SpriteBatch() }
 
@@ -114,19 +127,24 @@ class WizbubGame extends ScopedApplicationListener {
               val newY = player0Y + dir.dy
               if (0 <= newX && newX < WorldSlice.SIZE && 0 <= newY && newY < WorldSlice.SIZE) {
                 worldSlice(player0X, player0Y) match {
-                  case oldGround: GroundEntity if  oldGround.aboveEntity == player0Entity =>
-                    worldSlice(newX, newY) match {
-                      case newGround: GroundEntity if newGround.aboveEntity == null =>
-                        oldGround.aboveEntity = null
-                        newGround.aboveEntity = player0Entity
-                        player0X = newX
-                        player0Y = newY
-                        worldCamera.position.x = player0X + 0.5f
-                        worldCamera.position.y = player0Y + 0.5f
-                        worldCamera.update()
-                      case _ => ()
+                  case oldGround: GroundEntity =>
+                    assert(oldGround.aboveEntity != null)
+                    oldGround.aboveEntity match {
+                      case player: PlayerEntity if player.playerNumber == 0 =>
+                        worldSlice(newX, newY) match {
+                          case newGround: GroundEntity if newGround.aboveEntity == null =>
+                            newGround.aboveEntity = oldGround.aboveEntity
+                            oldGround.aboveEntity = null
+                            player0X = newX
+                            player0Y = newY
+                            worldCamera.position.x = player0X + 0.5f
+                            worldCamera.position.y = player0Y + 0.5f
+                            worldCamera.update()
+                          case _ => ()
+                        }
+                      case illegal => throw new IllegalStateException(s"Expected player 0 at ${(player0X, player0Y)}: $illegal")
                     }
-                  case _ => throw new IllegalStateException("Player entity missing")
+                  case illegal => throw new IllegalStateException(s"Expected player 0 to be standing on a ground tile at ${(player0X, player0Y)}: $illegal")
                 }
               }
               true
@@ -149,8 +167,9 @@ class WizbubGame extends ScopedApplicationListener {
               val newX = player0X + dir.dx
               val newY = player0Y + dir.dy
               worldSlice(newX, newY) match {
-                case oldGround: GroundEntity if oldGround.aboveEntity == null =>
-                  worldSlice(newX, newY) = new WallEntity(idGenerator.freshId())
+                case ground: GroundEntity if ground.aboveEntity == null =>
+                  if (ground.kind == GroundEntity.Grass) ground.kind = CutGrass // Building a wall cuts the grass
+                  ground.aboveEntity = new WallEntity(idGenerator.freshId())
                   WorldPickler.writeToFile(worldSlice)
                   setCurrentMenu(Top)
                   true
@@ -167,8 +186,8 @@ class WizbubGame extends ScopedApplicationListener {
                 val newX = player0X + dir.dx
                 val newY = player0Y + dir.dy
                 worldSlice(newX, newY) match {
-                  case oldGround: GroundEntity if oldGround.aboveEntity == null =>
-                    worldSlice(newX, newY) = new TreeEntity(idGenerator.freshId())
+                  case ground: GroundEntity if ground.aboveEntity == null =>
+                    ground.aboveEntity = new TreeEntity(idGenerator.freshId())
                     WorldPickler.writeToFile(worldSlice)
                     setCurrentMenu(Top)
                     true
@@ -227,6 +246,7 @@ class WizbubGame extends ScopedApplicationListener {
               }
               grassTiles(directionBits)
             case GroundEntity.Dirt => dirtTile
+            case GroundEntity.CutGrass => dirtTile
           }
           tile.draw(batch, sceneX, sceneY)
         }
@@ -235,13 +255,12 @@ class WizbubGame extends ScopedApplicationListener {
           case ground: GroundEntity =>
             renderGround(ground.kind)
             renderEntity(ground.aboveEntity)
-          case wall: WallEntity =>
+          case _: WallEntity =>
             wallTile.draw(batch, sceneX, sceneY)
-          case wall: TreeEntity =>
-            renderGround(GroundEntity.Grass)
+          case _: TreeEntity =>
             treeTile.draw(batch, sceneX, sceneY)
           case player: PlayerEntity =>
-            player.tile.draw(batch, sceneX, sceneY)
+            playerTiles(player.playerNumber).draw(batch, sceneX, sceneY)
         }
         renderEntity(worldSlice(sceneX, sceneY))
       }
@@ -259,6 +278,7 @@ class WizbubGame extends ScopedApplicationListener {
   override def resize(width: Int, height: Int): Unit = {
     // The camera is scaled so it holds 16 world tiles in its smallest
     // dimension. Each camera unit square corresponds to a single tile.
+    val worldZoom = 2f
     val pixelsPerTile = 16f * worldZoom
     worldCamera.viewportWidth = width / pixelsPerTile
     worldCamera.viewportHeight = height / pixelsPerTile
