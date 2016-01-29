@@ -223,28 +223,25 @@ class WizbubGame extends ScopedApplicationListener {
     val sceneBottom = Math.ceil(worldCamera.position.y + worldCamera.viewportHeight/2).toInt
     for (sceneX <- sceneLeft to sceneRight; sceneY <- sceneTop to sceneBottom) {
       if (0 <= sceneX && sceneX < WorldSlice.SIZE && 0 <= sceneY && sceneY < WorldSlice.SIZE) {
+
+        def getNearbyEntity(dx: Int, dy: Int): Entity = worldSlice.getOrNull(sceneX + dx, sceneY + dy)
+        def filterNearby(f: Entity => Boolean): DirectionSet = {
+          var directionBits = 0
+          for (dir <- Direction.all) {
+            val dirMatches: Boolean = f(getNearbyEntity(dir.dx, dir.dy))
+            if (dirMatches) directionBits |= dir.bit
+          }
+          DirectionSet(directionBits)
+        }
+
         def renderGround(kind: GroundEntity.Kind): Unit = {
           val tile = kind match {
             case GroundEntity.Grass =>
-              def isNearbyGroundDirt(dir: Direction): Boolean = {
-                val x = sceneX + dir.dx
-                val y = sceneY + dir.dy
-                if (x < 0 || x >= WorldSlice.SIZE || y < 0 || y >= WorldSlice.SIZE) {
-                  false // Assume not-dirt if outside world bounds
-                } else {
-                  worldSlice(x, y) match {
-                    case ground: GroundEntity =>
-                      ground.kind == GroundEntity.Dirt
-                    case _ =>
-                      false
-                  }
-                }
+              val surroundingDirt: DirectionSet = filterNearby {
+                case ground: GroundEntity =>  ground.kind == GroundEntity.Dirt
+                case _ => false
               }
-              var directionBits = 0
-              for (d <- Direction.all) {
-                if (isNearbyGroundDirt(d)) directionBits |= d.bit
-              }
-              grassTiles(directionBits)
+              grassTiles(surroundingDirt.bits)
             case GroundEntity.Dirt => dirtTile
             case GroundEntity.CutGrass => dirtTile
           }
@@ -258,6 +255,21 @@ class WizbubGame extends ScopedApplicationListener {
           case _: WallEntity =>
             wallTile.draw(batch, sceneX, sceneY)
           case _: TreeEntity =>
+            // If there's are trees above and to the left then draw a tree between
+            // this tree and that one. This will fill in the gap between the trees
+            // and create a 'forest'.
+            def isTree(dx: Int, dy: Int): Boolean = getNearbyEntity(dx, dy) match {
+              case ground: GroundEntity =>
+                ground.aboveEntity match {
+                  case _: TreeEntity => true
+                  case _ => false
+                }
+              case _ => false
+            }
+            if (isTree(-1, 0) && isTree(-1, -1) && isTree(0, -1)) {
+              treeTile.draw(batch, sceneX - 0.5f, sceneY - 0.5f)
+            }
+            // Draw the main tree
             treeTile.draw(batch, sceneX, sceneY)
           case player: PlayerEntity =>
             playerTiles(player.playerNumber).draw(batch, sceneX, sceneY)

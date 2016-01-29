@@ -16,6 +16,10 @@ class WorldSlice {
   private def entityIndex(x: Int, y: Int): Int = x * SIZE + y
   /** Access to the entities array. */
   def apply(x: Int, y: Int): Entity = entities(entityIndex(x, y))
+  def getOrNull(x: Int, y: Int): Entity = {
+    val i = entityIndex(x, y)
+    if (0 <= i && i < entities.length) entities(i) else null
+  }
   def update(x: Int, y: Int, e: Entity) = entities(entityIndex(x, y)) = e
 }
 
