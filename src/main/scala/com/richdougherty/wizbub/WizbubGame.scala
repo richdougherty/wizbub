@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input.Keys
 import com.badlogic.gdx._
 import com.badlogic.gdx.graphics.g2d.{GlyphLayout, BitmapFont, SpriteBatch}
 import com.badlogic.gdx.graphics.{GL20, OrthographicCamera}
+import com.richdougherty.wizbub.Compass.{Principal, PrincipalSet}
 import com.richdougherty.wizbub.GroundEntity.CutGrass
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
 import com.richdougherty.wizbub.dawnlike.index.TileQuery.{NoAttr, AttrContains}
@@ -32,6 +33,8 @@ class WizbubGame extends ScopedApplicationListener {
   }
 
   private val dirtTile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("ground", "dirt"), AttrContains("color", "ocher"), NoAttr("edge_dirs"))
+
+  private val wallTiles = new WallTiling(dawnLikeTiles)
   private val wallTile: DawnLikeTile = dawnLikeTiles("Objects", "Wall", 3, 3)
   private val treeTile: DawnLikeTile = dawnLikeTiles("Objects", "Tree", 3, 3)
 
@@ -225,7 +228,7 @@ class WizbubGame extends ScopedApplicationListener {
       if (0 <= sceneX && sceneX < WorldSlice.SIZE && 0 <= sceneY && sceneY < WorldSlice.SIZE) {
 
         def getNearbyEntity(dx: Int, dy: Int): Entity = worldSlice.getOrNull(sceneX + dx, sceneY + dy)
-        def filterNearby(f: Entity => Boolean): DirectionSet = {
+        def filterCardinalPoints(f: Entity => Boolean): DirectionSet = {
           var directionBits = 0
           for (dir <- Direction.all) {
             val dirMatches: Boolean = f(getNearbyEntity(dir.dx, dir.dy))
@@ -233,11 +236,19 @@ class WizbubGame extends ScopedApplicationListener {
           }
           DirectionSet(directionBits)
         }
+        def filterPrincipalPoints(f: Entity => Boolean): PrincipalSet = {
+          var bits = 0
+          for (p <- Principal.all) {
+            val matches: Boolean = f(getNearbyEntity(p.dx, p.dy))
+            if (matches) bits |= p.bit
+          }
+          PrincipalSet(bits)
+        }
 
         def renderGround(kind: GroundEntity.Kind): Unit = {
           val tile = kind match {
             case GroundEntity.Grass =>
-              val surroundingDirt: DirectionSet = filterNearby {
+              val surroundingDirt: DirectionSet = filterCardinalPoints {
                 case ground: GroundEntity =>  ground.kind == GroundEntity.Dirt
                 case _ => false
               }
@@ -253,7 +264,15 @@ class WizbubGame extends ScopedApplicationListener {
             renderGround(ground.kind)
             renderEntity(ground.aboveEntity)
           case _: WallEntity =>
-            wallTile.draw(batch, sceneX, sceneY)
+            val surroundingWalls: PrincipalSet = filterPrincipalPoints{
+              case ground: GroundEntity =>
+                ground.aboveEntity match {
+                  case _: WallEntity => true
+                  case _ => false
+                }
+              case _ => false
+            }
+            wallTiles(surroundingWalls).draw(batch, sceneX, sceneY)
           case _: TreeEntity =>
             // If there's are trees above and to the left then draw a tree between
             // this tree and that one. This will fill in the gap between the trees

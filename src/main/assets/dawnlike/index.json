@@ -11849,7 +11849,45 @@
               "rog/questfill1/walls *", 
               "rog/questfill2/walls *", 
               "val/questhome/walls *"
-            ]
+            ], 
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "rb"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 1, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "rl"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 2, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "bl"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 3, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint"
+          }
+        }, 
+        {
+          "y": 3, 
+          "x": 4, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "rbl"
           }
         }, 
         {
@@ -11870,6 +11908,78 @@
               "tou/questlocate/walls *", 
               "tou/questgoal/walls *"
             ]
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 0, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "tb"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 1, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": ""
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 3, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "trb"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 4, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "trbl"
+          }
+        }, 
+        {
+          "y": 4, 
+          "x": 5, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "tbl"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 0, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "tr"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 2, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "tl"
+          }
+        }, 
+        {
+          "y": 5, 
+          "x": 4, 
+          "attrs": {
+            "wall": "stone", 
+            "color": "sky/peppermint", 
+            "wall_dirs": "trl"
           }
         }, 
         {

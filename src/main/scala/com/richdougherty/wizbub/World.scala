@@ -5,7 +5,7 @@ class World {
 }
 
 final object WorldSlice {
-  final val SIZE = 16
+  final val SIZE = 256
 }
 
 class WorldSlice {

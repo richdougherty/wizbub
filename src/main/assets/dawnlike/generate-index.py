@@ -165,8 +165,8 @@ for group_row, group_row_list in enumerate(floor_groups):
   for group_col, (main, main_colors, other, other_colors) in enumerate(group_row_list):
     for color_row, (main_color, other_color) in enumerate(zip(main_colors, other_colors)):
       # common stuff....
-      for pattern_row, pattern_row_list in enumerate(floor_pattern):
-        for pattern_col, pattern_code in enumerate(pattern_row_list):
+      for pattern_row, pattern_row_cols in enumerate(floor_pattern):
+        for pattern_col, pattern_code in enumerate(pattern_row_cols):
           if pattern_code is None:
             continue
 
@@ -194,9 +194,32 @@ for group_row, group_row_list in enumerate(floor_groups):
 
 wall_pattern = [
   ['rb', 'rl', 'bl', 'fill', 'rbl', None],
-  ['tb', 'pillar', None, 'trb', 'trbl', 'trb'],
+  ['tb', 'pillar', None, 'trb', 'trbl', 'tbl'],
   ['tr', None, 'tl', None, 'trl', None]
 ]
+
+wall_skip_rows = len(wall_pattern)
+
+for pattern_row, pattern_row_cols in enumerate(wall_pattern):
+  for pattern_col, pattern_code in enumerate(pattern_row_cols):
+    if pattern_code is None: continue
+
+    abs_row = wall_skip_rows + pattern_row
+    abs_col = pattern_col
+
+    attrs = collections.OrderedDict()
+    attrs['wall'] = 'stone'
+    attrs['color'] = 'sky/peppermint'
+
+    if pattern_code == 'fill':
+      pass
+    elif pattern_code == 'pillar':
+      attrs['wall_dirs'] = '' # Has walls, but not in any direction
+    else:
+      attrs['wall_dirs'] = pattern_code
+
+    key = ('Objects', 'Wall', abs_row, abs_col)
+    generated_tile_attrs[key] = attrs
 
 ####################################
 ### Generate the JSON index file ###
