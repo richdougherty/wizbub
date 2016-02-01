@@ -39,6 +39,8 @@ class WizbubGame extends ScopedApplicationListener {
   private val dirtTile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("ground", "dirt"), AttrContains("color", "ocher"), NoAttr("edge_dirs"))
 
   private val wallTiles = new WallTiling(dawnLikeTiles)
+  private val closedDoorTile = dawnLikeTiles("Objects", "Door", 0, 0).singleFrameTile(0)
+  private val openDoorTile = dawnLikeTiles("Objects", "Door", 0, 0).singleFrameTile(1)
   private val treeTile: DawnLikeTile = dawnLikeTiles("Objects", "Tree", 3, 3)
   class ForestDrawable extends Drawable {
     override def draw(batch: SpriteBatch, x: Float, y: Float): Unit = {
@@ -47,7 +49,6 @@ class WizbubGame extends ScopedApplicationListener {
     }
   }
   private val forestDrawable: Drawable = new ForestDrawable
-
 
   // THREAD POOLS //
 
@@ -104,8 +105,7 @@ class WizbubGame extends ScopedApplicationListener {
 
   sealed trait Menu
   case object Top extends Menu
-  case object BuildWall extends Menu
-  case object PlantTree extends Menu
+  case class BuildMenu(desc: String, create: () => Entity) extends Menu
 
   object DirectionKey {
     def unapply(keycode: Int): Option[Direction] = keycode match {
@@ -123,8 +123,7 @@ class WizbubGame extends ScopedApplicationListener {
   def setCurrentMenu(m: Menu): Unit = {
     val message = m match {
       case Top => "Arrows = move, D = dirt, G = grass, T = plant tree, W = build wall"
-      case BuildWall => "Esc = back, arrows = build wall"
-      case PlantTree => "Esc = back, arrows = plant tree"
+      case BuildMenu(desc, _) => s"Esc = back, arrows = $desc"
     }
     currentMenu = m
     menuMessageGlyphs.setText(font, message)
@@ -143,6 +142,15 @@ class WizbubGame extends ScopedApplicationListener {
       val f = worldPickler.writeToFile(worldSlice)
     case w: Writing =>
       w.pendingWrite = true
+  }
+
+  object BuildKey {
+    def unapply(keycode: Int): Option[BuildMenu] = keycode match {
+      case Keys.W => Some(BuildMenu("build wall", () => new WallEntity(-1)))
+      case Keys.T => Some(BuildMenu("plant tree", () => new TreeEntity(-1)))
+      case Keys.O => Some(BuildMenu("build door", () => new DoorEntity(-1, open=false)))
+      case _ => None
+    }
   }
 
   // Hacky support for moving player0 with arrow keys
@@ -178,41 +186,36 @@ class WizbubGame extends ScopedApplicationListener {
             case DirectionKey(dir) =>
               val newX = player0X + dir.dx
               val newY = player0Y + dir.dy
-              if (0 <= newX && newX < WorldSlice.SIZE && 0 <= newY && newY < WorldSlice.SIZE) {
-                worldSlice(player0X, player0Y) match {
-                  case oldGround: GroundEntity =>
-                    assert(oldGround.aboveEntity != null)
-                    oldGround.aboveEntity match {
-                      case player: PlayerEntity if player.playerNumber == 0 =>
-                        worldSlice(newX, newY) match {
-                          case newGround: GroundEntity if newGround.aboveEntity == null =>
-                            newGround.aboveEntity = oldGround.aboveEntity
-                            oldGround.aboveEntity = null
-                            invalidateCachedEntityDrawables(player0X, player0Y)
-                            player0X = newX
-                            player0Y = newY
-                            worldCamera.position.x = player0X + 0.5f
-                            worldCamera.position.y = player0Y + 0.5f
-                            worldCamera.update()
-                          case _ => ()
-                        }
-                      case illegal => throw new IllegalStateException(s"Expected player 0 at ${(player0X, player0Y)}: $illegal")
-                    }
-                  case illegal => throw new IllegalStateException(s"Expected player 0 to be standing on a ground tile at ${(player0X, player0Y)}: $illegal")
-                }
+              worldSlice.getOrNull(player0X, player0Y) match {
+                case oldGround: GroundEntity =>
+                  assert(oldGround.aboveEntity != null)
+                  oldGround.aboveEntity match {
+                    case player: PlayerEntity if player.playerNumber == 0 =>
+                      worldSlice.getOrNull(newX, newY) match {
+                        case newGround: GroundEntity if newGround.aboveEntity == null =>
+                          newGround.aboveEntity = oldGround.aboveEntity
+                          oldGround.aboveEntity = null
+                          invalidateCachedEntityDrawables(player0X, player0Y)
+                          player0X = newX
+                          player0Y = newY
+                          worldCamera.position.x = player0X + 0.5f
+                          worldCamera.position.y = player0Y + 0.5f
+                          worldCamera.update()
+                        case _ => ()
+                      }
+                    case illegal => throw new IllegalStateException(s"Expected player 0 at ${(player0X, player0Y)}: $illegal")
+                  }
+                case illegal => throw new IllegalStateException(s"Expected player 0 to be standing on a ground tile at ${(player0X, player0Y)}: $illegal")
               }
               true
             case Keys.G => changeGroundKind(GroundEntity.Grass)
             case Keys.D => changeGroundKind(GroundEntity.Dirt)
-            case Keys.W =>
-              setCurrentMenu(BuildWall)
-              true
-            case Keys.T =>
-              setCurrentMenu(PlantTree)
+            case BuildKey(buildMenu) =>
+              setCurrentMenu(buildMenu)
               true
             case _ => false
           }
-        case BuildWall =>
+        case BuildMenu(_, buildEntity) =>
           keycode match {
             case Keys.ESCAPE =>
               setCurrentMenu(Top)
@@ -223,7 +226,7 @@ class WizbubGame extends ScopedApplicationListener {
               worldSlice(newX, newY) match {
                 case ground: GroundEntity if ground.aboveEntity == null =>
                   if (ground.kind == GroundEntity.Grass) ground.kind = CutGrass // Building a wall cuts the grass
-                  ground.aboveEntity = new WallEntity(idGenerator.freshId())
+                  ground.aboveEntity = buildEntity()
                   invalidateCachedEntityDrawables(player0X, player0Y)
                   scheduleSave()
                   setCurrentMenu(Top)
@@ -232,25 +235,6 @@ class WizbubGame extends ScopedApplicationListener {
               }
             case _ => false
           }
-          case PlantTree =>
-            keycode match {
-              case Keys.ESCAPE =>
-                setCurrentMenu(Top)
-                true
-              case DirectionKey(dir) =>
-                val newX = player0X + dir.dx
-                val newY = player0Y + dir.dy
-                worldSlice(newX, newY) match {
-                  case ground: GroundEntity if ground.aboveEntity == null =>
-                    ground.aboveEntity = new TreeEntity(idGenerator.freshId())
-                    invalidateCachedEntityDrawables(player0X, player0Y)
-                    scheduleSave()
-                    setCurrentMenu(Top)
-                    true
-                  case _ => false
-                }
-              case _ => false
-            }
       }
     }
   })
@@ -366,6 +350,8 @@ class WizbubGame extends ScopedApplicationListener {
           }
           // Draw the main tree
           treeTile.draw(batch, sceneX, sceneY)
+        case door: DoorEntity =>
+          renderCachedOrElse(door) { if (door.open) openDoorTile else closedDoorTile }
         case player: PlayerEntity =>
           renderCachedOrElse(player) { playerTiles(player.playerNumber) }
       }

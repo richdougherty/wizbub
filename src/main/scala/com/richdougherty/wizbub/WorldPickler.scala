@@ -27,6 +27,9 @@ class WorldPickler(implicit exec: ExecutionContext) {
           out.writeInt(player.playerNumber)
         case _: WallEntity => out.writeByte(2)
         case _: TreeEntity => out.writeByte(3)
+        case door: DoorEntity =>
+          out.writeByte(4)
+          out.writeBoolean(door.open)
         case unknown => throw new IOException(s"Unexpected entity type when pickling ($x, $y): $unknown")
       }
       writeEntity(worldSlice(x, y))
@@ -50,6 +53,9 @@ class WorldPickler(implicit exec: ExecutionContext) {
           new PlayerEntity(-1, playerNumber)
         case 2 => new WallEntity(-1)
         case 3 => new TreeEntity(-1)
+        case 4 =>
+          val open = in.readBoolean()
+          new DoorEntity(-1, open)
       }
       try {
         worldSlice(x, y) = readEntity()

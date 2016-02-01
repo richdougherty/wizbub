@@ -63,3 +63,4 @@ final class PlayerEntity(id: Entity.Id, val playerNumber: Int) extends Entity(id
 
 final class WallEntity(id: Entity.Id) extends Entity(id)
 final class TreeEntity(id: Entity.Id) extends Entity(id)
+final class DoorEntity(id: Entity.Id, var open: Boolean) extends Entity(id)

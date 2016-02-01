@@ -10,6 +10,12 @@ trait Drawable {
 }
 
 class DawnLikeTile(frames: Array[TextureRegion]) extends Drawable {
+  /**
+   * Create a new DawnLikeTile from a single frame of this tile.
+   */
+  def singleFrameTile(i: Int): DawnLikeTile = {
+    new DawnLikeTile(Array(frames(i)))
+  }
   override def draw(batch: SpriteBatch, x: Float, y: Float): Unit = {
     val frameIndex = ((System.currentTimeMillis / 300) % frames.length).toInt
     val frame: TextureRegion = frames(frameIndex)
