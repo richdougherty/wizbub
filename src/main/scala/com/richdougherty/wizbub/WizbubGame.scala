@@ -1,13 +1,18 @@
 package com.richdougherty.wizbub
 
+import java.util.concurrent.{TimeUnit, Executors, ThreadPoolExecutor}
+
 import com.badlogic.gdx.Input.Keys
 import com.badlogic.gdx._
 import com.badlogic.gdx.graphics.g2d.{GlyphLayout, BitmapFont, SpriteBatch}
-import com.badlogic.gdx.graphics.{GL20, OrthographicCamera}
+import com.badlogic.gdx.graphics.{FPSLogger, GL20, OrthographicCamera}
+import com.badlogic.gdx.utils.Disposable
 import com.richdougherty.wizbub.Compass.{Principal, PrincipalSet}
 import com.richdougherty.wizbub.GroundEntity.CutGrass
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
 import com.richdougherty.wizbub.dawnlike.index.TileQuery.{NoAttr, AttrContains}
+
+import scala.concurrent.{ExecutionContextExecutor, ExecutionContext, Future}
 
 class WizbubGame extends ScopedApplicationListener {
 
@@ -35,11 +40,20 @@ class WizbubGame extends ScopedApplicationListener {
   private val dirtTile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("ground", "dirt"), AttrContains("color", "ocher"), NoAttr("edge_dirs"))
 
   private val wallTiles = new WallTiling(dawnLikeTiles)
-  private val wallTile: DawnLikeTile = dawnLikeTiles("Objects", "Wall", 3, 3)
   private val treeTile: DawnLikeTile = dawnLikeTiles("Objects", "Tree", 3, 3)
 
+  // THREAD POOLS //
+
+  val threadPoolExecutor = Executors.newCachedThreadPool()
+  addDisposeLogic {
+    threadPoolExecutor.shutdown()
+    threadPoolExecutor.awaitTermination(30, TimeUnit.SECONDS)
+  }
+  val threadPoolExecutionContext = ExecutionContext.fromExecutor(threadPoolExecutor)
 
   // MODEL //
+
+  val worldPickler = new WorldPickler()(threadPoolExecutionContext)
 
   private val idGenerator = new Entity.IdGenerator
   private val worldSlice: WorldSlice = new WorldSlice
@@ -51,7 +65,7 @@ class WizbubGame extends ScopedApplicationListener {
   worldSlice(1, 1).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(idGenerator.freshId(), 0)
   worldSlice(3, 3).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(idGenerator.freshId(), 1)
   // If there's a save file overwrite the world with its contents
-  WorldPickler.readFromFile(worldSlice)
+  worldPickler.readFromFile(worldSlice)
 
   // HACK: Scan the world to get the location of Player 0
   private var player0X: Int = -1
@@ -77,6 +91,7 @@ class WizbubGame extends ScopedApplicationListener {
 
   private val uiCamera = new OrthographicCamera()
   private val font = disposeLater { new BitmapFont() }
+  private val fpsLogger = new FPSLogger()
 
   // INPUT //
 
@@ -109,6 +124,20 @@ class WizbubGame extends ScopedApplicationListener {
   }
   setCurrentMenu(Top)
 
+  trait SaveFileState
+  case object NotWriting extends SaveFileState
+  case class Writing(writeToFileFuture: Future[Unit]) extends SaveFileState {
+    var pendingWrite: Boolean = false
+  }
+  var saveFileState: SaveFileState = NotWriting
+
+  def scheduleSave(): Unit = saveFileState match {
+    case NotWriting =>
+      val f = worldPickler.writeToFile(worldSlice)
+    case w: Writing =>
+      w.pendingWrite = true
+  }
+
   // Hacky support for moving player0 with arrow keys
   Gdx.input.setInputProcessor(new InputAdapter {
     import Input.Keys
@@ -117,7 +146,7 @@ class WizbubGame extends ScopedApplicationListener {
         worldSlice(player0X, player0Y) match {
           case ground: GroundEntity =>
             ground.kind = newKind
-            WorldPickler.writeToFile(worldSlice)
+            scheduleSave()
             true
           case _ => false
         }
@@ -173,7 +202,7 @@ class WizbubGame extends ScopedApplicationListener {
                 case ground: GroundEntity if ground.aboveEntity == null =>
                   if (ground.kind == GroundEntity.Grass) ground.kind = CutGrass // Building a wall cuts the grass
                   ground.aboveEntity = new WallEntity(idGenerator.freshId())
-                  WorldPickler.writeToFile(worldSlice)
+                  scheduleSave()
                   setCurrentMenu(Top)
                   true
                 case _ => false
@@ -191,7 +220,7 @@ class WizbubGame extends ScopedApplicationListener {
                 worldSlice(newX, newY) match {
                   case ground: GroundEntity if ground.aboveEntity == null =>
                     ground.aboveEntity = new TreeEntity(idGenerator.freshId())
-                    WorldPickler.writeToFile(worldSlice)
+                    scheduleSave()
                     setCurrentMenu(Top)
                     true
                   case _ => false
@@ -212,6 +241,18 @@ class WizbubGame extends ScopedApplicationListener {
   }
 
   override def render(): Unit = {
+
+    saveFileState match {
+      case NotWriting => ()
+      case w: Writing =>
+        if (w.writeToFileFuture.isCompleted) {
+          saveFileState = NotWriting
+          if (w.pendingWrite) {
+            scheduleSave()
+          }
+        }
+    }
+
     Gdx.gl.glClearColor(0, 0, 0, 1)
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
     batch.begin()
@@ -304,6 +345,9 @@ class WizbubGame extends ScopedApplicationListener {
     font.draw(batch, menuMessageGlyphs, uiCamera.viewportWidth/2 - menuMessageGlyphs.width/2, font.getData.lineHeight + 10)
 
     batch.end()
+
+    // Log a message about the game's frame rate once per second
+    fpsLogger.log()
   }
 
   override def resize(width: Int, height: Int): Unit = {

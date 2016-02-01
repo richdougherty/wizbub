@@ -14,6 +14,12 @@ class ScopedApplicationListener extends Disposable {
     d
   }
 
+  protected def addDisposeLogic(f: => Unit): Unit = {
+    disposeLater(new Disposable {
+      override def dispose(): Unit = f
+    })
+  }
+
   def resize(width: Int, height: Int): Unit = ()
 
   def pause(): Unit = ()

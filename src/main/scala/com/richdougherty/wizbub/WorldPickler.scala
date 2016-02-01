@@ -2,7 +2,9 @@ package com.richdougherty.wizbub
 
 import java.io._
 
-object WorldPickler {
+import scala.concurrent.{Future, ExecutionContext}
+
+class WorldPickler(implicit exec: ExecutionContext) {
 
   def pickle(worldSlice: WorldSlice, out: DataOutput): Unit = {
     for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
@@ -58,12 +60,20 @@ object WorldPickler {
     }
   }
 
-  def writeToFile(worldSlice: WorldSlice): Unit = {
-    val dir = ApplicationDataDir.get
-    if (!dir.exists()) { dir.mkdir() }
-    val savefile = new File(dir, "savefile")
-    val out = new FileOutputStream(savefile)
-    try pickle(worldSlice, new DataOutputStream(out)) finally out.close()
+  def writeToFile(worldSlice: WorldSlice): Future[Unit] = {
+    // Synchronously pickle the slice state into a byte array.
+    val baos = new ByteArrayOutputStream()
+    try pickle(worldSlice, new DataOutputStream(baos)) finally baos.close()
+    // Asynchronously write the byte array to a file
+    Future {
+      val dir = ApplicationDataDir.get
+      if (!dir.exists()) {
+        dir.mkdir()
+      }
+      val savefile = new File(dir, "savefile")
+      val out = new FileOutputStream(savefile)
+      try baos.writeTo(out) finally out.close()
+    }
   }
 
   def readFromFile(worldSlice: WorldSlice): Unit = {
