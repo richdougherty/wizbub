@@ -5,8 +5,12 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter
 import com.badlogic.gdx.graphics.g2d.{SpriteBatch, TextureRegion}
 import com.badlogic.gdx.utils.Disposable
 
-class DawnLikeTile(frames: Array[TextureRegion]) {
-  def draw(batch: SpriteBatch, x: Float, y: Float): Unit = {
+trait Drawable {
+  def draw(batch: SpriteBatch, x: Float, y: Float): Unit
+}
+
+class DawnLikeTile(frames: Array[TextureRegion]) extends Drawable {
+  override def draw(batch: SpriteBatch, x: Float, y: Float): Unit = {
     val frameIndex = ((System.currentTimeMillis / 300) % frames.length).toInt
     val frame: TextureRegion = frames(frameIndex)
     // Draw the tile with width and height of 1 because we use a camera that

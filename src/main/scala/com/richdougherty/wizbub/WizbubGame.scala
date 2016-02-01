@@ -1,18 +1,17 @@
 package com.richdougherty.wizbub
 
-import java.util.concurrent.{TimeUnit, Executors, ThreadPoolExecutor}
+import java.util.concurrent.{Executors, TimeUnit}
 
 import com.badlogic.gdx.Input.Keys
 import com.badlogic.gdx._
-import com.badlogic.gdx.graphics.g2d.{GlyphLayout, BitmapFont, SpriteBatch}
+import com.badlogic.gdx.graphics.g2d.{BitmapFont, GlyphLayout, SpriteBatch}
 import com.badlogic.gdx.graphics.{FPSLogger, GL20, OrthographicCamera}
-import com.badlogic.gdx.utils.Disposable
 import com.richdougherty.wizbub.Compass.{Principal, PrincipalSet}
 import com.richdougherty.wizbub.GroundEntity.CutGrass
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
-import com.richdougherty.wizbub.dawnlike.index.TileQuery.{NoAttr, AttrContains}
+import com.richdougherty.wizbub.dawnlike.index.TileQuery.{AttrContains, NoAttr}
 
-import scala.concurrent.{ExecutionContextExecutor, ExecutionContext, Future}
+import scala.concurrent.{ExecutionContext, Future}
 
 class WizbubGame extends ScopedApplicationListener {
 
@@ -41,6 +40,14 @@ class WizbubGame extends ScopedApplicationListener {
 
   private val wallTiles = new WallTiling(dawnLikeTiles)
   private val treeTile: DawnLikeTile = dawnLikeTiles("Objects", "Tree", 3, 3)
+  class ForestDrawable extends Drawable {
+    override def draw(batch: SpriteBatch, x: Float, y: Float): Unit = {
+      treeTile.draw(batch, x - 0.5f, y - 0.5f)
+      treeTile.draw(batch, x, y)
+    }
+  }
+  private val forestDrawable: Drawable = new ForestDrawable
+
 
   // THREAD POOLS //
 
@@ -142,10 +149,24 @@ class WizbubGame extends ScopedApplicationListener {
   Gdx.input.setInputProcessor(new InputAdapter {
     import Input.Keys
     override def keyDown(keycode: Int): Boolean = {
+      def invalidateCachedEntityDrawables(x: Int, y: Int): Unit = {
+        def invalidateEntity(entity: Entity): Unit = entity match {
+          case null => ()
+          case ground: GroundEntity =>
+            entity.drawable = null
+            invalidateEntity(ground.aboveEntity)
+          case _ =>
+            entity.drawable = null
+        }
+        for (dx <- -2 to 2; dy <- -2 to 2) {
+          invalidateEntity(worldSlice.getOrNull(x + dx, y + dy))
+        }
+      }
       def changeGroundKind(newKind: GroundEntity.Kind): Boolean = {
         worldSlice(player0X, player0Y) match {
           case ground: GroundEntity =>
             ground.kind = newKind
+            invalidateCachedEntityDrawables(player0X, player0Y)
             scheduleSave()
             true
           case _ => false
@@ -167,6 +188,7 @@ class WizbubGame extends ScopedApplicationListener {
                           case newGround: GroundEntity if newGround.aboveEntity == null =>
                             newGround.aboveEntity = oldGround.aboveEntity
                             oldGround.aboveEntity = null
+                            invalidateCachedEntityDrawables(player0X, player0Y)
                             player0X = newX
                             player0Y = newY
                             worldCamera.position.x = player0X + 0.5f
@@ -202,6 +224,7 @@ class WizbubGame extends ScopedApplicationListener {
                 case ground: GroundEntity if ground.aboveEntity == null =>
                   if (ground.kind == GroundEntity.Grass) ground.kind = CutGrass // Building a wall cuts the grass
                   ground.aboveEntity = new WallEntity(idGenerator.freshId())
+                  invalidateCachedEntityDrawables(player0X, player0Y)
                   scheduleSave()
                   setCurrentMenu(Top)
                   true
@@ -220,6 +243,7 @@ class WizbubGame extends ScopedApplicationListener {
                 worldSlice(newX, newY) match {
                   case ground: GroundEntity if ground.aboveEntity == null =>
                     ground.aboveEntity = new TreeEntity(idGenerator.freshId())
+                    invalidateCachedEntityDrawables(player0X, player0Y)
                     scheduleSave()
                     setCurrentMenu(Top)
                     true
@@ -266,46 +290,52 @@ class WizbubGame extends ScopedApplicationListener {
     val sceneTop = Math.floor(worldCamera.position.y - worldCamera.viewportHeight/2).toInt
     val sceneBottom = Math.ceil(worldCamera.position.y + worldCamera.viewportHeight/2).toInt
     for (sceneX <- sceneLeft to sceneRight; sceneY <- sceneTop to sceneBottom) {
-      if (0 <= sceneX && sceneX < WorldSlice.SIZE && 0 <= sceneY && sceneY < WorldSlice.SIZE) {
 
-        def getNearbyEntity(dx: Int, dy: Int): Entity = worldSlice.getOrNull(sceneX + dx, sceneY + dy)
-        def filterCardinalPoints(f: Entity => Boolean): DirectionSet = {
-          var directionBits = 0
-          for (dir <- Direction.all) {
-            val dirMatches: Boolean = f(getNearbyEntity(dir.dx, dir.dy))
-            if (dirMatches) directionBits |= dir.bit
-          }
-          DirectionSet(directionBits)
+      def getNearbyEntity(dx: Int, dy: Int): Entity = worldSlice.getOrNull(sceneX + dx, sceneY + dy)
+      def filterCardinalPoints(f: Entity => Boolean): DirectionSet = {
+        var directionBits = 0
+        for (dir <- Direction.all) {
+          val dirMatches: Boolean = f(getNearbyEntity(dir.dx, dir.dy))
+          if (dirMatches) directionBits |= dir.bit
         }
-        def filterPrincipalPoints(f: Entity => Boolean): PrincipalSet = {
-          var bits = 0
-          for (p <- Principal.all) {
-            val matches: Boolean = f(getNearbyEntity(p.dx, p.dy))
-            if (matches) bits |= p.bit
-          }
-          PrincipalSet(bits)
+        DirectionSet(directionBits)
+      }
+      def filterPrincipalPoints(f: Entity => Boolean): PrincipalSet = {
+        var bits = 0
+        for (p <- Principal.all) {
+          val matches: Boolean = f(getNearbyEntity(p.dx, p.dy))
+          if (matches) bits |= p.bit
         }
+        PrincipalSet(bits)
+      }
 
-        def renderGround(kind: GroundEntity.Kind): Unit = {
-          val tile = kind match {
-            case GroundEntity.Grass =>
-              val surroundingDirt: DirectionSet = filterCardinalPoints {
-                case ground: GroundEntity =>  ground.kind == GroundEntity.Dirt
-                case _ => false
-              }
-              grassTiles(surroundingDirt.bits)
-            case GroundEntity.Dirt => dirtTile
-            case GroundEntity.CutGrass => dirtTile
-          }
-          tile.draw(batch, sceneX, sceneY)
+      def renderCachedOrElse(entity: Entity)(getDrawable: => Drawable): Unit = {
+        if (entity.drawable == null) {
+          entity.drawable = getDrawable
+          assert(entity.drawable != null)
         }
-        def renderEntity(entity: Entity): Unit = entity match {
-          case null => ()
-          case ground: GroundEntity =>
-            renderGround(ground.kind)
-            renderEntity(ground.aboveEntity)
-          case _: WallEntity =>
-            val surroundingWalls: PrincipalSet = filterPrincipalPoints{
+        entity.drawable.draw(batch, sceneX, sceneY)
+      }
+      def renderGround(kind: GroundEntity.Kind): Drawable = {
+        kind match {
+          case GroundEntity.Grass =>
+            val surroundingDirt: DirectionSet = filterCardinalPoints {
+              case ground: GroundEntity =>  ground.kind == GroundEntity.Dirt
+              case _ => false
+            }
+            grassTiles(surroundingDirt.bits)
+          case GroundEntity.Dirt => dirtTile
+          case GroundEntity.CutGrass => dirtTile
+        }
+      }
+      def renderEntity(entity: Entity): Unit = entity match {
+        case null => ()
+        case ground: GroundEntity =>
+          renderCachedOrElse(ground) { renderGround(ground.kind) }
+          renderEntity(ground.aboveEntity)
+        case wall: WallEntity =>
+          renderCachedOrElse(wall) {
+            val surroundingWalls: PrincipalSet = filterPrincipalPoints {
               case ground: GroundEntity =>
                 ground.aboveEntity match {
                   case _: WallEntity => true
@@ -313,8 +343,10 @@ class WizbubGame extends ScopedApplicationListener {
                 }
               case _ => false
             }
-            wallTiles(surroundingWalls).draw(batch, sceneX, sceneY)
-          case _: TreeEntity =>
+            wallTiles(surroundingWalls)
+          }
+        case tree: TreeEntity =>
+          renderCachedOrElse(tree) {
             // If there's are trees above and to the left then draw a tree between
             // this tree and that one. This will fill in the gap between the trees
             // and create a 'forest'.
@@ -327,15 +359,17 @@ class WizbubGame extends ScopedApplicationListener {
               case _ => false
             }
             if (isTree(-1, 0) && isTree(-1, -1) && isTree(0, -1)) {
-              treeTile.draw(batch, sceneX - 0.5f, sceneY - 0.5f)
+              forestDrawable
+            } else {
+              treeTile
             }
-            // Draw the main tree
-            treeTile.draw(batch, sceneX, sceneY)
-          case player: PlayerEntity =>
-            playerTiles(player.playerNumber).draw(batch, sceneX, sceneY)
-        }
-        renderEntity(worldSlice(sceneX, sceneY))
+          }
+          // Draw the main tree
+          treeTile.draw(batch, sceneX, sceneY)
+        case player: PlayerEntity =>
+          renderCachedOrElse(player) { playerTiles(player.playerNumber) }
       }
+      renderEntity(worldSlice.getOrNull(sceneX, sceneY))
     }
 
     // Draw UI objects

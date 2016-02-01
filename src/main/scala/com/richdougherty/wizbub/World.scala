@@ -15,10 +15,10 @@ class WorldSlice {
   /** Convert entity coordinates into a location in the entities array. */
   private def entityIndex(x: Int, y: Int): Int = x * SIZE + y
   /** Access to the entities array. */
+  def inBounds(x: Int, y: Int): Boolean = { 0 <= x && y < WorldSlice.SIZE && 0 <= y && y < WorldSlice.SIZE }
   def apply(x: Int, y: Int): Entity = entities(entityIndex(x, y))
   def getOrNull(x: Int, y: Int): Entity = {
-    val i = entityIndex(x, y)
-    if (0 <= i && i < entities.length) entities(i) else null
+    if (inBounds(x, y)) apply(x, y) else null
   }
   def update(x: Int, y: Int, e: Entity) = entities(entityIndex(x, y)) = e
 }
@@ -41,6 +41,7 @@ sealed abstract class Entity(final val id: Entity.Id) {
     case e: Entity => equals(e)
     case _ => false
   }
+  var drawable: Drawable = null
 }
 
 object GroundEntity {
