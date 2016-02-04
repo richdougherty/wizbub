@@ -39,8 +39,10 @@ class WizbubGame extends ScopedApplicationListener {
   private val dirtTile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("ground", "dirt"), AttrContains("color", "ocher"), NoAttr("edge_dirs"))
 
   private val wallTiles = new WallTiling(dawnLikeTiles)
-  private val closedDoorTile = dawnLikeTiles("Objects", "Door", 0, 0).singleFrameTile(0)
-  private val openDoorTile = dawnLikeTiles("Objects", "Door", 0, 0).singleFrameTile(1)
+  private val horzClosedDoorTile = dawnLikeTiles("Objects", "Door", 0, 0).singleFrameTile(0)
+  private val horzOpenDoorTile = dawnLikeTiles("Objects", "Door", 0, 0).singleFrameTile(1)
+  private val vertClosedDoorTile = dawnLikeTiles("Objects", "Door", 1, 0).singleFrameTile(0)
+  private val vertOpenDoorTile = dawnLikeTiles("Objects", "Door", 1, 0).singleFrameTile(1)
   private val treeTile: DawnLikeTile = dawnLikeTiles("Objects", "Tree", 3, 3)
   class ForestDrawable extends Drawable {
     override def draw(batch: SpriteBatch, x: Float, y: Float): Unit = {
@@ -105,7 +107,8 @@ class WizbubGame extends ScopedApplicationListener {
 
   sealed trait Menu
   case object Top extends Menu
-  case class BuildMenu(desc: String, create: () => Entity) extends Menu
+  case object ActionMenu extends Menu
+  case class BuildMenu(desc: String, create: () => Entity, clearsGround: Boolean) extends Menu
 
   object DirectionKey {
     def unapply(keycode: Int): Option[Direction] = keycode match {
@@ -123,7 +126,8 @@ class WizbubGame extends ScopedApplicationListener {
   def setCurrentMenu(m: Menu): Unit = {
     val message = m match {
       case Top => "Arrows = move, D = dirt, G = grass, T = plant tree, W = build wall"
-      case BuildMenu(desc, _) => s"Esc = back, arrows = $desc"
+      case ActionMenu => s"Esc = back, arrows = pick action"
+      case BuildMenu(desc, _, _) => s"Esc = back, arrows = $desc"
     }
     currentMenu = m
     menuMessageGlyphs.setText(font, message)
@@ -146,9 +150,9 @@ class WizbubGame extends ScopedApplicationListener {
 
   object BuildKey {
     def unapply(keycode: Int): Option[BuildMenu] = keycode match {
-      case Keys.W => Some(BuildMenu("build wall", () => new WallEntity(-1)))
-      case Keys.T => Some(BuildMenu("plant tree", () => new TreeEntity(-1)))
-      case Keys.O => Some(BuildMenu("build door", () => new DoorEntity(-1, open=false)))
+      case Keys.W => Some(BuildMenu("build wall", () => new WallEntity(-1), clearsGround = true))
+      case Keys.T => Some(BuildMenu("plant tree", () => new TreeEntity(-1), clearsGround = false))
+      case Keys.O => Some(BuildMenu("build door", () => new DoorEntity(-1, open=false), clearsGround = false))
       case _ => None
     }
   }
@@ -206,6 +210,9 @@ class WizbubGame extends ScopedApplicationListener {
                             case door: DoorEntity if !door.open =>
                               door.open = true
                               invalidateCachedEntityDrawables(newX, newY)
+                            case door: DoorEntity if door.open =>
+                              // TODO: Move player through door.
+                            case _ => ()
                           }
                         case _ => ()
                       }
@@ -214,6 +221,9 @@ class WizbubGame extends ScopedApplicationListener {
                 case illegal => throw new IllegalStateException(s"Expected player 0 to be standing on a ground tile at ${(player0X, player0Y)}: $illegal")
               }
               true
+            case Keys.A =>
+              setCurrentMenu(ActionMenu)
+              true
             case Keys.G => changeGroundKind(GroundEntity.Grass)
             case Keys.D => changeGroundKind(GroundEntity.Dirt)
             case BuildKey(buildMenu) =>
@@ -221,7 +231,29 @@ class WizbubGame extends ScopedApplicationListener {
               true
             case _ => false
           }
-        case BuildMenu(_, buildEntity) =>
+        case ActionMenu =>
+          keycode match {
+            case Keys.ESCAPE =>
+              setCurrentMenu(Top)
+              true
+            case DirectionKey(dir) =>
+              val newX = player0X + dir.dx
+              val newY = player0Y + dir.dy
+              worldSlice(newX, newY) match {
+                case ground: GroundEntity =>
+                  ground.aboveEntity match {
+                    case door: DoorEntity =>
+                      door.open = !door.open
+                      invalidateCachedEntityDrawables(newX, newY)
+                      setCurrentMenu(Top)
+                    case _ => ()
+                  }
+                case _ => ()
+              }
+              true
+            case _ => false
+          }
+        case BuildMenu(_, buildEntity, clearsGround) =>
           keycode match {
             case Keys.ESCAPE =>
               setCurrentMenu(Top)
@@ -231,14 +263,14 @@ class WizbubGame extends ScopedApplicationListener {
               val newY = player0Y + dir.dy
               worldSlice(newX, newY) match {
                 case ground: GroundEntity if ground.aboveEntity == null =>
-                  if (ground.kind == GroundEntity.Grass) ground.kind = CutGrass // Building a wall cuts the grass
+                  if (clearsGround && ground.kind == GroundEntity.Grass) ground.kind = CutGrass // Building a wall cuts the grass
                   ground.aboveEntity = buildEntity()
                   invalidateCachedEntityDrawables(player0X, player0Y)
                   scheduleSave()
                   setCurrentMenu(Top)
-                  true
-                case _ => false
+                case _ => ()
               }
+              true
             case _ => false
           }
       }
@@ -282,6 +314,7 @@ class WizbubGame extends ScopedApplicationListener {
     for (sceneX <- sceneLeft to sceneRight; sceneY <- sceneTop to sceneBottom) {
 
       def getNearbyEntity(dx: Int, dy: Int): Entity = worldSlice.getOrNull(sceneX + dx, sceneY + dy)
+      def getEntityInDir(dir: Direction): Entity = worldSlice.getOrNull(sceneX + dir.dx, sceneY + dir.dy)
       def filterCardinalPoints(f: Entity => Boolean): DirectionSet = {
         var directionBits = 0
         for (dir <- Direction.all) {
@@ -318,6 +351,15 @@ class WizbubGame extends ScopedApplicationListener {
           case GroundEntity.CutGrass => dirtTile
         }
       }
+      def entityJoinsWall(entity: Entity): Boolean = entity match {
+        case ground: GroundEntity =>
+          ground.aboveEntity match {
+            case _: WallEntity => true
+            case _: DoorEntity => true
+            case _ => false
+          }
+        case _ => false
+      }
       def renderEntity(entity: Entity): Unit = entity match {
         case null => ()
         case ground: GroundEntity =>
@@ -325,14 +367,7 @@ class WizbubGame extends ScopedApplicationListener {
           renderEntity(ground.aboveEntity)
         case wall: WallEntity =>
           renderCachedOrElse(wall) {
-            val surroundingWalls: PrincipalSet = filterPrincipalPoints {
-              case ground: GroundEntity =>
-                ground.aboveEntity match {
-                  case _: WallEntity => true
-                  case _ => false
-                }
-              case _ => false
-            }
+            val surroundingWalls: PrincipalSet = filterPrincipalPoints(entityJoinsWall)
             wallTiles(surroundingWalls)
           }
         case tree: TreeEntity =>
@@ -357,7 +392,14 @@ class WizbubGame extends ScopedApplicationListener {
           // Draw the main tree
           treeTile.draw(batch, sceneX, sceneY)
         case door: DoorEntity =>
-          renderCachedOrElse(door) { if (door.open) openDoorTile else closedDoorTile }
+          renderCachedOrElse(door) {
+            def joinInDir(dir: Direction): Boolean = entityJoinsWall(getEntityInDir(dir))
+            if (joinInDir(Direction.Left) || joinInDir(Direction.Right) || !(joinInDir(Direction.Top) || joinInDir(Direction.Bottom))) {
+              if (door.open) horzOpenDoorTile else horzClosedDoorTile
+            } else {
+              if (door.open) vertOpenDoorTile else vertClosedDoorTile
+            }
+          }
         case player: PlayerEntity =>
           renderCachedOrElse(player) { playerTiles(player.playerNumber) }
       }
