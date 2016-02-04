@@ -192,15 +192,21 @@ class WizbubGame extends ScopedApplicationListener {
                   oldGround.aboveEntity match {
                     case player: PlayerEntity if player.playerNumber == 0 =>
                       worldSlice.getOrNull(newX, newY) match {
-                        case newGround: GroundEntity if newGround.aboveEntity == null =>
-                          newGround.aboveEntity = oldGround.aboveEntity
-                          oldGround.aboveEntity = null
-                          invalidateCachedEntityDrawables(player0X, player0Y)
-                          player0X = newX
-                          player0Y = newY
-                          worldCamera.position.x = player0X + 0.5f
-                          worldCamera.position.y = player0Y + 0.5f
-                          worldCamera.update()
+                        case newGround: GroundEntity =>
+                          newGround.aboveEntity match {
+                            case null =>
+                              newGround.aboveEntity = oldGround.aboveEntity
+                              oldGround.aboveEntity = null
+                              invalidateCachedEntityDrawables(player0X, player0Y)
+                              player0X = newX
+                              player0Y = newY
+                              worldCamera.position.x = player0X + 0.5f
+                              worldCamera.position.y = player0Y + 0.5f
+                              worldCamera.update()
+                            case door: DoorEntity if !door.open =>
+                              door.open = true
+                              invalidateCachedEntityDrawables(newX, newY)
+                          }
                         case _ => ()
                       }
                     case illegal => throw new IllegalStateException(s"Expected player 0 at ${(player0X, player0Y)}: $illegal")
