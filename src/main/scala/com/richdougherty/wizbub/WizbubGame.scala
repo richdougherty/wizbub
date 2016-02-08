@@ -109,6 +109,7 @@ class WizbubGame extends ScopedApplicationListener {
   sealed trait Menu
   case object Top extends Menu
   case object ActionMenu extends Menu
+  case object BreakMenu extends Menu
   case class BuildMenu(desc: String, create: () => Entity, clearsGround: Boolean) extends Menu
 
   object DirectionKey {
@@ -126,8 +127,9 @@ class WizbubGame extends ScopedApplicationListener {
 
   def setCurrentMenu(m: Menu): Unit = {
     val message = m match {
-      case Top => "Arrows = move, D = dirt, G = grass, T = plant tree, W = build wall"
+      case Top => "Arrows = move, D = dirt, G = grass, T = tree, W = wall, O = door, B = break"
       case ActionMenu => s"Esc = back, arrows = pick action"
+      case BreakMenu => "Esc = back, arrows = break"
       case BuildMenu(desc, _, _) => s"Esc = back, arrows = $desc"
     }
     currentMenu = m
@@ -251,6 +253,9 @@ class WizbubGame extends ScopedApplicationListener {
             case Keys.A =>
               setCurrentMenu(ActionMenu)
               true
+            case Keys.B =>
+              setCurrentMenu(BreakMenu)
+              true
             case Keys.G => changeGroundKind(GroundEntity.Grass)
             case Keys.D => changeGroundKind(GroundEntity.Dirt)
             case BuildKey(buildMenu) =>
@@ -271,6 +276,32 @@ class WizbubGame extends ScopedApplicationListener {
                   ground.aboveEntity match {
                     case door: DoorEntity =>
                       door.open = !door.open
+                      invalidateCachedEntityDrawables(newX, newY)
+                      setCurrentMenu(Top)
+                    case _ => ()
+                  }
+                case _ => ()
+              }
+              true
+            case _ => false
+          }
+        case BreakMenu =>
+          keycode match {
+            case Keys.ESCAPE =>
+              setCurrentMenu(Top)
+              true
+            case DirectionKey(dir) =>
+              val newX = player0X + dir.dx
+              val newY = player0Y + dir.dy
+              worldSlice(newX, newY) match {
+                case ground: GroundEntity =>
+                  ground.aboveEntity match {
+                    case door: DoorEntity if door.inEntity == null =>
+                      ground.aboveEntity = null
+                      invalidateCachedEntityDrawables(newX, newY)
+                      setCurrentMenu(Top)
+                    case _: TreeEntity | _: WallEntity =>
+                      ground.aboveEntity = null
                       invalidateCachedEntityDrawables(newX, newY)
                       setCurrentMenu(Top)
                     case _ => ()
