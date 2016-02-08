@@ -21,6 +21,10 @@ class WorldSlice {
     if (inBounds(x, y)) apply(x, y) else null
   }
   def update(x: Int, y: Int, e: Entity) = entities(entityIndex(x, y)) = e
+  def cell(x: Int, y: Int): Entity.Cell = new Entity.Cell {
+    override def get: Entity = getOrNull(x, y)
+    override def set(e: Entity) = update(x, y, e)
+  }
 }
 
 object Entity {
@@ -32,6 +36,10 @@ object Entity {
       nextId += 1
       id
     }
+  }
+  trait Cell {
+    def get: Entity
+    def set(e: Entity): Unit
   }
 }
 
@@ -54,13 +62,20 @@ object GroundEntity {
   case object CutGrass extends Kind
 }
 
-final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Entity(id) {
+final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Entity(id) with Entity.Cell {
   /** The entity (if any) on top of this piece of ground */
   var aboveEntity: Entity = null
+  override def get: Entity = aboveEntity
+  override def set(e: Entity) = aboveEntity = e
 }
 
 final class PlayerEntity(id: Entity.Id, val playerNumber: Int) extends Entity(id)
 
 final class WallEntity(id: Entity.Id) extends Entity(id)
 final class TreeEntity(id: Entity.Id) extends Entity(id)
-final class DoorEntity(id: Entity.Id, var open: Boolean) extends Entity(id)
+final class DoorEntity(id: Entity.Id, var open: Boolean) extends Entity(id) with Entity.Cell {
+  // The entity, if any, inside the doorway
+  var inEntity: Entity = null
+  override def get: Entity = inEntity
+  override def set(e: Entity) = inEntity = e
+}

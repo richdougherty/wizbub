@@ -11,6 +11,7 @@ import com.richdougherty.wizbub.GroundEntity.CutGrass
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
 import com.richdougherty.wizbub.dawnlike.index.TileQuery.{AttrContains, NoAttr}
 
+import scala.annotation.tailrec
 import scala.concurrent.{ExecutionContext, Future}
 
 class WizbubGame extends ScopedApplicationListener {
@@ -170,7 +171,7 @@ class WizbubGame extends ScopedApplicationListener {
           case _ =>
             entity.drawable = null
         }
-        for (dx <- -2 to 2; dy <- -2 to 2) {
+        for (dx <- -1 to 1; dy <- -1 to 1) {
           invalidateEntity(worldSlice.getOrNull(x + dx, y + dy))
         }
       }
@@ -188,37 +189,63 @@ class WizbubGame extends ScopedApplicationListener {
         case Top =>
           keycode match {
             case DirectionKey(dir) =>
+
               val newX = player0X + dir.dx
               val newY = player0Y + dir.dy
-              worldSlice.getOrNull(player0X, player0Y) match {
-                case oldGround: GroundEntity =>
-                  assert(oldGround.aboveEntity != null)
-                  oldGround.aboveEntity match {
-                    case player: PlayerEntity if player.playerNumber == 0 =>
-                      worldSlice.getOrNull(newX, newY) match {
-                        case newGround: GroundEntity =>
-                          newGround.aboveEntity match {
-                            case null =>
-                              newGround.aboveEntity = oldGround.aboveEntity
-                              oldGround.aboveEntity = null
-                              invalidateCachedEntityDrawables(player0X, player0Y)
-                              player0X = newX
-                              player0Y = newY
-                              worldCamera.position.x = player0X + 0.5f
-                              worldCamera.position.y = player0Y + 0.5f
-                              worldCamera.update()
-                            case door: DoorEntity if !door.open =>
-                              door.open = true
-                              invalidateCachedEntityDrawables(newX, newY)
-                            case door: DoorEntity if door.open =>
-                              // TODO: Move player through door.
-                            case _ => ()
-                          }
-                        case _ => ()
-                      }
-                    case illegal => throw new IllegalStateException(s"Expected player 0 at ${(player0X, player0Y)}: $illegal")
+
+              def movePlayer(target: Entity.Cell): Entity = {
+                assert(target.get == null)
+
+                // Find the player's source cell, validating that the player is actually there
+                val source: Entity.Cell = {
+                  @tailrec
+                  def findPlayerCell(cell: Entity.Cell): Entity.Cell = cell.get match {
+                    case ground: GroundEntity => findPlayerCell(ground)
+                    case door: DoorEntity => findPlayerCell(door)
+                    case p: PlayerEntity if p.playerNumber == 0 => cell
+                    case invalid => throw new IllegalStateException(s"Expected player 0: $invalid")
                   }
-                case illegal => throw new IllegalStateException(s"Expected player 0 to be standing on a ground tile at ${(player0X, player0Y)}: $illegal")
+                  findPlayerCell(worldSlice.cell(player0X, player0Y))
+                }
+
+                // Move the player from the source to the target cell
+                val player = source.get
+                source.set(null)
+                target.set(player)
+
+                // Update the graphics
+                invalidateCachedEntityDrawables(player0X, player0Y)
+                invalidateCachedEntityDrawables(newX, newY)
+
+                // Move our reference to the player
+                player0X = newX
+                player0Y = newY
+
+                // Update the camera
+                worldCamera.position.x = player0X + 0.5f
+                worldCamera.position.y = player0Y + 0.5f
+                worldCamera.update()
+                player
+              }
+
+              def openDoor(door: DoorEntity): Unit = {
+                door.open = true
+                invalidateCachedEntityDrawables(newX, newY)
+              }
+
+              // Look at the target tile and work out what action to take, if any
+              worldSlice.getOrNull(newX, newY) match {
+                case ground: GroundEntity =>
+                  ground.aboveEntity match {
+                    case null =>
+                      movePlayer(ground)
+                    case door: DoorEntity if !door.open =>
+                      openDoor(door)
+                    case door: DoorEntity if door.open && door.inEntity == null =>
+                      movePlayer(door)
+                    case _ => ()
+                  }
+                case _ => ()
               }
               true
             case Keys.A =>
@@ -265,7 +292,7 @@ class WizbubGame extends ScopedApplicationListener {
                 case ground: GroundEntity if ground.aboveEntity == null =>
                   if (clearsGround && ground.kind == GroundEntity.Grass) ground.kind = CutGrass // Building a wall cuts the grass
                   ground.aboveEntity = buildEntity()
-                  invalidateCachedEntityDrawables(player0X, player0Y)
+                  invalidateCachedEntityDrawables(newX, newX)
                   scheduleSave()
                   setCurrentMenu(Top)
                 case _ => ()
@@ -400,6 +427,7 @@ class WizbubGame extends ScopedApplicationListener {
               if (door.open) vertOpenDoorTile else vertClosedDoorTile
             }
           }
+          renderEntity(door.inEntity)
         case player: PlayerEntity =>
           renderCachedOrElse(player) { playerTiles(player.playerNumber) }
       }
