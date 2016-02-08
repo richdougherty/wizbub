@@ -4,6 +4,7 @@ scalaVersion := "2.11.7"
 libraryDependencies ++= Seq(
   "com.badlogicgames.gdx" % "gdx" % "1.8.0",
   "org.json4s" %% "json4s-jackson" % "3.3.0",
+  "com.squidpony" % "squidlib" % "3.0.0-b3",
   // Test dependencies
   "org.scalatest" %% "scalatest" % "2.2.6" % "test",
   "com.badlogicgames.gdx" % "gdx-backend-headless" % "1.8.0" % "test",

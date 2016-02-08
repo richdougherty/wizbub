@@ -66,16 +66,8 @@ class WizbubGame extends ScopedApplicationListener {
 
   val worldPickler = new WorldPickler()(threadPoolExecutionContext)
 
-  private val idGenerator = new Entity.IdGenerator
-  private val worldSlice: WorldSlice = new WorldSlice
+  private val worldSlice = (new WorldSliceGenerator).generate
 
-  // Generate default world
-  for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
-    worldSlice(x, y) = new GroundEntity(idGenerator.freshId(), GroundEntity.Grass)
-  }
-  worldSlice(1, 1).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(idGenerator.freshId(), 0)
-  worldSlice(3, 3).asInstanceOf[GroundEntity].aboveEntity = new PlayerEntity(idGenerator.freshId(), 1)
-  // If there's a save file overwrite the world with its contents
   worldPickler.readFromFile(worldSlice)
 
   // HACK: Scan the world to get the location of Player 0
