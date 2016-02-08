@@ -292,7 +292,7 @@ class WizbubGame extends ScopedApplicationListener {
                 case ground: GroundEntity if ground.aboveEntity == null =>
                   if (clearsGround && ground.kind == GroundEntity.Grass) ground.kind = CutGrass // Building a wall cuts the grass
                   ground.aboveEntity = buildEntity()
-                  invalidateCachedEntityDrawables(newX, newX)
+                  invalidateCachedEntityDrawables(newX, newY)
                   scheduleSave()
                   setCurrentMenu(Top)
                 case _ => ()
