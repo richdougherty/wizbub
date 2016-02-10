@@ -1,5 +1,6 @@
 package com.richdougherty.wizbub
 
+import java.util.Random
 import java.util.concurrent.{Executors, TimeUnit}
 
 import com.badlogic.gdx.Input.Keys
@@ -22,7 +23,8 @@ class WizbubGame extends ScopedApplicationListener {
 
   private val playerTiles = Array(
     dawnLikeTiles.findTile(AttrContains("nethack", "neanderthal")),
-    dawnLikeTiles.findTile(AttrContains("nethack", "archeologist"))
+    dawnLikeTiles.findTile(AttrContains("nethack", "archeologist")),
+    dawnLikeTiles.findTile(AttrContains("nethack", "water moccasin"))
   )
 
   private val grassTiles: Array[DawnLikeTile] = new Array[DawnLikeTile](16)
@@ -64,6 +66,7 @@ class WizbubGame extends ScopedApplicationListener {
 
   // MODEL //
 
+  val random = new Random()
   val worldPickler = new WorldPickler()(threadPoolExecutionContext)
 
   private val worldSlice = (new WorldSliceGenerator).generate
@@ -85,6 +88,8 @@ class WizbubGame extends ScopedApplicationListener {
       case _ => ()
     }
   }
+
+  private var lastSimulationTime: Long = -1
 
   // DISPLAY //
 
@@ -156,19 +161,6 @@ class WizbubGame extends ScopedApplicationListener {
   Gdx.input.setInputProcessor(new InputAdapter {
     import Input.Keys
     override def keyDown(keycode: Int): Boolean = {
-      def invalidateCachedEntityDrawables(x: Int, y: Int): Unit = {
-        def invalidateEntity(entity: Entity): Unit = entity match {
-          case null => ()
-          case ground: GroundEntity =>
-            entity.drawable = null
-            invalidateEntity(ground.aboveEntity)
-          case _ =>
-            entity.drawable = null
-        }
-        for (dx <- -1 to 1; dy <- -1 to 1) {
-          invalidateEntity(worldSlice.getOrNull(x + dx, y + dy))
-        }
-      }
       def changeGroundKind(newKind: GroundEntity.Kind): Boolean = {
         worldSlice(player0X, player0Y) match {
           case ground: GroundEntity =>
@@ -184,33 +176,14 @@ class WizbubGame extends ScopedApplicationListener {
           keycode match {
             case DirectionKey(dir) =>
 
-              val newX = player0X + dir.dx
-              val newY = player0Y + dir.dy
+              val playerCell: Entity.Cell = findPlayerCell(player0X, player0Y)
+              assert(playerCell.get match {
+                case p: PlayerEntity if p.playerNumber == 0 => true
+                case _ => false
+              })
 
-              def movePlayer(target: Entity.Cell): Entity = {
-                assert(target.get == null)
-
-                // Find the player's source cell, validating that the player is actually there
-                val source: Entity.Cell = {
-                  @tailrec
-                  def findPlayerCell(cell: Entity.Cell): Entity.Cell = cell.get match {
-                    case ground: GroundEntity => findPlayerCell(ground)
-                    case door: DoorEntity => findPlayerCell(door)
-                    case p: PlayerEntity if p.playerNumber == 0 => cell
-                    case invalid => throw new IllegalStateException(s"Expected player 0: $invalid")
-                  }
-                  findPlayerCell(worldSlice.cell(player0X, player0Y))
-                }
-
-                // Move the player from the source to the target cell
-                val player = source.get
-                source.set(null)
-                target.set(player)
-
-                // Update the graphics
-                invalidateCachedEntityDrawables(player0X, player0Y)
-                invalidateCachedEntityDrawables(newX, newY)
-
+              val (newX, newY) = actInDirection(playerCell, player0X, player0Y, dir)
+              if (newX != player0X || newY != player0Y) {
                 // Move our reference to the player
                 player0X = newX
                 player0Y = newY
@@ -219,27 +192,6 @@ class WizbubGame extends ScopedApplicationListener {
                 worldCamera.position.x = player0X + 0.5f
                 worldCamera.position.y = player0Y + 0.5f
                 worldCamera.update()
-                player
-              }
-
-              def openDoor(door: DoorEntity): Unit = {
-                door.open = true
-                invalidateCachedEntityDrawables(newX, newY)
-              }
-
-              // Look at the target tile and work out what action to take, if any
-              worldSlice.getOrNull(newX, newY) match {
-                case ground: GroundEntity =>
-                  ground.aboveEntity match {
-                    case null =>
-                      movePlayer(ground)
-                    case door: DoorEntity if !door.open =>
-                      openDoor(door)
-                    case door: DoorEntity if door.open && door.inEntity == null =>
-                      movePlayer(door)
-                    case _ => ()
-                  }
-                case _ => ()
               }
               true
             case Keys.A =>
@@ -336,7 +288,105 @@ class WizbubGame extends ScopedApplicationListener {
     i
   }
 
+  private def invalidateCachedEntityDrawables(x: Int, y: Int): Unit = {
+    def invalidateEntity(entity: Entity): Unit = entity match {
+      case null => ()
+      case ground: GroundEntity =>
+        entity.drawable = null
+        invalidateEntity(ground.aboveEntity)
+      case _ =>
+        entity.drawable = null
+    }
+    for (dx <- -1 to 1; dy <- -1 to 1) {
+      invalidateEntity(worldSlice.getOrNull(x + dx, y + dy))
+    }
+  }
+
+  private def findPlayerCell(x: Int, y: Int): Entity.Cell = {
+    @tailrec
+    def search(cell: Entity.Cell): Entity.Cell = cell.get match {
+      case ground: GroundEntity => search(ground)
+      case door: DoorEntity => search(door)
+      case p: PlayerEntity => cell
+      case invalid => throw new IllegalStateException(s"Expected player: $invalid")
+    }
+    search(worldSlice.cell(x, y))
+  }
+
+  private def actInDirection(playerCell: Entity.Cell, playerX: Int, playerY: Int, dir: Direction): (Int, Int) = {
+
+    val newX = playerX + dir.dx
+    val newY = playerY + dir.dy
+
+    def origPosition = (playerX, playerY)
+
+    def movePlayer(target: Entity.Cell): (Int, Int) = {
+      assert(target.get == null)
+
+      // Move the player from the source to the target cell
+      val player = playerCell.get
+      playerCell.set(null)
+      target.set(player)
+
+      // Update the graphics
+      invalidateCachedEntityDrawables(playerX, playerY)
+      invalidateCachedEntityDrawables(newX, newY)
+
+      (newX, newY)
+    }
+
+    def openDoor(door: DoorEntity): Unit = {
+      door.open = true
+      invalidateCachedEntityDrawables(newX, newY)
+    }
+
+    // Look at the target tile and work out what action to take, if any
+    worldSlice.getOrNull(newX, newY) match {
+      case ground: GroundEntity =>
+        ground.aboveEntity match {
+          case null =>
+            movePlayer(ground)
+          case door: DoorEntity if !door.open =>
+            openDoor(door)
+            origPosition
+          case door: DoorEntity if door.open && door.inEntity == null =>
+            movePlayer(door)
+          case _ => origPosition
+        }
+      case _ => origPosition
+    }
+
+  }
+
   override def render(): Unit = {
+
+    // Update world simulation
+
+    val simulationStart = System.currentTimeMillis()
+    val timeSinceLastSimulation = (if (lastSimulationTime == -1) 0 else (simulationStart - lastSimulationTime)).toInt
+    lastSimulationTime = simulationStart
+
+    for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
+
+      def simulateEntity(cell: Entity.Cell): Unit = cell.get match {
+        case null => ()
+        case ground: GroundEntity => simulateEntity(ground)
+        case door: DoorEntity => simulateEntity(door)
+        case player: PlayerEntity if player.playerNumber != 0 =>
+          player.countDown = Math.max(0, player.countDown - timeSinceLastSimulation)
+          if (player.countDown == 0) {
+            val dir = Direction.all(random.nextInt(Direction.all.length))
+            val (newX, newY) = actInDirection(cell, x, y, dir)
+            if (newX != x || newY != y) {
+              player.countDown += 400
+            }
+          }
+        case _ => ()
+      }
+      simulateEntity(worldSlice.cell(x, y))
+    }
+
+    // If a save is needed, copy the world and asynchronously write it to disk
 
     saveFileState match {
       case NotWriting => ()
