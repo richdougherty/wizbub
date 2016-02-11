@@ -32,7 +32,7 @@ class WorldSliceGenerator {
 
       val entity: Entity = char match {
         case '#' => // Wall
-          val ground = new GroundEntity(-1, GroundEntity.Dirt)
+          val ground = new GroundEntity(-1, GroundEntity.CutGrass)
           ground.aboveEntity = new WallEntity(-1)
           ground
         case '.' => // Floor
