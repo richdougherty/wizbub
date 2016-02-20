@@ -7,6 +7,7 @@ class WorldSliceGenerator {
   def generate: WorldSlice = {
     val charArray: Array[Array[Char]] = new DungeonGenerator(WorldSlice.SIZE, WorldSlice.SIZE)
       .addGrass(30)
+      .addDoors(50, true)
       .generate()
 
     val worldSlice = new WorldSlice
