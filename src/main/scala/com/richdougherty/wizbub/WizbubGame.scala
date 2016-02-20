@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.{FPSLogger, GL20, OrthographicCamera}
 import com.richdougherty.wizbub.Compass.{Principal, PrincipalSet}
 import com.richdougherty.wizbub.GroundEntity.CutGrass
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
+import com.richdougherty.wizbub.dawnlike.index.TileQuery
 import com.richdougherty.wizbub.dawnlike.index.TileQuery.{AttrContains, NoAttr}
 
 import scala.annotation.tailrec
@@ -27,17 +28,23 @@ class WizbubGame extends ScopedApplicationListener {
     dawnLikeTiles.findTile(AttrContains("nethack", "water moccasin"))
   )
 
-  private val grassTiles: Array[DawnLikeTile] = new Array[DawnLikeTile](16)
-  for (directions <- DirectionSet.combinations) {
-    grassTiles(directions.bits) = {
-      val edgeQuery = if (directions.bits == 0) {
-        NoAttr("edge_dirs")
-      } else {
-        AttrContains("edge_dirs", directions.code)
+  def loadFloorTiles(query: TileQuery*): Array[DawnLikeTile] = {
+    val tiles = new Array[DawnLikeTile](16)
+    for (directions <- DirectionSet.combinations) {
+      tiles(directions.bits) = {
+        val edgeQuery = if (directions.bits == 0) {
+          NoAttr("edge_dirs")
+        } else {
+          AttrContains("edge_dirs", directions.code)
+        }
+        dawnLikeTiles.findTile((query :+ edgeQuery): _*)
       }
-      dawnLikeTiles.findTile(AttrContains("ground", "grass"), AttrContains("color", "leaf"), edgeQuery)
     }
+    tiles
   }
+
+  private val grassTiles: Array[DawnLikeTile] = loadFloorTiles(AttrContains("ground", "grass"), AttrContains("color", "leaf"))
+  private val stoneTiles: Array[DawnLikeTile] = loadFloorTiles(AttrContains("ground", "stone"), AttrContains("color", "slate"))
 
   private val dirtTile: DawnLikeTile = dawnLikeTiles.findTile(AttrContains("ground", "dirt"), AttrContains("color", "ocher"), NoAttr("edge_dirs"))
 
@@ -124,7 +131,7 @@ class WizbubGame extends ScopedApplicationListener {
 
   def setCurrentMenu(m: Menu): Unit = {
     val message = m match {
-      case Top => "Arrows = move, D = dirt, G = grass, T = tree, W = wall, O = door, B = break"
+      case Top => "Arrows = move, D = dirt, G = grass, S = stone, T = tree, W = wall, O = door, B = break"
       case ActionMenu => s"Esc = back, arrows = pick action"
       case BreakMenu => "Esc = back, arrows = break"
       case BuildMenu(desc, _, _) => s"Esc = back, arrows = $desc"
@@ -202,6 +209,7 @@ class WizbubGame extends ScopedApplicationListener {
               true
             case Keys.G => changeGroundKind(GroundEntity.Grass)
             case Keys.D => changeGroundKind(GroundEntity.Dirt)
+            case Keys.S => changeGroundKind(GroundEntity.Stone)
             case BuildKey(buildMenu) =>
               setCurrentMenu(buildMenu)
               true
@@ -449,6 +457,12 @@ class WizbubGame extends ScopedApplicationListener {
             grassTiles(surroundingDirt.bits)
           case GroundEntity.Dirt => dirtTile
           case GroundEntity.CutGrass => dirtTile
+          case GroundEntity.Stone =>
+            val stoneEdges: DirectionSet = filterCardinalPoints {
+              case ground: GroundEntity =>  ground.kind != GroundEntity.Stone
+              case _ => true
+            }
+            stoneTiles(stoneEdges.bits)
         }
       }
       def entityJoinsWall(entity: Entity): Boolean = entity match {

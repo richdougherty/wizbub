@@ -15,6 +15,7 @@ class WorldPickler(implicit exec: ExecutionContext) {
             case GroundEntity.Dirt => out.writeByte(0)
             case GroundEntity.Grass => out.writeByte(1)
             case GroundEntity.CutGrass => out.writeByte(2)
+            case GroundEntity.Stone => out.writeByte(3)
           }
           if (ground.aboveEntity == null) {
             out.writeBoolean(false) // false
@@ -45,6 +46,7 @@ class WorldPickler(implicit exec: ExecutionContext) {
             case 0 => GroundEntity.Dirt
             case 1 => GroundEntity.Grass
             case 2 => GroundEntity.CutGrass
+            case 3 => GroundEntity.Stone
           }
           if (in.readBoolean()) ground.aboveEntity = readEntity()
           ground

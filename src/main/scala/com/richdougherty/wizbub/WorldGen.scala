@@ -33,11 +33,11 @@ class WorldSliceGenerator {
 
       val entity: Entity = char match {
         case '#' => // Wall
-          val ground = new GroundEntity(-1, GroundEntity.CutGrass)
+          val ground = new GroundEntity(-1, GroundEntity.Stone)
           ground.aboveEntity = new WallEntity(-1)
           ground
         case '.' => // Floor
-          createEmptyGround(GroundEntity.Dirt)
+          createEmptyGround(GroundEntity.Stone)
         case '"' => // Floor
           createEmptyGround(GroundEntity.Grass)
         case '~' => // Deep water
@@ -47,11 +47,11 @@ class WorldSliceGenerator {
         case '^' => // Trap
           new GroundEntity(-1, GroundEntity.Dirt) // TODO
         case '+' => // Horizontal door
-          val ground = new GroundEntity(-1, GroundEntity.Dirt)
+          val ground = new GroundEntity(-1, GroundEntity.Stone)
           ground.aboveEntity = new DoorEntity(-1, open = false)
           ground
         case '/' => // Vertical door
-          val ground = new GroundEntity(-1, GroundEntity.Dirt)
+          val ground = new GroundEntity(-1, GroundEntity.Stone)
           ground.aboveEntity = new DoorEntity(-1, open = false)
           ground
         case unknown => throw new AssertionError(s"Got invalid tile type from generator: $unknown")

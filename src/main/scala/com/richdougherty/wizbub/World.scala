@@ -60,6 +60,8 @@ object GroundEntity {
   case object Grass extends Kind
   /** Dirt that was once grass, but has now been cut. */
   case object CutGrass extends Kind
+  /** Stone floor. */
+  case object Stone extends Kind
 }
 
 final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Entity(id) with Entity.Cell {
