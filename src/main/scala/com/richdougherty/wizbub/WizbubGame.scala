@@ -12,6 +12,7 @@ import com.richdougherty.wizbub.GroundEntity.CutGrass
 import com.richdougherty.wizbub.dawnlike.DawnLikeTiles
 import com.richdougherty.wizbub.dawnlike.index.TileQuery
 import com.richdougherty.wizbub.dawnlike.index.TileQuery.{AttrContains, NoAttr}
+import squidpony.squidgrid.{Radius, FOV}
 
 import scala.annotation.tailrec
 import scala.concurrent.{ExecutionContext, Future}
@@ -419,6 +420,60 @@ class WizbubGame extends ScopedApplicationListener {
     val sceneRight = Math.ceil(worldCamera.position.x + worldCamera.viewportWidth/2).toInt
     val sceneTop = Math.floor(worldCamera.position.y - worldCamera.viewportHeight/2).toInt
     val sceneBottom = Math.ceil(worldCamera.position.y + worldCamera.viewportHeight/2).toInt
+
+//    def printMatrix[A](matrix: Array[Array[A]])(format: A => String): Unit = {
+//      val width = matrix.length
+//      val height = matrix(0).length
+//      for (x <- 0 until width) {
+//        for (y <- 0 until height) {
+//          print(format(matrix(x)(y)))
+//          print(' ')
+//        }
+//        println()
+//      }
+//    }
+
+//    println(s"sceneLeft: $sceneLeft, sceneRight: $sceneRight, sceneTop: $sceneTop, sceneBottom: $sceneBottom")
+    val viewRadius = 8
+    val fovLeft = Math.max(player0X - viewRadius, sceneLeft)
+    val fovRight = Math.min(player0X + viewRadius, sceneRight)
+    val fovTop = Math.max(player0Y - viewRadius, sceneTop)
+    val fovBottom = Math.min(player0Y + viewRadius, sceneBottom)
+//    println(s"fovLeft: $fovLeft, fovRight: $fovRight, fovTop: $fovTop, fovBottom: $fovBottom")
+    val visibilityMap: Array[Array[Boolean]] = {
+      val fovWidth: Int = fovRight - fovLeft + 1
+      val fovHeight: Int = fovBottom - fovTop + 1
+//      println(s"fovWidth: $fovWidth, fovHeight: $fovHeight")
+      val resistanceMap: Array[Array[Double]] = new Array[Array[Double]](fovWidth)
+      for (fovX <- fovLeft to fovRight) {
+        val resX = fovX - fovLeft
+        resistanceMap(resX) = new Array[Double](fovHeight)
+        for (fovY <- fovTop to fovBottom) {
+          val resY = fovY - fovTop
+//          println(s"resX: $resX, resY: $resY")
+          def entityResistance(entity: Entity): Double = entity match {
+            case null => 0.0
+            case ground: GroundEntity => entityResistance(ground.aboveEntity)
+            case wall: WallEntity => 1.0
+            case tree: TreeEntity => 1.0
+            case door: DoorEntity => if (door.open) 0.0 else 1.0
+            case player: PlayerEntity => 0.0
+          }
+          val resistance: Double = entityResistance(worldSlice.getOrNull(fovX, fovY))
+          resistanceMap(resX)(resY) = resistance
+        }
+      }
+//      println("-- Resistance --")
+//      printMatrix(resistanceMap)(_.toString)
+      val fov = new FOV()
+      val lightMap: Array[Array[Double]] = fov.calculateFOV(resistanceMap, player0X - fovLeft, player0Y - fovTop, viewRadius.toDouble, Radius.CIRCLE)
+//      println("-- Light --")
+//      printMatrix(lightMap)(_.toString)
+      lightMap.map(_.map(_ > 0.0))
+    }
+//    println("-- Visibility --")
+//    printMatrix(visibilityMap)(_.toString)
+
     for (sceneX <- sceneLeft to sceneRight; sceneY <- sceneTop to sceneBottom) {
 
       def getNearbyEntity(dx: Int, dy: Int): Entity = worldSlice.getOrNull(sceneX + dx, sceneY + dy)
@@ -518,7 +573,19 @@ class WizbubGame extends ScopedApplicationListener {
         case player: PlayerEntity =>
           renderCachedOrElse(player) { playerTiles(player.playerNumber) }
       }
-      renderEntity(worldSlice.getOrNull(sceneX, sceneY))
+      val isVisible: Boolean = {
+        val visX = sceneX - fovLeft
+        if (0 <= visX && visX < visibilityMap.length) {
+          val visY = sceneY - fovTop
+          val visibilityColumn = visibilityMap(visX)
+          if (0 <= visY && visY < visibilityColumn.length) {
+            val vis = visibilityColumn(visY)
+//            println(s"visX: $visX, visY: $visY, vis: $vis")
+            vis
+          } else false
+        } else false
+      }
+      if (isVisible) renderEntity(worldSlice.getOrNull(sceneX, sceneY))
     }
 
     // Draw UI objects
