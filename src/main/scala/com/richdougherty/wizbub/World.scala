@@ -5,7 +5,7 @@ class World {
 }
 
 final object WorldSlice {
-  final val SIZE = 256
+  final val SIZE = 64
 }
 
 class WorldSlice {
@@ -15,7 +15,7 @@ class WorldSlice {
   /** Convert entity coordinates into a location in the entities array. */
   private def entityIndex(x: Int, y: Int): Int = x * SIZE + y
   /** Access to the entities array. */
-  def inBounds(x: Int, y: Int): Boolean = { 0 <= x && y < WorldSlice.SIZE && 0 <= y && y < WorldSlice.SIZE }
+  def inBounds(x: Int, y: Int): Boolean = { 0 <= x && x < WorldSlice.SIZE && 0 <= y && y < WorldSlice.SIZE }
   def apply(x: Int, y: Int): Entity = entities(entityIndex(x, y))
   def getOrNull(x: Int, y: Int): Entity = {
     if (inBounds(x, y)) apply(x, y) else null
@@ -82,4 +82,17 @@ final class DoorEntity(id: Entity.Id, var open: Boolean) extends Entity(id) with
   var inEntity: Entity = null
   override def get: Entity = inEntity
   override def set(e: Entity) = inEntity = e
+}
+
+object PortalEntity {
+  sealed trait Direction
+  case object Up extends Direction
+  case object Down extends Direction
+}
+final class PortalEntity(
+                          id: Entity.Id,
+                          var direction: PortalEntity.Direction,
+                          var onEntity: Entity = null) extends Entity(id) with Entity.Cell {
+  override def get: Entity = onEntity
+  override def set(e: Entity) = onEntity = e
 }

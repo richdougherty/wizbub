@@ -5,7 +5,8 @@ import squidpony.squidgrid.mapping.DungeonGenerator
 class WorldSliceGenerator {
 
   def generate: WorldSlice = {
-    val charArray: Array[Array[Char]] = new DungeonGenerator(WorldSlice.SIZE, WorldSlice.SIZE)
+    val generator = new DungeonGenerator(WorldSlice.SIZE, WorldSlice.SIZE)
+    val charArray: Array[Array[Char]] = generator
       .addGrass(30)
       .addDoors(50, true)
       .generate()
@@ -55,10 +56,13 @@ class WorldSliceGenerator {
           ground.aboveEntity = new DoorEntity(-1, open = false)
           ground
         case unknown => throw new AssertionError(s"Got invalid tile type from generator: $unknown")
-
       }
       worldSlice(x, y) = entity
     }
+
+    worldSlice(generator.stairsUp.x, generator.stairsUp.y) = new PortalEntity(-1, PortalEntity.Up)
+    worldSlice(generator.stairsDown.x, generator.stairsDown.y) = new PortalEntity(-1, PortalEntity.Down)
+
     worldSlice
   }
 }

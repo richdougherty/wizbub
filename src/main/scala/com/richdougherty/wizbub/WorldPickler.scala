@@ -9,8 +9,9 @@ class WorldPickler(implicit exec: ExecutionContext) {
   def pickle(worldSlice: WorldSlice, out: DataOutput): Unit = {
     for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
       def writeEntity(e: Entity): Unit = e match {
+        case null => out.writeByte(0)
         case ground: GroundEntity =>
-          out.writeByte(0)
+          out.writeByte(1)
           ground.kind match {
             case GroundEntity.Dirt => out.writeByte(0)
             case GroundEntity.Grass => out.writeByte(1)
@@ -24,13 +25,20 @@ class WorldPickler(implicit exec: ExecutionContext) {
             writeEntity(ground.aboveEntity)
           }
         case player: PlayerEntity =>
-          out.writeByte(1)
+          out.writeByte(2)
           out.writeInt(player.playerNumber)
-        case _: WallEntity => out.writeByte(2)
-        case _: TreeEntity => out.writeByte(3)
+        case _: WallEntity => out.writeByte(3)
+        case _: TreeEntity => out.writeByte(4)
         case door: DoorEntity =>
-          out.writeByte(4)
+          out.writeByte(5)
           out.writeBoolean(door.open)
+        case portal: PortalEntity =>
+          out.writeByte(6)
+          out.writeByte(portal.direction match {
+            case PortalEntity.Up => 0
+            case PortalEntity.Down => 1
+          })
+          writeEntity(portal.onEntity)
         case unknown => throw new IOException(s"Unexpected entity type when pickling ($x, $y): $unknown")
       }
       writeEntity(worldSlice(x, y))
@@ -40,7 +48,8 @@ class WorldPickler(implicit exec: ExecutionContext) {
   def unpickle(worldSlice: WorldSlice, in: DataInput): Unit = {
     for (x <- 0 until WorldSlice.SIZE; y <- 0 until WorldSlice.SIZE) {
       def readEntity(): Entity = in.readByte() match {
-        case 0 =>
+        case 0 => null
+        case 1 =>
           val ground = new GroundEntity(-1, GroundEntity.Dirt)
           ground.kind = in.readByte() match {
             case 0 => GroundEntity.Dirt
@@ -50,14 +59,21 @@ class WorldPickler(implicit exec: ExecutionContext) {
           }
           if (in.readBoolean()) ground.aboveEntity = readEntity()
           ground
-        case 1 =>
+        case 2 =>
           val playerNumber = in.readInt()
           new PlayerEntity(-1, playerNumber)
-        case 2 => new WallEntity(-1)
-        case 3 => new TreeEntity(-1)
-        case 4 =>
+        case 3 => new WallEntity(-1)
+        case 4 => new TreeEntity(-1)
+        case 5 =>
           val open = in.readBoolean()
           new DoorEntity(-1, open)
+        case 6 =>
+          val direction = in.readByte() match {
+            case 0 => PortalEntity.Up
+            case 1 => PortalEntity.Down
+          }
+          val onEntity = readEntity()
+          new PortalEntity(-1, direction, onEntity)
       }
       try {
         worldSlice(x, y) = readEntity()

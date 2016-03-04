@@ -62,6 +62,8 @@ class WizbubGame extends ScopedApplicationListener {
     }
   }
   private val forestDrawable: Drawable = new ForestDrawable
+  private val stairsDown = dawnLikeTiles.findTile(AttrContains("nethack", "staircase down"))
+  private val stairsUp = dawnLikeTiles.findTile(AttrContains("nethack", "staircase up"))
 
   // THREAD POOLS //
 
@@ -314,9 +316,8 @@ class WizbubGame extends ScopedApplicationListener {
   private def findPlayerCell(x: Int, y: Int): Entity.Cell = {
     @tailrec
     def search(cell: Entity.Cell): Entity.Cell = cell.get match {
-      case ground: GroundEntity => search(ground)
-      case door: DoorEntity => search(door)
       case p: PlayerEntity => cell
+      case childCell: Entity.Cell => search(childCell)
       case invalid => throw new IllegalStateException(s"Expected player: $invalid")
     }
     search(worldSlice.cell(x, y))
@@ -362,6 +363,8 @@ class WizbubGame extends ScopedApplicationListener {
             movePlayer(door)
           case _ => origPosition
         }
+      case portal: PortalEntity if portal.onEntity == null =>
+        movePlayer(portal)
       case _ => origPosition
     }
 
@@ -379,8 +382,7 @@ class WizbubGame extends ScopedApplicationListener {
 
       def simulateEntity(cell: Entity.Cell): Unit = cell.get match {
         case null => ()
-        case ground: GroundEntity => simulateEntity(ground)
-        case door: DoorEntity => simulateEntity(door)
+        case cellEntity: Entity.Cell => simulateEntity(cellEntity)
         case player: PlayerEntity if player.playerNumber != 0 =>
           player.countDown = Math.max(0, player.countDown - timeSinceLastSimulation)
           if (player.countDown == 0) {
@@ -436,9 +438,9 @@ class WizbubGame extends ScopedApplicationListener {
 //    println(s"sceneLeft: $sceneLeft, sceneRight: $sceneRight, sceneTop: $sceneTop, sceneBottom: $sceneBottom")
     val viewRadius = 8
     val fovLeft = Math.max(player0X - viewRadius, sceneLeft)
-    val fovRight = Math.min(player0X + viewRadius, sceneRight)
+    val fovRight = Math.min(player0X + viewRadius, sceneRight) // FIXME: Check if it should be sceneRight - 1
     val fovTop = Math.max(player0Y - viewRadius, sceneTop)
-    val fovBottom = Math.min(player0Y + viewRadius, sceneBottom)
+    val fovBottom = Math.min(player0Y + viewRadius, sceneBottom) // FIXME: Check if it should be sceneBottom - 1
 //    println(s"fovLeft: $fovLeft, fovRight: $fovRight, fovTop: $fovTop, fovBottom: $fovBottom")
     val visibilityMap: Array[Array[Boolean]] = {
       val fovWidth: Int = fovRight - fovLeft + 1
@@ -456,6 +458,7 @@ class WizbubGame extends ScopedApplicationListener {
             case ground: GroundEntity => entityResistance(ground.aboveEntity)
             case wall: WallEntity => 1.0
             case tree: TreeEntity => 1.0
+            case portal: PortalEntity => entityResistance(portal.onEntity)
             case door: DoorEntity => if (door.open) 0.0 else 1.0
             case player: PlayerEntity => 0.0
           }
@@ -570,6 +573,13 @@ class WizbubGame extends ScopedApplicationListener {
             }
           }
           renderEntity(door.inEntity)
+        case portal: PortalEntity =>
+          val tile = portal.direction match {
+            case PortalEntity.Up => stairsUp
+            case PortalEntity.Down => stairsDown
+          }
+          tile.draw(batch, sceneX, sceneY)
+          renderEntity(portal.onEntity)
         case player: PlayerEntity =>
           renderCachedOrElse(player) { playerTiles(player.playerNumber) }
       }
