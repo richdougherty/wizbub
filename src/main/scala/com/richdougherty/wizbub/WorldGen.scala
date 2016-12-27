@@ -22,11 +22,11 @@ class WorldSliceGenerator {
         val ground = new GroundEntity(-1, kind) // TODO
         // If we haven't placed the player yet, put them on this bit of floor
         if (!playerPlaced) {
-          ground.aboveEntity = new PlayerEntity(-1, playerNumber = 0)
+          ground.aboveEntity = new PlayerEntity(-1, playerNumber = 0, 5)
           playerPlaced = true
         }
         if (x > 20 && y > 20 && !snakePlaced) {
-          ground.aboveEntity = new PlayerEntity(-1, playerNumber = 2)
+          ground.aboveEntity = new PlayerEntity(-1, playerNumber = 2, 5)
           snakePlaced = true
         }
         ground

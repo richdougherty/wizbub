@@ -331,7 +331,7 @@ class WizbubGame extends ScopedApplicationListener {
     def origPosition = (playerX, playerY)
 
     def movePlayer(target: Entity.Cell): (Int, Int) = {
-      assert(target.get == null)
+      assert(target.get == null, "Can't move player to non-empty cell")
 
       // Move the player from the source to the target cell
       val player = playerCell.get
@@ -361,6 +361,14 @@ class WizbubGame extends ScopedApplicationListener {
             origPosition
           case door: DoorEntity if door.open && door.inEntity == null =>
             movePlayer(door)
+          case player: PlayerEntity =>
+            player.hp -= 1
+            assert(player.hp >= 0, s"HP shouldn't go below zero: ${player.hp}")
+            if (player.hp == 0) {
+              // The creature is dead! Replace the creature with the player.
+              ground.aboveEntity = null
+              movePlayer(ground)
+            } else origPosition
           case _ => origPosition
         }
       case portal: PortalEntity if portal.onEntity == null =>

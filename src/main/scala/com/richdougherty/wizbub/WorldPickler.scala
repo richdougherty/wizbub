@@ -27,6 +27,7 @@ class WorldPickler(implicit exec: ExecutionContext) {
         case player: PlayerEntity =>
           out.writeByte(2)
           out.writeInt(player.playerNumber)
+          out.writeInt(player.hp)
         case _: WallEntity => out.writeByte(3)
         case _: TreeEntity => out.writeByte(4)
         case door: DoorEntity =>
@@ -61,7 +62,8 @@ class WorldPickler(implicit exec: ExecutionContext) {
           ground
         case 2 =>
           val playerNumber = in.readInt()
-          new PlayerEntity(-1, playerNumber)
+          val hp = in.readInt()
+          new PlayerEntity(-1, playerNumber, hp)
         case 3 => new WallEntity(-1)
         case 4 => new TreeEntity(-1)
         case 5 =>

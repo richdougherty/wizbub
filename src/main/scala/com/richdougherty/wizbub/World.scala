@@ -71,7 +71,7 @@ final class GroundEntity(id: Entity.Id, var kind: GroundEntity.Kind) extends Ent
   override def set(e: Entity) = aboveEntity = e
 }
 
-final class PlayerEntity(id: Entity.Id, val playerNumber: Int) extends Entity(id) {
+final class PlayerEntity(id: Entity.Id, val playerNumber: Int, var hp: Int) extends Entity(id) {
   var countDown: Int = 0
 }
 
